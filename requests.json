@@ -1,0 +1,3536 @@
+{
+  "schemaVersion": 1,
+  "boardVersion": "2.3.0",
+  "project": "Star Rush Neon",
+  "engine": "Unity",
+  "updatedAt": "2026-11-06",
+  "planVersion": 1,
+  "requests": [
+    {
+      "id": "bgm-title-chamber",
+      "title": "타이틀 음악",
+      "category": "음악",
+      "priority": "P1",
+      "kind": "bgm",
+      "status": "requested",
+      "brief": "게임을 켰을 때 들리는 차분하고 신비로운 공간. 맑은 유리 음색과 따뜻한 낮은 패드로 별빛을 표현하고, 짧은 주제를 기억하게 합니다. 인게임 음악과 별도 곡으로 제작합니다.",
+      "productionNote": "게임 연결 예정",
+      "spec": {
+        "sampleRate": 48000,
+        "channels": 2,
+        "format": "ogg",
+        "codec": "vorbis",
+        "maxDurationSeconds": 600
+      },
+      "parameters": [
+        {
+          "key": "gainDb",
+          "label": "음량 (dB)",
+          "type": "number",
+          "default": 0,
+          "min": -24,
+          "max": 6,
+          "step": 0.5
+        },
+        {
+          "key": "trimStart",
+          "label": "시작 자르기 (초)",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 600,
+          "step": 0.01
+        },
+        {
+          "key": "trimEnd",
+          "label": "끝 자르기 (0=끝)",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 600,
+          "step": 0.01
+        },
+        {
+          "key": "fadeIn",
+          "label": "페이드 인 (초)",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 2,
+          "step": 0.001
+        },
+        {
+          "key": "fadeOut",
+          "label": "페이드 아웃 (초)",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 2,
+          "step": 0.001
+        },
+        {
+          "key": "pitchSemitones",
+          "label": "피치 (반음)",
+          "type": "number",
+          "default": 0,
+          "min": -12,
+          "max": 12,
+          "step": 0.5
+        },
+        {
+          "key": "loop",
+          "label": "반복",
+          "type": "boolean",
+          "default": true
+        },
+        {
+          "key": "loopStart",
+          "label": "루프 시작 (초)",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 600,
+          "step": 0.01
+        },
+        {
+          "key": "loopEnd",
+          "label": "루프 끝 (0=끝)",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 600,
+          "step": 0.01
+        }
+      ],
+      "preview": {
+        "mode": "music",
+        "contextFiles": [],
+        "cues": [],
+        "notes": "미리듣기는 제출 음원 확인용입니다. 실제 게임 녹음이나 자동 게임 이벤트 재현이 아닙니다."
+      },
+      "referenceFiles": [],
+      "delivery": {
+        "initial": "최대 10분의 완전 루프 1곡. 길이는 구성에 맞춰 결정. 인게임곡과 같은 음색 가족, 더 여유로운 구성.",
+        "output": "게임용 OGG Vorbis 자동 변환. 업로드 원본은 별도 보관.",
+        "source": "WAV 권장, 디자이너가 가진 지원 오디오 형식도 가능. 손실압축 원본을 OGG로 바꿔도 원음 품질이 복구되지는 않음."
+      },
+      "target": "UnityProject/Assets/Audio/Music/bgm-title-chamber.ogg",
+      "apply": {
+        "slot": "bgm-title-chamber",
+        "hook": "NeonLifecycle.OnMenuChanged → 타이틀 전용 음악 전환 추가",
+        "integrationStatus": "planned",
+        "notes": "현재 타이틀 전용 슬롯 없음. 인게임과 공용 음악을 작게 재생 중. 타이틀/게임 상태 전환과 크로스페이드 연결 필요. 첫 납품은 인트로 없이 완전히 반복되는 1곡. 60초를 넘겨 제작 가능하며 최대 10분."
+      },
+      "acceptance": [
+        "반복 청취와 여러 효과 동시 재생에서 피로·클리핑 확인",
+        "폰 스피커 모노와 이어폰에서 사건 의미 확인",
+        "끝→처음 반복 경계의 클릭과 끊김 확인"
+      ],
+      "scene": {
+        "caption": "타이틀 화면의 별과 연결선. 차분하게 반복되는 음악을 위한 참고.",
+        "source": "game-capture",
+        "poster": "context/scenes/title.webp",
+        "video": "context/scenes/title.mp4"
+      }
+    },
+    {
+      "id": "bgm-game-chamber",
+      "title": "인게임 음악",
+      "category": "음악",
+      "priority": "P0",
+      "kind": "bgm",
+      "status": "requested",
+      "brief": "별이 튕기고 에너지가 쌓이는 전장을 위한 절제된 전자 음악. 반복 플레이에 피로하지 않은 리듬과 여백을 두고 충돌·점화의 소리를 가리지 않습니다. 타이틀곡보다 추진력이 있지만 리듬 입력을 요구하지 않습니다.",
+      "productionNote": "공통 슬롯에서 시험",
+      "spec": {
+        "sampleRate": 48000,
+        "channels": 2,
+        "format": "ogg",
+        "codec": "vorbis",
+        "maxDurationSeconds": 600
+      },
+      "parameters": [
+        {
+          "key": "gainDb",
+          "label": "음량 (dB)",
+          "type": "number",
+          "default": 0,
+          "min": -24,
+          "max": 6,
+          "step": 0.5
+        },
+        {
+          "key": "trimStart",
+          "label": "시작 자르기 (초)",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 600,
+          "step": 0.01
+        },
+        {
+          "key": "trimEnd",
+          "label": "끝 자르기 (0=끝)",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 600,
+          "step": 0.01
+        },
+        {
+          "key": "fadeIn",
+          "label": "페이드 인 (초)",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 2,
+          "step": 0.001
+        },
+        {
+          "key": "fadeOut",
+          "label": "페이드 아웃 (초)",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 2,
+          "step": 0.001
+        },
+        {
+          "key": "pitchSemitones",
+          "label": "피치 (반음)",
+          "type": "number",
+          "default": 0,
+          "min": -12,
+          "max": 12,
+          "step": 0.5
+        },
+        {
+          "key": "loop",
+          "label": "반복",
+          "type": "boolean",
+          "default": true
+        },
+        {
+          "key": "loopStart",
+          "label": "루프 시작 (초)",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 600,
+          "step": 0.01
+        },
+        {
+          "key": "loopEnd",
+          "label": "루프 끝 (0=끝)",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 600,
+          "step": 0.01
+        }
+      ],
+      "preview": {
+        "mode": "music",
+        "contextFiles": [],
+        "cues": [],
+        "notes": "미리듣기는 제출 음원 확인용입니다. 실제 게임 녹음이나 자동 게임 이벤트 재현이 아닙니다."
+      },
+      "referenceFiles": [
+        {
+          "path": "context/current-synth/08-chamber-ambience.wav",
+          "description": "기존 합성 함수 재현 참고음. 실제 게임 녹음·최종 음원 아님."
+        }
+      ],
+      "delivery": {
+        "initial": "최대 10분의 완전 루프 1곡. 길이는 구성에 맞춰 결정. 별도 스템 없이 스테레오 완성 믹스.",
+        "output": "게임용 OGG Vorbis 자동 변환. 업로드 원본은 별도 보관.",
+        "source": "WAV 권장, 디자이너가 가진 지원 오디오 형식도 가능. 손실압축 원본을 OGG로 바꿔도 원음 품질이 복구되지는 않음."
+      },
+      "target": "UnityProject/Assets/Audio/Music/bgm-game-chamber.ogg",
+      "apply": {
+        "slot": "bgm-game-chamber",
+        "hook": "NeonAudio.Awake / musicSource",
+        "integrationStatus": "shared-preview",
+        "notes": "현재 이 슬롯은 타이틀과 전장 공용. 시험하면 타이틀에도 같은 곡이 들림. 타이틀 분리는 추가 연결. 현재 게임은 전체 클립 반복이며 지정 루프 구간 시험 시 인트로는 제외됨."
+      },
+      "acceptance": [
+        "반복 청취와 여러 효과 동시 재생에서 피로·클리핑 확인",
+        "폰 스피커 모노와 이어폰에서 사건 의미 확인",
+        "끝→처음 반복 경계의 클릭과 끊김 확인"
+      ],
+      "scene": {
+        "caption": "별이 튕기며 연결망을 만드는 전장. 음악이 접촉·점화 효과음을 가리지 않게.",
+        "source": "test-scene",
+        "poster": "context/scenes/game.webp",
+        "video": "context/scenes/links.mp4"
+      }
+    },
+    {
+      "id": "sfx-glass-impact",
+      "title": "사각 결정 · 기준 유리 타격",
+      "category": "블록 고유음",
+      "priority": "P0",
+      "kind": "sfx",
+      "status": "requested",
+      "brief": "일반 사각 결정의 기준 소리. 작고 단단한 유리의 틱 소리에 맑은 짧은 잔향을 붙입니다. 연속해서 들어도 날카롭지 않게 만듭니다.",
+      "productionNote": "공통 슬롯에서 시험",
+      "spec": {
+        "sampleRate": 48000,
+        "channels": 1,
+        "format": "ogg",
+        "codec": "vorbis",
+        "maxDurationSeconds": 0.3
+      },
+      "parameters": [
+        {
+          "key": "gainDb",
+          "label": "음량 (dB)",
+          "type": "number",
+          "default": 0,
+          "min": -24,
+          "max": 6,
+          "step": 0.5
+        },
+        {
+          "key": "trimStart",
+          "label": "시작 자르기 (초)",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 12,
+          "step": 0.01
+        },
+        {
+          "key": "trimEnd",
+          "label": "끝 자르기 (0=끝)",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 12,
+          "step": 0.01
+        },
+        {
+          "key": "fadeIn",
+          "label": "페이드 인 (초)",
+          "type": "number",
+          "default": 0.003,
+          "min": 0,
+          "max": 2,
+          "step": 0.001
+        },
+        {
+          "key": "fadeOut",
+          "label": "페이드 아웃 (초)",
+          "type": "number",
+          "default": 0.015,
+          "min": 0,
+          "max": 2,
+          "step": 0.001
+        },
+        {
+          "key": "pitchSemitones",
+          "label": "피치 (반음)",
+          "type": "number",
+          "default": 0,
+          "min": -12,
+          "max": 12,
+          "step": 0.5
+        }
+      ],
+      "preview": {
+        "mode": "solo",
+        "contextFiles": [],
+        "cues": [
+          {
+            "time": 0,
+            "pitch": 0
+          },
+          {
+            "time": 0.5,
+            "pitch": 0
+          },
+          {
+            "time": 1,
+            "pitch": 0
+          }
+        ],
+        "notes": "미리듣기는 제출 음원 확인용입니다. 실제 게임 녹음이나 자동 게임 이벤트 재현이 아닙니다."
+      },
+      "referenceFiles": [
+        {
+          "path": "context/current-synth/00-glass-contact.wav",
+          "description": "기존 합성 함수 재현 참고음. 실제 게임 녹음·최종 음원 아님."
+        }
+      ],
+      "delivery": {
+        "initial": "0.08~0.20초 기준음 1개. 장기 반복 청취 뒤 동일 의미 변주 2개 선택 추가.",
+        "output": "게임용 OGG Vorbis 자동 변환. 업로드 원본은 별도 보관.",
+        "source": "WAV 권장, 디자이너가 가진 지원 오디오 형식도 가능. 손실압축 원본을 OGG로 바꿔도 원음 품질이 복구되지는 않음."
+      },
+      "target": "UnityProject/Assets/Audio/SFX/sfx-glass-impact.ogg",
+      "apply": {
+        "slot": "sfx-glass-impact",
+        "hook": "NeonGame.AddSpark → NeonAudio.Impact(strength,false); 향후 SquareVariant=0 분리",
+        "integrationStatus": "shared-preview",
+        "notes": "현재는 모든 비범퍼 접촉(다른 결정·경사·이동·주황·벽)과 공유. 이 슬롯 시험은 사각만 바꾸지 않음. 형태별 재생 분리 전의 기준음이며 다른 형태 요청과 같은 슬롯으로 등록하지 않음."
+      },
+      "acceptance": [
+        "반복 청취와 여러 효과 동시 재생에서 피로·클리핑 확인",
+        "폰 스피커 모노와 이어폰에서 사건 의미 확인",
+        "불필요한 앞 무음과 지나치게 긴 꼬리 제거"
+      ],
+      "scene": {
+        "caption": "일반 사각 결정. 영상은 실제 물리로 별을 떨어뜨리는 검증용 접촉 장면.",
+        "source": "test-scene",
+        "poster": "context/scenes/block-glass.webp",
+        "video": "context/scenes/contact.mp4"
+      }
+    },
+    {
+      "id": "sfx-crystal-cut",
+      "title": "육각 컷 결정 · 단단한 톡",
+      "category": "블록 고유음",
+      "priority": "P1",
+      "kind": "sfx",
+      "status": "requested",
+      "brief": "비대칭 육각 컷 결정. 기준 사각보다 낮고 두터운 톡 소리로 각진 덩어리감을 줍니다. 같은 유리 재질 가족 안에서 구분합니다.",
+      "productionNote": "게임 연결 예정",
+      "spec": {
+        "sampleRate": 48000,
+        "channels": 1,
+        "format": "ogg",
+        "codec": "vorbis",
+        "maxDurationSeconds": 0.3
+      },
+      "parameters": [
+        {
+          "key": "gainDb",
+          "label": "음량 (dB)",
+          "type": "number",
+          "default": 0,
+          "min": -24,
+          "max": 6,
+          "step": 0.5
+        },
+        {
+          "key": "trimStart",
+          "label": "시작 자르기 (초)",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 12,
+          "step": 0.01
+        },
+        {
+          "key": "trimEnd",
+          "label": "끝 자르기 (0=끝)",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 12,
+          "step": 0.01
+        },
+        {
+          "key": "fadeIn",
+          "label": "페이드 인 (초)",
+          "type": "number",
+          "default": 0.003,
+          "min": 0,
+          "max": 2,
+          "step": 0.001
+        },
+        {
+          "key": "fadeOut",
+          "label": "페이드 아웃 (초)",
+          "type": "number",
+          "default": 0.015,
+          "min": 0,
+          "max": 2,
+          "step": 0.001
+        },
+        {
+          "key": "pitchSemitones",
+          "label": "피치 (반음)",
+          "type": "number",
+          "default": 0,
+          "min": -12,
+          "max": 12,
+          "step": 0.5
+        }
+      ],
+      "preview": {
+        "mode": "solo",
+        "contextFiles": [],
+        "cues": [
+          {
+            "time": 0,
+            "pitch": 0
+          },
+          {
+            "time": 0.5,
+            "pitch": 0
+          },
+          {
+            "time": 1,
+            "pitch": 0
+          }
+        ],
+        "notes": "미리듣기는 제출 음원 확인용입니다. 실제 게임 녹음이나 자동 게임 이벤트 재현이 아닙니다."
+      },
+      "referenceFiles": [],
+      "delivery": {
+        "initial": "0.08~0.22초 고유음 1개.",
+        "output": "게임용 OGG Vorbis 자동 변환. 업로드 원본은 별도 보관.",
+        "source": "WAV 권장, 디자이너가 가진 지원 오디오 형식도 가능. 손실압축 원본을 OGG로 바꿔도 원음 품질이 복구되지는 않음."
+      },
+      "target": "UnityProject/Assets/Audio/SFX/sfx-crystal-cut.ogg",
+      "apply": {
+        "slot": "sfx-crystal-cut",
+        "hook": "NeonGame.AddSpark → TileKind.Square / Rules.SquareVariant(tile)==1",
+        "integrationStatus": "planned",
+        "notes": "형태별 충돌 분기와 독립 슬롯 추가 필요. 현재 공통 Impact(false)."
+      },
+      "acceptance": [
+        "반복 청취와 여러 효과 동시 재생에서 피로·클리핑 확인",
+        "폰 스피커 모노와 이어폰에서 사건 의미 확인",
+        "불필요한 앞 무음과 지나치게 긴 꼬리 제거"
+      ],
+      "scene": {
+        "caption": "깎인 결정 형태의 고유 타격음을 위한 외형 참고.",
+        "source": "test-scene",
+        "poster": "context/scenes/block-cut.webp"
+      }
+    },
+    {
+      "id": "sfx-crystal-octagon",
+      "title": "팔각 결정 · 둥근 팅",
+      "category": "블록 고유음",
+      "priority": "P1",
+      "kind": "sfx",
+      "status": "requested",
+      "brief": "팔각 결정. 둥근 작은 유리 종처럼 부드러운 팅 소리로, 각진 사각·육각 컷과 공명을 구분합니다.",
+      "productionNote": "게임 연결 예정",
+      "spec": {
+        "sampleRate": 48000,
+        "channels": 1,
+        "format": "ogg",
+        "codec": "vorbis",
+        "maxDurationSeconds": 0.35
+      },
+      "parameters": [
+        {
+          "key": "gainDb",
+          "label": "음량 (dB)",
+          "type": "number",
+          "default": 0,
+          "min": -24,
+          "max": 6,
+          "step": 0.5
+        },
+        {
+          "key": "trimStart",
+          "label": "시작 자르기 (초)",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 12,
+          "step": 0.01
+        },
+        {
+          "key": "trimEnd",
+          "label": "끝 자르기 (0=끝)",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 12,
+          "step": 0.01
+        },
+        {
+          "key": "fadeIn",
+          "label": "페이드 인 (초)",
+          "type": "number",
+          "default": 0.003,
+          "min": 0,
+          "max": 2,
+          "step": 0.001
+        },
+        {
+          "key": "fadeOut",
+          "label": "페이드 아웃 (초)",
+          "type": "number",
+          "default": 0.015,
+          "min": 0,
+          "max": 2,
+          "step": 0.001
+        },
+        {
+          "key": "pitchSemitones",
+          "label": "피치 (반음)",
+          "type": "number",
+          "default": 0,
+          "min": -12,
+          "max": 12,
+          "step": 0.5
+        }
+      ],
+      "preview": {
+        "mode": "solo",
+        "contextFiles": [],
+        "cues": [
+          {
+            "time": 0,
+            "pitch": 0
+          },
+          {
+            "time": 0.5,
+            "pitch": 0
+          },
+          {
+            "time": 1,
+            "pitch": 0
+          }
+        ],
+        "notes": "미리듣기는 제출 음원 확인용입니다. 실제 게임 녹음이나 자동 게임 이벤트 재현이 아닙니다."
+      },
+      "referenceFiles": [],
+      "delivery": {
+        "initial": "0.12~0.28초 고유음 1개.",
+        "output": "게임용 OGG Vorbis 자동 변환. 업로드 원본은 별도 보관.",
+        "source": "WAV 권장, 디자이너가 가진 지원 오디오 형식도 가능. 손실압축 원본을 OGG로 바꿔도 원음 품질이 복구되지는 않음."
+      },
+      "target": "UnityProject/Assets/Audio/SFX/sfx-crystal-octagon.ogg",
+      "apply": {
+        "slot": "sfx-crystal-octagon",
+        "hook": "NeonGame.AddSpark → TileKind.Square / Rules.SquareVariant(tile)==2",
+        "integrationStatus": "planned",
+        "notes": "형태별 독립 슬롯 추가 필요. 공명을 길게 끌어 다른 사건을 가리지 않음."
+      },
+      "acceptance": [
+        "반복 청취와 여러 효과 동시 재생에서 피로·클리핑 확인",
+        "폰 스피커 모노와 이어폰에서 사건 의미 확인",
+        "불필요한 앞 무음과 지나치게 긴 꼬리 제거"
+      ],
+      "scene": {
+        "caption": "팔각 결정의 고유 타격음을 위한 외형 참고.",
+        "source": "test-scene",
+        "poster": "context/scenes/block-octagon.webp"
+      }
+    },
+    {
+      "id": "sfx-crystal-trapezoid",
+      "title": "사다리꼴 결정 · 꺾이는 틱",
+      "category": "블록 고유음",
+      "priority": "P1",
+      "kind": "sfx",
+      "status": "requested",
+      "brief": "사다리꼴 결정. 짧은 타격 뒤 음이 살짝 내려오며 꺾이는 느낌. 범퍼의 탄성음과는 재질이 다르게 들려야 합니다.",
+      "productionNote": "게임 연결 예정",
+      "spec": {
+        "sampleRate": 48000,
+        "channels": 1,
+        "format": "ogg",
+        "codec": "vorbis",
+        "maxDurationSeconds": 0.3
+      },
+      "parameters": [
+        {
+          "key": "gainDb",
+          "label": "음량 (dB)",
+          "type": "number",
+          "default": 0,
+          "min": -24,
+          "max": 6,
+          "step": 0.5
+        },
+        {
+          "key": "trimStart",
+          "label": "시작 자르기 (초)",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 12,
+          "step": 0.01
+        },
+        {
+          "key": "trimEnd",
+          "label": "끝 자르기 (0=끝)",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 12,
+          "step": 0.01
+        },
+        {
+          "key": "fadeIn",
+          "label": "페이드 인 (초)",
+          "type": "number",
+          "default": 0.003,
+          "min": 0,
+          "max": 2,
+          "step": 0.001
+        },
+        {
+          "key": "fadeOut",
+          "label": "페이드 아웃 (초)",
+          "type": "number",
+          "default": 0.015,
+          "min": 0,
+          "max": 2,
+          "step": 0.001
+        },
+        {
+          "key": "pitchSemitones",
+          "label": "피치 (반음)",
+          "type": "number",
+          "default": 0,
+          "min": -12,
+          "max": 12,
+          "step": 0.5
+        }
+      ],
+      "preview": {
+        "mode": "solo",
+        "contextFiles": [],
+        "cues": [
+          {
+            "time": 0,
+            "pitch": 0
+          },
+          {
+            "time": 0.5,
+            "pitch": 0
+          },
+          {
+            "time": 1,
+            "pitch": 0
+          }
+        ],
+        "notes": "미리듣기는 제출 음원 확인용입니다. 실제 게임 녹음이나 자동 게임 이벤트 재현이 아닙니다."
+      },
+      "referenceFiles": [],
+      "delivery": {
+        "initial": "0.10~0.22초 고유음 1개.",
+        "output": "게임용 OGG Vorbis 자동 변환. 업로드 원본은 별도 보관.",
+        "source": "WAV 권장, 디자이너가 가진 지원 오디오 형식도 가능. 손실압축 원본을 OGG로 바꿔도 원음 품질이 복구되지는 않음."
+      },
+      "target": "UnityProject/Assets/Audio/SFX/sfx-crystal-trapezoid.ogg",
+      "apply": {
+        "slot": "sfx-crystal-trapezoid",
+        "hook": "NeonGame.AddSpark → TileKind.Square / Rules.SquareVariant(tile)==3",
+        "integrationStatus": "planned",
+        "notes": "형태별 독립 슬롯 추가 필요. 음정 움직임은 음색 정체성이고 반사 방향 예고가 아님."
+      },
+      "acceptance": [
+        "반복 청취와 여러 효과 동시 재생에서 피로·클리핑 확인",
+        "폰 스피커 모노와 이어폰에서 사건 의미 확인",
+        "불필요한 앞 무음과 지나치게 긴 꼬리 제거"
+      ],
+      "scene": {
+        "caption": "사다리꼴 결정의 고유 타격음을 위한 외형 참고.",
+        "source": "test-scene",
+        "poster": "context/scenes/block-trapezoid.webp"
+      }
+    },
+    {
+      "id": "sfx-crystal-pentagon",
+      "title": "오각 결정 · 얇은 킨",
+      "category": "블록 고유음",
+      "priority": "P1",
+      "kind": "sfx",
+      "status": "requested",
+      "brief": "비대칭 오각 결정. 얇은 결정의 가벼운 킨 공명. 고음만 크게 올리지 말고 짧은 어택과 맑은 결로 구분합니다.",
+      "productionNote": "게임 연결 예정",
+      "spec": {
+        "sampleRate": 48000,
+        "channels": 1,
+        "format": "ogg",
+        "codec": "vorbis",
+        "maxDurationSeconds": 0.3
+      },
+      "parameters": [
+        {
+          "key": "gainDb",
+          "label": "음량 (dB)",
+          "type": "number",
+          "default": 0,
+          "min": -24,
+          "max": 6,
+          "step": 0.5
+        },
+        {
+          "key": "trimStart",
+          "label": "시작 자르기 (초)",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 12,
+          "step": 0.01
+        },
+        {
+          "key": "trimEnd",
+          "label": "끝 자르기 (0=끝)",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 12,
+          "step": 0.01
+        },
+        {
+          "key": "fadeIn",
+          "label": "페이드 인 (초)",
+          "type": "number",
+          "default": 0.003,
+          "min": 0,
+          "max": 2,
+          "step": 0.001
+        },
+        {
+          "key": "fadeOut",
+          "label": "페이드 아웃 (초)",
+          "type": "number",
+          "default": 0.015,
+          "min": 0,
+          "max": 2,
+          "step": 0.001
+        },
+        {
+          "key": "pitchSemitones",
+          "label": "피치 (반음)",
+          "type": "number",
+          "default": 0,
+          "min": -12,
+          "max": 12,
+          "step": 0.5
+        }
+      ],
+      "preview": {
+        "mode": "solo",
+        "contextFiles": [],
+        "cues": [
+          {
+            "time": 0,
+            "pitch": 0
+          },
+          {
+            "time": 0.5,
+            "pitch": 0
+          },
+          {
+            "time": 1,
+            "pitch": 0
+          }
+        ],
+        "notes": "미리듣기는 제출 음원 확인용입니다. 실제 게임 녹음이나 자동 게임 이벤트 재현이 아닙니다."
+      },
+      "referenceFiles": [],
+      "delivery": {
+        "initial": "0.08~0.20초 고유음 1개.",
+        "output": "게임용 OGG Vorbis 자동 변환. 업로드 원본은 별도 보관.",
+        "source": "WAV 권장, 디자이너가 가진 지원 오디오 형식도 가능. 손실압축 원본을 OGG로 바꿔도 원음 품질이 복구되지는 않음."
+      },
+      "target": "UnityProject/Assets/Audio/SFX/sfx-crystal-pentagon.ogg",
+      "apply": {
+        "slot": "sfx-crystal-pentagon",
+        "hook": "NeonGame.AddSpark → TileKind.Square / Rules.SquareVariant(tile)==4",
+        "integrationStatus": "planned",
+        "notes": "형태별 독립 슬롯 추가 필요. 휴대폰 스피커에서 고역 피로 확인."
+      },
+      "acceptance": [
+        "반복 청취와 여러 효과 동시 재생에서 피로·클리핑 확인",
+        "폰 스피커 모노와 이어폰에서 사건 의미 확인",
+        "불필요한 앞 무음과 지나치게 긴 꼬리 제거"
+      ],
+      "scene": {
+        "caption": "오각 결정의 고유 타격음을 위한 외형 참고.",
+        "source": "test-scene",
+        "poster": "context/scenes/block-pentagon.webp"
+      }
+    },
+    {
+      "id": "sfx-crystal-shield",
+      "title": "방패 결정 · 묵직한 통",
+      "category": "블록 고유음",
+      "priority": "P1",
+      "kind": "sfx",
+      "status": "requested",
+      "brief": "아래가 뾰족한 방패 결정. 두터운 통 어택 뒤 낮고 짧은 유리 잔향. 파괴음처럼 큰 충격으로 들리지 않게 합니다.",
+      "productionNote": "게임 연결 예정",
+      "spec": {
+        "sampleRate": 48000,
+        "channels": 1,
+        "format": "ogg",
+        "codec": "vorbis",
+        "maxDurationSeconds": 0.35
+      },
+      "parameters": [
+        {
+          "key": "gainDb",
+          "label": "음량 (dB)",
+          "type": "number",
+          "default": 0,
+          "min": -24,
+          "max": 6,
+          "step": 0.5
+        },
+        {
+          "key": "trimStart",
+          "label": "시작 자르기 (초)",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 12,
+          "step": 0.01
+        },
+        {
+          "key": "trimEnd",
+          "label": "끝 자르기 (0=끝)",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 12,
+          "step": 0.01
+        },
+        {
+          "key": "fadeIn",
+          "label": "페이드 인 (초)",
+          "type": "number",
+          "default": 0.003,
+          "min": 0,
+          "max": 2,
+          "step": 0.001
+        },
+        {
+          "key": "fadeOut",
+          "label": "페이드 아웃 (초)",
+          "type": "number",
+          "default": 0.015,
+          "min": 0,
+          "max": 2,
+          "step": 0.001
+        },
+        {
+          "key": "pitchSemitones",
+          "label": "피치 (반음)",
+          "type": "number",
+          "default": 0,
+          "min": -12,
+          "max": 12,
+          "step": 0.5
+        }
+      ],
+      "preview": {
+        "mode": "solo",
+        "contextFiles": [],
+        "cues": [
+          {
+            "time": 0,
+            "pitch": 0
+          },
+          {
+            "time": 0.5,
+            "pitch": 0
+          },
+          {
+            "time": 1,
+            "pitch": 0
+          }
+        ],
+        "notes": "미리듣기는 제출 음원 확인용입니다. 실제 게임 녹음이나 자동 게임 이벤트 재현이 아닙니다."
+      },
+      "referenceFiles": [],
+      "delivery": {
+        "initial": "0.10~0.25초 고유음 1개.",
+        "output": "게임용 OGG Vorbis 자동 변환. 업로드 원본은 별도 보관.",
+        "source": "WAV 권장, 디자이너가 가진 지원 오디오 형식도 가능. 손실압축 원본을 OGG로 바꿔도 원음 품질이 복구되지는 않음."
+      },
+      "target": "UnityProject/Assets/Audio/SFX/sfx-crystal-shield.ogg",
+      "apply": {
+        "slot": "sfx-crystal-shield",
+        "hook": "NeonGame.AddSpark → TileKind.Square / Rules.SquareVariant(tile)==5",
+        "integrationStatus": "planned",
+        "notes": "형태별 독립 슬롯 추가 필요. 낮은 주파수만 사용하지 말고 작은 스피커에 남는 몸통 포함."
+      },
+      "acceptance": [
+        "반복 청취와 여러 효과 동시 재생에서 피로·클리핑 확인",
+        "폰 스피커 모노와 이어폰에서 사건 의미 확인",
+        "불필요한 앞 무음과 지나치게 긴 꼬리 제거"
+      ],
+      "scene": {
+        "caption": "방패 결정의 고유 타격음을 위한 외형 참고.",
+        "source": "test-scene",
+        "poster": "context/scenes/block-shield.webp"
+      }
+    },
+    {
+      "id": "sfx-bumper-impact",
+      "title": "분홍 원형 · 탄성 반발",
+      "category": "블록 고유음",
+      "priority": "P0",
+      "kind": "sfx",
+      "status": "requested",
+      "brief": "눌렸다 튀어나오는 짧고 말랑한 뽕 소리와 작은 반짝임. 일반 결정과 즉시 구분되고, 실제 튀는 세기보다 과장된 긴 사이렌은 피합니다.",
+      "productionNote": "현재 게임에서 시험 가능",
+      "spec": {
+        "sampleRate": 48000,
+        "channels": 1,
+        "format": "ogg",
+        "codec": "vorbis",
+        "maxDurationSeconds": 0.3
+      },
+      "parameters": [
+        {
+          "key": "gainDb",
+          "label": "음량 (dB)",
+          "type": "number",
+          "default": 0,
+          "min": -24,
+          "max": 6,
+          "step": 0.5
+        },
+        {
+          "key": "trimStart",
+          "label": "시작 자르기 (초)",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 12,
+          "step": 0.01
+        },
+        {
+          "key": "trimEnd",
+          "label": "끝 자르기 (0=끝)",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 12,
+          "step": 0.01
+        },
+        {
+          "key": "fadeIn",
+          "label": "페이드 인 (초)",
+          "type": "number",
+          "default": 0.003,
+          "min": 0,
+          "max": 2,
+          "step": 0.001
+        },
+        {
+          "key": "fadeOut",
+          "label": "페이드 아웃 (초)",
+          "type": "number",
+          "default": 0.015,
+          "min": 0,
+          "max": 2,
+          "step": 0.001
+        },
+        {
+          "key": "pitchSemitones",
+          "label": "피치 (반음)",
+          "type": "number",
+          "default": 0,
+          "min": -12,
+          "max": 12,
+          "step": 0.5
+        }
+      ],
+      "preview": {
+        "mode": "solo",
+        "contextFiles": [],
+        "cues": [
+          {
+            "time": 0,
+            "pitch": 0
+          },
+          {
+            "time": 0.5,
+            "pitch": 0
+          },
+          {
+            "time": 1,
+            "pitch": 0
+          }
+        ],
+        "notes": "미리듣기는 제출 음원 확인용입니다. 실제 게임 녹음이나 자동 게임 이벤트 재현이 아닙니다."
+      },
+      "referenceFiles": [
+        {
+          "path": "context/current-synth/01-soft-bumper.wav",
+          "description": "기존 합성 함수 재현 참고음. 실제 게임 녹음·최종 음원 아님."
+        }
+      ],
+      "delivery": {
+        "initial": "0.10~0.24초 고유음 1개. 반복 검수 후 짧은 변주 2개 선택 추가.",
+        "output": "게임용 OGG Vorbis 자동 변환. 업로드 원본은 별도 보관.",
+        "source": "WAV 권장, 디자이너가 가진 지원 오디오 형식도 가능. 손실압축 원본을 OGG로 바꿔도 원음 품질이 복구되지는 않음."
+      },
+      "target": "UnityProject/Assets/Audio/SFX/sfx-bumper-impact.ogg",
+      "apply": {
+        "slot": "sfx-bumper-impact",
+        "hook": "NeonGame.AddSpark → NeonAudio.Impact(strength,true)",
+        "integrationStatus": "ready",
+        "notes": "현재 범퍼 독립 슬롯. 충돌 세기에 따른 gain .44~.82, pitch .964~1.036 적용. 파일 한 개 선택 재생이며 랜덤 변주 묶음은 미지원."
+      },
+      "acceptance": [
+        "반복 청취와 여러 효과 동시 재생에서 피로·클리핑 확인",
+        "폰 스피커 모노와 이어폰에서 사건 의미 확인",
+        "불필요한 앞 무음과 지나치게 긴 꼬리 제거"
+      ],
+      "scene": {
+        "caption": "분홍 원형 범퍼 접촉과 탄성 반응. 짧고 경쾌한 어택을 확인.",
+        "source": "test-scene",
+        "poster": "context/scenes/block-bumper.webp",
+        "video": "context/scenes/bumper-contact.mp4"
+      }
+    },
+    {
+      "id": "sfx-mover-impact",
+      "title": "초록 이동 마름모 · 짧은 전자 슬라이드",
+      "category": "블록 고유음",
+      "priority": "P1",
+      "kind": "sfx",
+      "status": "requested",
+      "brief": "초록 이동 블록에 닿는 순간만 짧은 전자 슬라이드와 유리 클릭을 냅니다. 움직이고 있다는 인상을 주되 계속 울리는 모터음은 만들지 않습니다.",
+      "productionNote": "게임 연결 예정",
+      "spec": {
+        "sampleRate": 48000,
+        "channels": 1,
+        "format": "ogg",
+        "codec": "vorbis",
+        "maxDurationSeconds": 0.3
+      },
+      "parameters": [
+        {
+          "key": "gainDb",
+          "label": "음량 (dB)",
+          "type": "number",
+          "default": 0,
+          "min": -24,
+          "max": 6,
+          "step": 0.5
+        },
+        {
+          "key": "trimStart",
+          "label": "시작 자르기 (초)",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 12,
+          "step": 0.01
+        },
+        {
+          "key": "trimEnd",
+          "label": "끝 자르기 (0=끝)",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 12,
+          "step": 0.01
+        },
+        {
+          "key": "fadeIn",
+          "label": "페이드 인 (초)",
+          "type": "number",
+          "default": 0.003,
+          "min": 0,
+          "max": 2,
+          "step": 0.001
+        },
+        {
+          "key": "fadeOut",
+          "label": "페이드 아웃 (초)",
+          "type": "number",
+          "default": 0.015,
+          "min": 0,
+          "max": 2,
+          "step": 0.001
+        },
+        {
+          "key": "pitchSemitones",
+          "label": "피치 (반음)",
+          "type": "number",
+          "default": 0,
+          "min": -12,
+          "max": 12,
+          "step": 0.5
+        }
+      ],
+      "preview": {
+        "mode": "solo",
+        "contextFiles": [],
+        "cues": [
+          {
+            "time": 0,
+            "pitch": 0
+          },
+          {
+            "time": 0.5,
+            "pitch": 0
+          },
+          {
+            "time": 1,
+            "pitch": 0
+          }
+        ],
+        "notes": "미리듣기는 제출 음원 확인용입니다. 실제 게임 녹음이나 자동 게임 이벤트 재현이 아닙니다."
+      },
+      "referenceFiles": [],
+      "delivery": {
+        "initial": "0.10~0.24초 고유음 1개.",
+        "output": "게임용 OGG Vorbis 자동 변환. 업로드 원본은 별도 보관.",
+        "source": "WAV 권장, 디자이너가 가진 지원 오디오 형식도 가능. 손실압축 원본을 OGG로 바꿔도 원음 품질이 복구되지는 않음."
+      },
+      "target": "UnityProject/Assets/Audio/SFX/sfx-mover-impact.ogg",
+      "apply": {
+        "slot": "sfx-mover-impact",
+        "hook": "NeonGame.AddSpark → TileKind.Mover 분기",
+        "integrationStatus": "planned",
+        "notes": "현재 일반 접촉 슬롯 공유. 이동 전용 접촉 슬롯 추가 필요. 레일 이동 자체는 무음."
+      },
+      "acceptance": [
+        "반복 청취와 여러 효과 동시 재생에서 피로·클리핑 확인",
+        "폰 스피커 모노와 이어폰에서 사건 의미 확인",
+        "불필요한 앞 무음과 지나치게 긴 꼬리 제거"
+      ],
+      "scene": {
+        "caption": "레일 위에서 움직이는 마름모. 이동 상시음이 아닌 접촉음 요청.",
+        "source": "test-scene",
+        "poster": "context/scenes/block-mover.webp"
+      }
+    },
+    {
+      "id": "sfx-slope-left-impact",
+      "title": "왼쪽 경사 · 내려 스치는 슉",
+      "category": "블록 고유음",
+      "priority": "P1",
+      "kind": "sfx",
+      "status": "requested",
+      "brief": "왼쪽 경사 삼각형에 닿는 짧은 스침과 내려오는 음정 윤곽. 스테레오 위치 없이도 반대 종류와 구분되게 만듭니다.",
+      "productionNote": "게임 연결 예정",
+      "spec": {
+        "sampleRate": 48000,
+        "channels": 1,
+        "format": "ogg",
+        "codec": "vorbis",
+        "maxDurationSeconds": 0.25
+      },
+      "parameters": [
+        {
+          "key": "gainDb",
+          "label": "음량 (dB)",
+          "type": "number",
+          "default": 0,
+          "min": -24,
+          "max": 6,
+          "step": 0.5
+        },
+        {
+          "key": "trimStart",
+          "label": "시작 자르기 (초)",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 12,
+          "step": 0.01
+        },
+        {
+          "key": "trimEnd",
+          "label": "끝 자르기 (0=끝)",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 12,
+          "step": 0.01
+        },
+        {
+          "key": "fadeIn",
+          "label": "페이드 인 (초)",
+          "type": "number",
+          "default": 0.003,
+          "min": 0,
+          "max": 2,
+          "step": 0.001
+        },
+        {
+          "key": "fadeOut",
+          "label": "페이드 아웃 (초)",
+          "type": "number",
+          "default": 0.015,
+          "min": 0,
+          "max": 2,
+          "step": 0.001
+        },
+        {
+          "key": "pitchSemitones",
+          "label": "피치 (반음)",
+          "type": "number",
+          "default": 0,
+          "min": -12,
+          "max": 12,
+          "step": 0.5
+        }
+      ],
+      "preview": {
+        "mode": "solo",
+        "contextFiles": [],
+        "cues": [
+          {
+            "time": 0,
+            "pitch": 0
+          },
+          {
+            "time": 0.5,
+            "pitch": 0
+          },
+          {
+            "time": 1,
+            "pitch": 0
+          }
+        ],
+        "notes": "미리듣기는 제출 음원 확인용입니다. 실제 게임 녹음이나 자동 게임 이벤트 재현이 아닙니다."
+      },
+      "referenceFiles": [],
+      "delivery": {
+        "initial": "0.08~0.18초 고유음 1개.",
+        "output": "게임용 OGG Vorbis 자동 변환. 업로드 원본은 별도 보관.",
+        "source": "WAV 권장, 디자이너가 가진 지원 오디오 형식도 가능. 손실압축 원본을 OGG로 바꿔도 원음 품질이 복구되지는 않음."
+      },
+      "target": "UnityProject/Assets/Audio/SFX/sfx-slope-left-impact.ogg",
+      "apply": {
+        "slot": "sfx-slope-left-impact",
+        "hook": "NeonGame.AddSpark → TileKind.SlopeLeft 분기",
+        "integrationStatus": "planned",
+        "notes": "독립 슬롯 추가 필요. 블록은 회전하므로 소리가 실제 현재 반사 방향을 보장하지 않음. 좌우 패닝만으로 구분 금지."
+      },
+      "acceptance": [
+        "반복 청취와 여러 효과 동시 재생에서 피로·클리핑 확인",
+        "폰 스피커 모노와 이어폰에서 사건 의미 확인",
+        "불필요한 앞 무음과 지나치게 긴 꼬리 제거"
+      ],
+      "scene": {
+        "caption": "왼쪽 경사 블록의 외형과 실제 접촉·반사 참고.",
+        "source": "test-scene",
+        "poster": "context/scenes/block-slope-left.webp",
+        "video": "context/scenes/slope-contact.mp4"
+      }
+    },
+    {
+      "id": "sfx-slope-right-impact",
+      "title": "오른쪽 경사 · 올라 스치는 쉭",
+      "category": "블록 고유음",
+      "priority": "P1",
+      "kind": "sfx",
+      "status": "requested",
+      "brief": "오른쪽 경사 삼각형. 왼쪽과 같은 재질의 스침이지만 올라가는 짧은 음정 윤곽으로 구분합니다.",
+      "productionNote": "게임 연결 예정",
+      "spec": {
+        "sampleRate": 48000,
+        "channels": 1,
+        "format": "ogg",
+        "codec": "vorbis",
+        "maxDurationSeconds": 0.25
+      },
+      "parameters": [
+        {
+          "key": "gainDb",
+          "label": "음량 (dB)",
+          "type": "number",
+          "default": 0,
+          "min": -24,
+          "max": 6,
+          "step": 0.5
+        },
+        {
+          "key": "trimStart",
+          "label": "시작 자르기 (초)",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 12,
+          "step": 0.01
+        },
+        {
+          "key": "trimEnd",
+          "label": "끝 자르기 (0=끝)",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 12,
+          "step": 0.01
+        },
+        {
+          "key": "fadeIn",
+          "label": "페이드 인 (초)",
+          "type": "number",
+          "default": 0.003,
+          "min": 0,
+          "max": 2,
+          "step": 0.001
+        },
+        {
+          "key": "fadeOut",
+          "label": "페이드 아웃 (초)",
+          "type": "number",
+          "default": 0.015,
+          "min": 0,
+          "max": 2,
+          "step": 0.001
+        },
+        {
+          "key": "pitchSemitones",
+          "label": "피치 (반음)",
+          "type": "number",
+          "default": 0,
+          "min": -12,
+          "max": 12,
+          "step": 0.5
+        }
+      ],
+      "preview": {
+        "mode": "solo",
+        "contextFiles": [],
+        "cues": [
+          {
+            "time": 0,
+            "pitch": 0
+          },
+          {
+            "time": 0.5,
+            "pitch": 0
+          },
+          {
+            "time": 1,
+            "pitch": 0
+          }
+        ],
+        "notes": "미리듣기는 제출 음원 확인용입니다. 실제 게임 녹음이나 자동 게임 이벤트 재현이 아닙니다."
+      },
+      "referenceFiles": [],
+      "delivery": {
+        "initial": "0.08~0.18초 고유음 1개.",
+        "output": "게임용 OGG Vorbis 자동 변환. 업로드 원본은 별도 보관.",
+        "source": "WAV 권장, 디자이너가 가진 지원 오디오 형식도 가능. 손실압축 원본을 OGG로 바꿔도 원음 품질이 복구되지는 않음."
+      },
+      "target": "UnityProject/Assets/Audio/SFX/sfx-slope-right-impact.ogg",
+      "apply": {
+        "slot": "sfx-slope-right-impact",
+        "hook": "NeonGame.AddSpark → TileKind.SlopeRight 분기",
+        "integrationStatus": "planned",
+        "notes": "독립 슬롯 추가 필요. 회전한 실제 반사 방향 안내가 아닌 블록 종류의 소리. 모노에서도 식별."
+      },
+      "acceptance": [
+        "반복 청취와 여러 효과 동시 재생에서 피로·클리핑 확인",
+        "폰 스피커 모노와 이어폰에서 사건 의미 확인",
+        "불필요한 앞 무음과 지나치게 긴 꼬리 제거"
+      ],
+      "scene": {
+        "caption": "반대쪽 경사 블록의 외형 참고. 실제 회전 각도에 따라 반사 방향은 달라짐.",
+        "source": "test-scene",
+        "poster": "context/scenes/block-slope-right.webp"
+      }
+    },
+    {
+      "id": "sfx-orange-absorb",
+      "title": "주황 점화별 · 아직 준비 안 된 흡수",
+      "category": "블록 고유음",
+      "priority": "P0",
+      "kind": "sfx",
+      "status": "requested",
+      "brief": "별이 주황 안으로 빨려 들어가며 작게 닫히는 웁 소리. 폭발이 아니라 연결을 저장했다는 느낌으로, 점화 폭발과 명확히 다르게 만듭니다.",
+      "productionNote": "게임 연결 예정",
+      "spec": {
+        "sampleRate": 48000,
+        "channels": 1,
+        "format": "ogg",
+        "codec": "vorbis",
+        "maxDurationSeconds": 0.35
+      },
+      "parameters": [
+        {
+          "key": "gainDb",
+          "label": "음량 (dB)",
+          "type": "number",
+          "default": 0,
+          "min": -24,
+          "max": 6,
+          "step": 0.5
+        },
+        {
+          "key": "trimStart",
+          "label": "시작 자르기 (초)",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 12,
+          "step": 0.01
+        },
+        {
+          "key": "trimEnd",
+          "label": "끝 자르기 (0=끝)",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 12,
+          "step": 0.01
+        },
+        {
+          "key": "fadeIn",
+          "label": "페이드 인 (초)",
+          "type": "number",
+          "default": 0.003,
+          "min": 0,
+          "max": 2,
+          "step": 0.001
+        },
+        {
+          "key": "fadeOut",
+          "label": "페이드 아웃 (초)",
+          "type": "number",
+          "default": 0.015,
+          "min": 0,
+          "max": 2,
+          "step": 0.001
+        },
+        {
+          "key": "pitchSemitones",
+          "label": "피치 (반음)",
+          "type": "number",
+          "default": 0,
+          "min": -12,
+          "max": 12,
+          "step": 0.5
+        }
+      ],
+      "preview": {
+        "mode": "solo",
+        "contextFiles": [],
+        "cues": [
+          {
+            "time": 0,
+            "pitch": 0
+          },
+          {
+            "time": 0.5,
+            "pitch": 0
+          },
+          {
+            "time": 1,
+            "pitch": 0
+          }
+        ],
+        "notes": "미리듣기는 제출 음원 확인용입니다. 실제 게임 녹음이나 자동 게임 이벤트 재현이 아닙니다."
+      },
+      "referenceFiles": [],
+      "delivery": {
+        "initial": "0.18~0.30초 흡수음 1개.",
+        "output": "게임용 OGG Vorbis 자동 변환. 업로드 원본은 별도 보관.",
+        "source": "WAV 권장, 디자이너가 가진 지원 오디오 형식도 가능. 손실압축 원본을 OGG로 바꿔도 원음 품질이 복구되지는 않음."
+      },
+      "target": "UnityProject/Assets/Audio/SFX/sfx-orange-absorb.ogg",
+      "apply": {
+        "slot": "sfx-orange-absorb",
+        "hook": "NeonGame.PresentShotOutcome → Capturing 진입, pulse==null",
+        "integrationStatus": "planned",
+        "notes": "현재 흡수 전용 슬롯 없음. 미점화 흡수에만 1회 재생하도록 추가. CaptureTime=.24초. 이미 준비된 주황 진입은 압축/점화 흐름 사용."
+      },
+      "acceptance": [
+        "반복 청취와 여러 효과 동시 재생에서 피로·클리핑 확인",
+        "폰 스피커 모노와 이어폰에서 사건 의미 확인",
+        "불필요한 앞 무음과 지나치게 긴 꼬리 제거"
+      ],
+      "scene": {
+        "caption": "주황 점화 블록 외형. 아직 준비되지 않은 상태의 흡수음 요청이며 폭발음과 구분.",
+        "source": "test-scene",
+        "poster": "context/scenes/block-orange.webp"
+      }
+    },
+    {
+      "id": "sfx-link-charge",
+      "title": "선 연결 · 중복 충전",
+      "category": "연결과 폭발",
+      "priority": "P0",
+      "kind": "sfx",
+      "status": "requested",
+      "brief": "새 선이 생기면 작은 전기 유리 펄스, 같은 선에 쌓일수록 더 선명한 공명으로 들리는 기준음. 반복 충전이 성공했다는 가벼운 보상을 줍니다.",
+      "productionNote": "공통 슬롯에서 시험",
+      "spec": {
+        "sampleRate": 48000,
+        "channels": 1,
+        "format": "ogg",
+        "codec": "vorbis",
+        "maxDurationSeconds": 0.25
+      },
+      "parameters": [
+        {
+          "key": "gainDb",
+          "label": "음량 (dB)",
+          "type": "number",
+          "default": 0,
+          "min": -24,
+          "max": 6,
+          "step": 0.5
+        },
+        {
+          "key": "trimStart",
+          "label": "시작 자르기 (초)",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 12,
+          "step": 0.01
+        },
+        {
+          "key": "trimEnd",
+          "label": "끝 자르기 (0=끝)",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 12,
+          "step": 0.01
+        },
+        {
+          "key": "fadeIn",
+          "label": "페이드 인 (초)",
+          "type": "number",
+          "default": 0.003,
+          "min": 0,
+          "max": 2,
+          "step": 0.001
+        },
+        {
+          "key": "fadeOut",
+          "label": "페이드 아웃 (초)",
+          "type": "number",
+          "default": 0.015,
+          "min": 0,
+          "max": 2,
+          "step": 0.001
+        },
+        {
+          "key": "pitchSemitones",
+          "label": "피치 (반음)",
+          "type": "number",
+          "default": 0,
+          "min": -12,
+          "max": 12,
+          "step": 0.5
+        }
+      ],
+      "preview": {
+        "mode": "solo",
+        "contextFiles": [],
+        "cues": [
+          {
+            "time": 0,
+            "pitch": 0
+          },
+          {
+            "time": 0.5,
+            "pitch": 0
+          },
+          {
+            "time": 1,
+            "pitch": 0
+          }
+        ],
+        "notes": "미리듣기는 제출 음원 확인용입니다. 실제 게임 녹음이나 자동 게임 이벤트 재현이 아닙니다."
+      },
+      "referenceFiles": [
+        {
+          "path": "context/current-synth/02-link-charge.wav",
+          "description": "기존 합성 함수 재현 참고음. 실제 게임 녹음·최종 음원 아님."
+        }
+      ],
+      "delivery": {
+        "initial": "0.08~0.18초 기준음 1개. 충전단계 변주는 현재 피치·음량으로 시험.",
+        "output": "게임용 OGG Vorbis 자동 변환. 업로드 원본은 별도 보관.",
+        "source": "WAV 권장, 디자이너가 가진 지원 오디오 형식도 가능. 손실압축 원본을 OGG로 바꿔도 원음 품질이 복구되지는 않음."
+      },
+      "target": "UnityProject/Assets/Audio/SFX/sfx-link-charge.ogg",
+      "apply": {
+        "slot": "sfx-link-charge",
+        "hook": "NeonGame.Fall / shot.ChargedEdge → NeonAudio.Charge",
+        "integrationStatus": "shared-preview",
+        "notes": "현재 최초 연결/재충전/점화 압축 시작 공용. Energy/6에 따라 gain .30~.55, pitch 1~1.15. 향후 압축 전용 분리. 파형 흐름 입자마다 소리 재생하지 않음."
+      },
+      "acceptance": [
+        "반복 청취와 여러 효과 동시 재생에서 피로·클리핑 확인",
+        "폰 스피커 모노와 이어폰에서 사건 의미 확인",
+        "불필요한 앞 무음과 지나치게 긴 꼬리 제거"
+      ],
+      "scene": {
+        "caption": "블록 사이 연결선과 흐르는 빛. 새 연결·중복 충전의 에너지감 참고.",
+        "source": "test-scene",
+        "poster": "context/scenes/links.webp",
+        "video": "context/scenes/links.mp4"
+      }
+    },
+    {
+      "id": "sfx-ignition-ready",
+      "title": "점화 준비 완료 알림",
+      "category": "연결과 폭발",
+      "priority": "P1",
+      "kind": "sfx",
+      "status": "requested",
+      "brief": "주황 연결망이 처음 준비됐을 때 짧게 반짝이는 확인음. 이제 다음 발로 터뜨릴 수 있다는 의미만 전달하고 큰 폭발감은 아껴둡니다.",
+      "productionNote": "게임 연결 예정",
+      "spec": {
+        "sampleRate": 48000,
+        "channels": 1,
+        "format": "ogg",
+        "codec": "vorbis",
+        "maxDurationSeconds": 0.35
+      },
+      "parameters": [
+        {
+          "key": "gainDb",
+          "label": "음량 (dB)",
+          "type": "number",
+          "default": 0,
+          "min": -24,
+          "max": 6,
+          "step": 0.5
+        },
+        {
+          "key": "trimStart",
+          "label": "시작 자르기 (초)",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 12,
+          "step": 0.01
+        },
+        {
+          "key": "trimEnd",
+          "label": "끝 자르기 (0=끝)",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 12,
+          "step": 0.01
+        },
+        {
+          "key": "fadeIn",
+          "label": "페이드 인 (초)",
+          "type": "number",
+          "default": 0.003,
+          "min": 0,
+          "max": 2,
+          "step": 0.001
+        },
+        {
+          "key": "fadeOut",
+          "label": "페이드 아웃 (초)",
+          "type": "number",
+          "default": 0.015,
+          "min": 0,
+          "max": 2,
+          "step": 0.001
+        },
+        {
+          "key": "pitchSemitones",
+          "label": "피치 (반음)",
+          "type": "number",
+          "default": 0,
+          "min": -12,
+          "max": 12,
+          "step": 0.5
+        }
+      ],
+      "preview": {
+        "mode": "solo",
+        "contextFiles": [],
+        "cues": [
+          {
+            "time": 0,
+            "pitch": 0
+          },
+          {
+            "time": 0.5,
+            "pitch": 0
+          },
+          {
+            "time": 1,
+            "pitch": 0
+          }
+        ],
+        "notes": "미리듣기는 제출 음원 확인용입니다. 실제 게임 녹음이나 자동 게임 이벤트 재현이 아닙니다."
+      },
+      "referenceFiles": [],
+      "delivery": {
+        "initial": "0.15~0.28초 확인음 1개.",
+        "output": "게임용 OGG Vorbis 자동 변환. 업로드 원본은 별도 보관.",
+        "source": "WAV 권장, 디자이너가 가진 지원 오디오 형식도 가능. 손실압축 원본을 OGG로 바꿔도 원음 품질이 복구되지는 않음."
+      },
+      "target": "UnityProject/Assets/Audio/SFX/sfx-ignition-ready.ogg",
+      "apply": {
+        "slot": "sfx-ignition-ready",
+        "hook": "NeonGame.Fall의 shot.Hit 전후 board.Armed false→true 감지 추가",
+        "integrationStatus": "planned",
+        "notes": "준비 상태 전이에서 한 번만. 같은 연결망의 모든 접촉/매 프레임 반복 금지. 저장 복구 때 자동 재생하지 않음."
+      },
+      "acceptance": [
+        "반복 청취와 여러 효과 동시 재생에서 피로·클리핑 확인",
+        "폰 스피커 모노와 이어폰에서 사건 의미 확인",
+        "불필요한 앞 무음과 지나치게 긴 꼬리 제거"
+      ],
+      "scene": {
+        "caption": "주황으로 이어진 연결망의 외형 참고. 준비 완료 전환음은 게임 연결 예정.",
+        "source": "test-scene",
+        "poster": "context/scenes/links.webp"
+      }
+    },
+    {
+      "id": "sfx-charge-anticipation",
+      "title": "점화 직전 · 에너지 압축",
+      "category": "연결과 폭발",
+      "priority": "P0",
+      "kind": "sfx",
+      "status": "requested",
+      "brief": "빛이 모이며 안으로 한 번 당겨지는 짧은 역흡입. 마지막 순간은 여백을 남겨 이어지는 팡이 더 크게 느껴지게 합니다.",
+      "productionNote": "게임 연결 예정",
+      "spec": {
+        "sampleRate": 48000,
+        "channels": 1,
+        "format": "ogg",
+        "codec": "vorbis",
+        "maxDurationSeconds": 0.75
+      },
+      "parameters": [
+        {
+          "key": "gainDb",
+          "label": "음량 (dB)",
+          "type": "number",
+          "default": 0,
+          "min": -24,
+          "max": 6,
+          "step": 0.5
+        },
+        {
+          "key": "trimStart",
+          "label": "시작 자르기 (초)",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 12,
+          "step": 0.01
+        },
+        {
+          "key": "trimEnd",
+          "label": "끝 자르기 (0=끝)",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 12,
+          "step": 0.01
+        },
+        {
+          "key": "fadeIn",
+          "label": "페이드 인 (초)",
+          "type": "number",
+          "default": 0.003,
+          "min": 0,
+          "max": 2,
+          "step": 0.001
+        },
+        {
+          "key": "fadeOut",
+          "label": "페이드 아웃 (초)",
+          "type": "number",
+          "default": 0.015,
+          "min": 0,
+          "max": 2,
+          "step": 0.001
+        },
+        {
+          "key": "pitchSemitones",
+          "label": "피치 (반음)",
+          "type": "number",
+          "default": 0,
+          "min": -12,
+          "max": 12,
+          "step": 0.5
+        }
+      ],
+      "preview": {
+        "mode": "solo",
+        "contextFiles": [],
+        "cues": [
+          {
+            "time": 0,
+            "pitch": 0
+          },
+          {
+            "time": 0.5,
+            "pitch": 0
+          },
+          {
+            "time": 1,
+            "pitch": 0
+          }
+        ],
+        "notes": "미리듣기는 제출 음원 확인용입니다. 실제 게임 녹음이나 자동 게임 이벤트 재현이 아닙니다."
+      },
+      "referenceFiles": [],
+      "delivery": {
+        "initial": "기준 .5초 압축음 1개. .34~.68초 조절 시 마지막 어택을 폭발과 중복하지 않기.",
+        "output": "게임용 OGG Vorbis 자동 변환. 업로드 원본은 별도 보관.",
+        "source": "WAV 권장, 디자이너가 가진 지원 오디오 형식도 가능. 손실압축 원본을 OGG로 바꿔도 원음 품질이 복구되지는 않음."
+      },
+      "target": "UnityProject/Assets/Audio/SFX/sfx-charge-anticipation.ogg",
+      "apply": {
+        "slot": "sfx-charge-anticipation",
+        "hook": "NeonGame.Capture 종료 → Charging / NeonView.ChargeDuration",
+        "integrationStatus": "planned",
+        "notes": "현재 Charge 재사용. 전용 슬롯 및 .34~.68초 압축 길이 동기화 추가 필요. 게임의 결과 확정 시점을 바꾸지 않음."
+      },
+      "acceptance": [
+        "반복 청취와 여러 효과 동시 재생에서 피로·클리핑 확인",
+        "폰 스피커 모노와 이어폰에서 사건 의미 확인",
+        "불필요한 앞 무음과 지나치게 긴 꼬리 제거"
+      ],
+      "scene": {
+        "caption": "점화 직전 압축. 영상은 압축부터 폭발·수집까지 전체 흐름 참고.",
+        "source": "test-scene",
+        "poster": "context/scenes/charge.webp",
+        "video": "context/scenes/detonation.mp4"
+      }
+    },
+    {
+      "id": "sfx-ignition-blast",
+      "title": "주황 점화 · 모았다가 팡",
+      "category": "연결과 폭발",
+      "priority": "P0",
+      "kind": "sfx",
+      "status": "requested",
+      "brief": "이 게임의 가장 중요한 소리. 짧고 넓은 팡 어택, 느껴지는 몸통, 빛나는 유리 꼬리가 차례로 들리게 만듭니다. 충전이 많을수록 커질 여지를 남기고 무조건 큰 음량으로 밀지 않습니다.",
+      "productionNote": "현재 게임에서 시험 가능",
+      "spec": {
+        "sampleRate": 48000,
+        "channels": 1,
+        "format": "ogg",
+        "codec": "vorbis",
+        "maxDurationSeconds": 1
+      },
+      "parameters": [
+        {
+          "key": "gainDb",
+          "label": "음량 (dB)",
+          "type": "number",
+          "default": 0,
+          "min": -24,
+          "max": 6,
+          "step": 0.5
+        },
+        {
+          "key": "trimStart",
+          "label": "시작 자르기 (초)",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 12,
+          "step": 0.01
+        },
+        {
+          "key": "trimEnd",
+          "label": "끝 자르기 (0=끝)",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 12,
+          "step": 0.01
+        },
+        {
+          "key": "fadeIn",
+          "label": "페이드 인 (초)",
+          "type": "number",
+          "default": 0.003,
+          "min": 0,
+          "max": 2,
+          "step": 0.001
+        },
+        {
+          "key": "fadeOut",
+          "label": "페이드 아웃 (초)",
+          "type": "number",
+          "default": 0.015,
+          "min": 0,
+          "max": 2,
+          "step": 0.001
+        },
+        {
+          "key": "pitchSemitones",
+          "label": "피치 (반음)",
+          "type": "number",
+          "default": 0,
+          "min": -12,
+          "max": 12,
+          "step": 0.5
+        }
+      ],
+      "preview": {
+        "mode": "solo",
+        "contextFiles": [],
+        "cues": [
+          {
+            "time": 0,
+            "pitch": 0
+          },
+          {
+            "time": 0.5,
+            "pitch": 0
+          },
+          {
+            "time": 1,
+            "pitch": 0
+          }
+        ],
+        "notes": "미리듣기는 제출 음원 확인용입니다. 실제 게임 녹음이나 자동 게임 이벤트 재현이 아닙니다."
+      },
+      "referenceFiles": [
+        {
+          "path": "context/current-synth/03-star-ignition.wav",
+          "description": "기존 합성 함수 재현 참고음. 실제 게임 녹음·최종 음원 아님."
+        }
+      ],
+      "delivery": {
+        "initial": "0.45~0.85초 완성 기준음 1개. 긴 저음 꼬리가 연쇄 타격을 가리지 않게.",
+        "output": "게임용 OGG Vorbis 자동 변환. 업로드 원본은 별도 보관.",
+        "source": "WAV 권장, 디자이너가 가진 지원 오디오 형식도 가능. 손실압축 원본을 OGG로 바꿔도 원음 품질이 복구되지는 않음."
+      },
+      "target": "UnityProject/Assets/Audio/SFX/sfx-ignition-blast.ogg",
+      "apply": {
+        "slot": "sfx-ignition-blast",
+        "hook": "NeonGame.ChargeExplosion → NeonAudio.Ignite(BlastIntensity)",
+        "integrationStatus": "ready",
+        "notes": "현재 gain .62~.87, BGM은 .38초 동안 목표의36%로 낮춤. 세기별 레이어는 아직 미지원. 현재 시험은 파일1개+세기별gain. 차후 몸통/반짝임 레이어는 선택 확장."
+      },
+      "acceptance": [
+        "반복 청취와 여러 효과 동시 재생에서 피로·클리핑 확인",
+        "폰 스피커 모노와 이어폰에서 사건 의미 확인",
+        "불필요한 앞 무음과 지나치게 긴 꼬리 제거"
+      ],
+      "scene": {
+        "caption": "모은 에너지가 주황 별에서 크게 터지는 중심 점화.",
+        "source": "test-scene",
+        "poster": "context/scenes/detonation.webp",
+        "video": "context/scenes/detonation.mp4"
+      }
+    },
+    {
+      "id": "sfx-cascade-burst",
+      "title": "연결망 · 순차 연쇄 폭발",
+      "category": "연결과 폭발",
+      "priority": "P0",
+      "kind": "sfx",
+      "status": "requested",
+      "brief": "첫 팡 뒤에 타닥타닥 이어지는 짧은 유리 에너지 파열. 빠르게 겹쳐도 덩어리가 뭉개지지 않고 연쇄의 순서를 느끼게 합니다.",
+      "productionNote": "공통 슬롯에서 시험",
+      "spec": {
+        "sampleRate": 48000,
+        "channels": 1,
+        "format": "ogg",
+        "codec": "vorbis",
+        "maxDurationSeconds": 0.35
+      },
+      "parameters": [
+        {
+          "key": "gainDb",
+          "label": "음량 (dB)",
+          "type": "number",
+          "default": 0,
+          "min": -24,
+          "max": 6,
+          "step": 0.5
+        },
+        {
+          "key": "trimStart",
+          "label": "시작 자르기 (초)",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 12,
+          "step": 0.01
+        },
+        {
+          "key": "trimEnd",
+          "label": "끝 자르기 (0=끝)",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 12,
+          "step": 0.01
+        },
+        {
+          "key": "fadeIn",
+          "label": "페이드 인 (초)",
+          "type": "number",
+          "default": 0.003,
+          "min": 0,
+          "max": 2,
+          "step": 0.001
+        },
+        {
+          "key": "fadeOut",
+          "label": "페이드 아웃 (초)",
+          "type": "number",
+          "default": 0.015,
+          "min": 0,
+          "max": 2,
+          "step": 0.001
+        },
+        {
+          "key": "pitchSemitones",
+          "label": "피치 (반음)",
+          "type": "number",
+          "default": 0,
+          "min": -12,
+          "max": 12,
+          "step": 0.5
+        }
+      ],
+      "preview": {
+        "mode": "solo",
+        "contextFiles": [],
+        "cues": [
+          {
+            "time": 0,
+            "pitch": 0
+          },
+          {
+            "time": 0.5,
+            "pitch": 0
+          },
+          {
+            "time": 1,
+            "pitch": 0
+          }
+        ],
+        "notes": "미리듣기는 제출 음원 확인용입니다. 실제 게임 녹음이나 자동 게임 이벤트 재현이 아닙니다."
+      },
+      "referenceFiles": [
+        {
+          "path": "context/current-synth/07-cascade-burst.wav",
+          "description": "기존 합성 함수 재현 참고음. 실제 게임 녹음·최종 음원 아님."
+        }
+      ],
+      "delivery": {
+        "initial": "0.10~0.24초 기준음 1개. 향후 변주2개는 동일 의미 안에서만.",
+        "output": "게임용 OGG Vorbis 자동 변환. 업로드 원본은 별도 보관.",
+        "source": "WAV 권장, 디자이너가 가진 지원 오디오 형식도 가능. 손실압축 원본을 OGG로 바꿔도 원음 품질이 복구되지는 않음."
+      },
+      "target": "UnityProject/Assets/Audio/SFX/sfx-cascade-burst.ogg",
+      "apply": {
+        "slot": "sfx-cascade-burst",
+        "hook": "NeonGame.Chain → NeonAudio.Burst(BlastIntensity)",
+        "integrationStatus": "shared-preview",
+        "notes": "현재 .16초 cascade tick마다 호출, 블록 파괴 개수와 정확히1:1은 아님. 파일1개 선택, 후속 랜덤/순차 변주연결 필요."
+      },
+      "acceptance": [
+        "반복 청취와 여러 효과 동시 재생에서 피로·클리핑 확인",
+        "폰 스피커 모노와 이어폰에서 사건 의미 확인",
+        "불필요한 앞 무음과 지나치게 긴 꼬리 제거"
+      ],
+      "scene": {
+        "caption": "빛이 연결망을 따라 번지고 블록이 순차적으로 터지는 흐름.",
+        "source": "test-scene",
+        "poster": "context/scenes/cascade.webp",
+        "video": "context/scenes/detonation.mp4"
+      }
+    },
+    {
+      "id": "sfx-star-release",
+      "title": "별 놓기 · 짧은 출발",
+      "category": "별과 성장",
+      "priority": "P1",
+      "kind": "sfx",
+      "status": "requested",
+      "brief": "손을 떼고 별이 실제로 떨어질 때 작고 가벼운 툭·스침. 조준 중 손가락 이동에는 소리를 붙이지 않습니다.",
+      "productionNote": "게임 연결 예정",
+      "spec": {
+        "sampleRate": 48000,
+        "channels": 1,
+        "format": "ogg",
+        "codec": "vorbis",
+        "maxDurationSeconds": 0.2
+      },
+      "parameters": [
+        {
+          "key": "gainDb",
+          "label": "음량 (dB)",
+          "type": "number",
+          "default": 0,
+          "min": -24,
+          "max": 6,
+          "step": 0.5
+        },
+        {
+          "key": "trimStart",
+          "label": "시작 자르기 (초)",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 12,
+          "step": 0.01
+        },
+        {
+          "key": "trimEnd",
+          "label": "끝 자르기 (0=끝)",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 12,
+          "step": 0.01
+        },
+        {
+          "key": "fadeIn",
+          "label": "페이드 인 (초)",
+          "type": "number",
+          "default": 0.003,
+          "min": 0,
+          "max": 2,
+          "step": 0.001
+        },
+        {
+          "key": "fadeOut",
+          "label": "페이드 아웃 (초)",
+          "type": "number",
+          "default": 0.015,
+          "min": 0,
+          "max": 2,
+          "step": 0.001
+        },
+        {
+          "key": "pitchSemitones",
+          "label": "피치 (반음)",
+          "type": "number",
+          "default": 0,
+          "min": -12,
+          "max": 12,
+          "step": 0.5
+        }
+      ],
+      "preview": {
+        "mode": "solo",
+        "contextFiles": [],
+        "cues": [
+          {
+            "time": 0,
+            "pitch": 0
+          },
+          {
+            "time": 0.5,
+            "pitch": 0
+          },
+          {
+            "time": 1,
+            "pitch": 0
+          }
+        ],
+        "notes": "미리듣기는 제출 음원 확인용입니다. 실제 게임 녹음이나 자동 게임 이벤트 재현이 아닙니다."
+      },
+      "referenceFiles": [],
+      "delivery": {
+        "initial": "0.06~0.14초 출발음 1개.",
+        "output": "게임용 OGG Vorbis 자동 변환. 업로드 원본은 별도 보관.",
+        "source": "WAV 권장, 디자이너가 가진 지원 오디오 형식도 가능. 손실압축 원본을 OGG로 바꿔도 원음 품질이 복구되지는 않음."
+      },
+      "target": "UnityProject/Assets/Audio/SFX/sfx-star-release.ogg",
+      "apply": {
+        "slot": "sfx-star-release",
+        "hook": "NeonGame.Windup → Falling 전환",
+        "integrationStatus": "planned",
+        "notes": ".10초 예비 동작 종료 시1회. 취소/조준 이동/단순화면탭에는 재생하지 않도록 연결 필요."
+      },
+      "acceptance": [
+        "반복 청취와 여러 효과 동시 재생에서 피로·클리핑 확인",
+        "폰 스피커 모노와 이어폰에서 사건 의미 확인",
+        "불필요한 앞 무음과 지나치게 긴 꼬리 제거"
+      ],
+      "scene": {
+        "caption": "상단 별을 놓아 낙하시키는 순간. 영상은 낙하·블록 접촉 참고.",
+        "source": "test-scene",
+        "poster": "context/scenes/release.webp",
+        "video": "context/scenes/contact.mp4"
+      }
+    },
+    {
+      "id": "sfx-energy-collect",
+      "title": "폭발 에너지 · 위로 모이기",
+      "category": "별과 성장",
+      "priority": "P0",
+      "kind": "sfx",
+      "status": "requested",
+      "brief": "흩어진 별 에너지가 잠깐 뒤로 당겨졌다가 상단으로 빨려 올라오는 밝은 상승음. 수집량이 많을수록 풍성해질 기준 소재입니다.",
+      "productionNote": "공통 슬롯에서 시험",
+      "spec": {
+        "sampleRate": 48000,
+        "channels": 1,
+        "format": "ogg",
+        "codec": "vorbis",
+        "maxDurationSeconds": 0.65
+      },
+      "parameters": [
+        {
+          "key": "gainDb",
+          "label": "음량 (dB)",
+          "type": "number",
+          "default": 0,
+          "min": -24,
+          "max": 6,
+          "step": 0.5
+        },
+        {
+          "key": "trimStart",
+          "label": "시작 자르기 (초)",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 12,
+          "step": 0.01
+        },
+        {
+          "key": "trimEnd",
+          "label": "끝 자르기 (0=끝)",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 12,
+          "step": 0.01
+        },
+        {
+          "key": "fadeIn",
+          "label": "페이드 인 (초)",
+          "type": "number",
+          "default": 0.003,
+          "min": 0,
+          "max": 2,
+          "step": 0.001
+        },
+        {
+          "key": "fadeOut",
+          "label": "페이드 아웃 (초)",
+          "type": "number",
+          "default": 0.015,
+          "min": 0,
+          "max": 2,
+          "step": 0.001
+        },
+        {
+          "key": "pitchSemitones",
+          "label": "피치 (반음)",
+          "type": "number",
+          "default": 0,
+          "min": -12,
+          "max": 12,
+          "step": 0.5
+        }
+      ],
+      "preview": {
+        "mode": "solo",
+        "contextFiles": [],
+        "cues": [
+          {
+            "time": 0,
+            "pitch": 0
+          },
+          {
+            "time": 0.5,
+            "pitch": 0
+          },
+          {
+            "time": 1,
+            "pitch": 0
+          }
+        ],
+        "notes": "미리듣기는 제출 음원 확인용입니다. 실제 게임 녹음이나 자동 게임 이벤트 재현이 아닙니다."
+      },
+      "referenceFiles": [
+        {
+          "path": "context/current-synth/04-energy-arrival.wav",
+          "description": "기존 합성 함수 재현 참고음. 실제 게임 녹음·최종 음원 아님."
+        }
+      ],
+      "delivery": {
+        "initial": "0.35~0.55초 수집음 1개. 입자 수만큼 파일을 중첩하지 않기.",
+        "output": "게임용 OGG Vorbis 자동 변환. 업로드 원본은 별도 보관.",
+        "source": "WAV 권장, 디자이너가 가진 지원 오디오 형식도 가능. 손실압축 원본을 OGG로 바꿔도 원음 품질이 복구되지는 않음."
+      },
+      "target": "UnityProject/Assets/Audio/SFX/sfx-energy-collect.ogg",
+      "apply": {
+        "slot": "sfx-energy-collect",
+        "hook": "NeonGame.Chain → Collecting 시작 / NeonAudio.Collect(reward/24)",
+        "integrationStatus": "shared-preview",
+        "notes": "현재 .50초 수집단계 시작에 한 번. 입자별/상단도착별 소리는 아님. gain .40~.60 pitch1~1.18. 강화와 같은 프레임 재생하므로 강화를 가리지 않게."
+      },
+      "acceptance": [
+        "반복 청취와 여러 효과 동시 재생에서 피로·클리핑 확인",
+        "폰 스피커 모노와 이어폰에서 사건 의미 확인",
+        "불필요한 앞 무음과 지나치게 긴 꼬리 제거"
+      ],
+      "scene": {
+        "caption": "폭발 뒤 에너지가 위쪽으로 모이는 수집. 영상은 점화부터 이어지는 전체 흐름.",
+        "source": "test-scene",
+        "poster": "context/scenes/collect.webp",
+        "video": "context/scenes/detonation.mp4"
+      }
+    },
+    {
+      "id": "sfx-star-upgrade",
+      "title": "별 강화 · 출력 상승",
+      "category": "별과 성장",
+      "priority": "P0",
+      "kind": "sfx",
+      "status": "requested",
+      "brief": "상단 별의 출력이 한 단계 올라갈 때 짧고 확실한 완결음. 수집의 상승 뒤 환해지는 화음으로 강화 전후를 구분합니다.",
+      "productionNote": "현재 게임에서 시험 가능",
+      "spec": {
+        "sampleRate": 48000,
+        "channels": 1,
+        "format": "ogg",
+        "codec": "vorbis",
+        "maxDurationSeconds": 1.1
+      },
+      "parameters": [
+        {
+          "key": "gainDb",
+          "label": "음량 (dB)",
+          "type": "number",
+          "default": 0,
+          "min": -24,
+          "max": 6,
+          "step": 0.5
+        },
+        {
+          "key": "trimStart",
+          "label": "시작 자르기 (초)",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 12,
+          "step": 0.01
+        },
+        {
+          "key": "trimEnd",
+          "label": "끝 자르기 (0=끝)",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 12,
+          "step": 0.01
+        },
+        {
+          "key": "fadeIn",
+          "label": "페이드 인 (초)",
+          "type": "number",
+          "default": 0.003,
+          "min": 0,
+          "max": 2,
+          "step": 0.001
+        },
+        {
+          "key": "fadeOut",
+          "label": "페이드 아웃 (초)",
+          "type": "number",
+          "default": 0.015,
+          "min": 0,
+          "max": 2,
+          "step": 0.001
+        },
+        {
+          "key": "pitchSemitones",
+          "label": "피치 (반음)",
+          "type": "number",
+          "default": 0,
+          "min": -12,
+          "max": 12,
+          "step": 0.5
+        }
+      ],
+      "preview": {
+        "mode": "solo",
+        "contextFiles": [],
+        "cues": [
+          {
+            "time": 0,
+            "pitch": 0
+          },
+          {
+            "time": 0.5,
+            "pitch": 0
+          },
+          {
+            "time": 1,
+            "pitch": 0
+          }
+        ],
+        "notes": "미리듣기는 제출 음원 확인용입니다. 실제 게임 녹음이나 자동 게임 이벤트 재현이 아닙니다."
+      },
+      "referenceFiles": [
+        {
+          "path": "context/current-synth/06-star-strengthened.wav",
+          "description": "기존 합성 함수 재현 참고음. 실제 게임 녹음·최종 음원 아님."
+        }
+      ],
+      "delivery": {
+        "initial": "0.55~0.95초 보상음 1개. 단계마다 무한히 새파일 대신 공통 정체성 유지.",
+        "output": "게임용 OGG Vorbis 자동 변환. 업로드 원본은 별도 보관.",
+        "source": "WAV 권장, 디자이너가 가진 지원 오디오 형식도 가능. 손실압축 원본을 OGG로 바꿔도 원음 품질이 복구되지는 않음."
+      },
+      "target": "UnityProject/Assets/Audio/SFX/sfx-star-upgrade.ogg",
+      "apply": {
+        "slot": "sfx-star-upgrade",
+        "hook": "NeonGame.Chain의 레벨 변화 → NeonAudio.Upgrade",
+        "integrationStatus": "ready",
+        "notes": "현재 Collecting 시작에서 수집음과 동시 재생. 상단 도착 타이밍 조정은 후속 구현. gain .80 우선순위6; 잔향이 다음턴입력을 가리지 않음."
+      },
+      "acceptance": [
+        "반복 청취와 여러 효과 동시 재생에서 피로·클리핑 확인",
+        "폰 스피커 모노와 이어폰에서 사건 의미 확인",
+        "불필요한 앞 무음과 지나치게 긴 꼬리 제거"
+      ],
+      "scene": {
+        "caption": "강해진 상단 별과 게이지의 실제 렌더링. 강화 보상음의 기준 화면.",
+        "source": "test-scene",
+        "poster": "context/scenes/upgrade.webp"
+      }
+    },
+    {
+      "id": "sfx-wall-impact",
+      "title": "벽 반사 · 작은 접촉",
+      "category": "별과 성장",
+      "priority": "P1",
+      "kind": "sfx",
+      "status": "requested",
+      "brief": "블록 타격보다 작고 짧은 마른 틱. 벽 반사에서 연결 충전이나 에너지 획득이 일어난 것처럼 들리지 않게 합니다.",
+      "productionNote": "게임 연결 예정",
+      "spec": {
+        "sampleRate": 48000,
+        "channels": 1,
+        "format": "ogg",
+        "codec": "vorbis",
+        "maxDurationSeconds": 0.15
+      },
+      "parameters": [
+        {
+          "key": "gainDb",
+          "label": "음량 (dB)",
+          "type": "number",
+          "default": 0,
+          "min": -24,
+          "max": 6,
+          "step": 0.5
+        },
+        {
+          "key": "trimStart",
+          "label": "시작 자르기 (초)",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 12,
+          "step": 0.01
+        },
+        {
+          "key": "trimEnd",
+          "label": "끝 자르기 (0=끝)",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 12,
+          "step": 0.01
+        },
+        {
+          "key": "fadeIn",
+          "label": "페이드 인 (초)",
+          "type": "number",
+          "default": 0.003,
+          "min": 0,
+          "max": 2,
+          "step": 0.001
+        },
+        {
+          "key": "fadeOut",
+          "label": "페이드 아웃 (초)",
+          "type": "number",
+          "default": 0.015,
+          "min": 0,
+          "max": 2,
+          "step": 0.001
+        },
+        {
+          "key": "pitchSemitones",
+          "label": "피치 (반음)",
+          "type": "number",
+          "default": 0,
+          "min": -12,
+          "max": 12,
+          "step": 0.5
+        }
+      ],
+      "preview": {
+        "mode": "solo",
+        "contextFiles": [],
+        "cues": [
+          {
+            "time": 0,
+            "pitch": 0
+          },
+          {
+            "time": 0.5,
+            "pitch": 0
+          },
+          {
+            "time": 1,
+            "pitch": 0
+          }
+        ],
+        "notes": "미리듣기는 제출 음원 확인용입니다. 실제 게임 녹음이나 자동 게임 이벤트 재현이 아닙니다."
+      },
+      "referenceFiles": [],
+      "delivery": {
+        "initial": "0.04~0.10초 접촉음 1개.",
+        "output": "게임용 OGG Vorbis 자동 변환. 업로드 원본은 별도 보관.",
+        "source": "WAV 권장, 디자이너가 가진 지원 오디오 형식도 가능. 손실압축 원본을 OGG로 바꿔도 원음 품질이 복구되지는 않음."
+      },
+      "target": "UnityProject/Assets/Audio/SFX/sfx-wall-impact.ogg",
+      "apply": {
+        "slot": "sfx-wall-impact",
+        "hook": "NeonGame.AddSpark의 tile==null 분리",
+        "integrationStatus": "planned",
+        "notes": "현재 비범퍼 공통 접촉 재생. 독립 슬롯과 블록보다 낮은gain 연결 필요."
+      },
+      "acceptance": [
+        "반복 청취와 여러 효과 동시 재생에서 피로·클리핑 확인",
+        "폰 스피커 모노와 이어폰에서 사건 의미 확인",
+        "불필요한 앞 무음과 지나치게 긴 꼬리 제거"
+      ],
+      "scene": {
+        "caption": "전장 좌우 벽 위치 참고. 벽 반사 전용음은 게임 연결 예정.",
+        "source": "test-scene",
+        "poster": "context/scenes/game.webp"
+      }
+    },
+    {
+      "id": "sfx-board-rise",
+      "title": "턴 종료 · 블록 상승과 등장",
+      "category": "판 진행",
+      "priority": "P1",
+      "kind": "sfx",
+      "status": "requested",
+      "brief": "살아남은 블록이 한 칸 올라오며 짧게 자리를 잡는 공간 이동음. 블록 개수와 무관하게 판 전체에서 한 번 울립니다.",
+      "productionNote": "게임 연결 예정",
+      "spec": {
+        "sampleRate": 48000,
+        "channels": 1,
+        "format": "ogg",
+        "codec": "vorbis",
+        "maxDurationSeconds": 0.85
+      },
+      "parameters": [
+        {
+          "key": "gainDb",
+          "label": "음량 (dB)",
+          "type": "number",
+          "default": 0,
+          "min": -24,
+          "max": 6,
+          "step": 0.5
+        },
+        {
+          "key": "trimStart",
+          "label": "시작 자르기 (초)",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 12,
+          "step": 0.01
+        },
+        {
+          "key": "trimEnd",
+          "label": "끝 자르기 (0=끝)",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 12,
+          "step": 0.01
+        },
+        {
+          "key": "fadeIn",
+          "label": "페이드 인 (초)",
+          "type": "number",
+          "default": 0.003,
+          "min": 0,
+          "max": 2,
+          "step": 0.001
+        },
+        {
+          "key": "fadeOut",
+          "label": "페이드 아웃 (초)",
+          "type": "number",
+          "default": 0.015,
+          "min": 0,
+          "max": 2,
+          "step": 0.001
+        },
+        {
+          "key": "pitchSemitones",
+          "label": "피치 (반음)",
+          "type": "number",
+          "default": 0,
+          "min": -12,
+          "max": 12,
+          "step": 0.5
+        }
+      ],
+      "preview": {
+        "mode": "solo",
+        "contextFiles": [],
+        "cues": [
+          {
+            "time": 0,
+            "pitch": 0
+          },
+          {
+            "time": 0.5,
+            "pitch": 0
+          },
+          {
+            "time": 1,
+            "pitch": 0
+          }
+        ],
+        "notes": "미리듣기는 제출 음원 확인용입니다. 실제 게임 녹음이나 자동 게임 이벤트 재현이 아닙니다."
+      },
+      "referenceFiles": [],
+      "delivery": {
+        "initial": "0.35~0.50초 기준음 1개; 첫등장용 길이변형은 같은소재 재사용.",
+        "output": "게임용 OGG Vorbis 자동 변환. 업로드 원본은 별도 보관.",
+        "source": "WAV 권장, 디자이너가 가진 지원 오디오 형식도 가능. 손실압축 원본을 OGG로 바꿔도 원음 품질이 복구되지는 않음."
+      },
+      "target": "UnityProject/Assets/Audio/SFX/sfx-board-rise.ogg",
+      "apply": {
+        "slot": "sfx-board-rise",
+        "hook": "NeonGame.BeginRise / StartOpening → Rising",
+        "integrationStatus": "planned",
+        "notes": "일반 상승 .44초, 첫 등장 .78초. 같은 소재 길이변형으로 대응. 여러 블록 각각 재생 금지."
+      },
+      "acceptance": [
+        "반복 청취와 여러 효과 동시 재생에서 피로·클리핑 확인",
+        "폰 스피커 모노와 이어폰에서 사건 의미 확인",
+        "불필요한 앞 무음과 지나치게 긴 꼬리 제거"
+      ],
+      "scene": {
+        "caption": "턴 종료 뒤 블록이 올라오는 단계의 참고 화면.",
+        "source": "test-scene",
+        "poster": "context/scenes/rise.webp"
+      }
+    },
+    {
+      "id": "sfx-danger-warning",
+      "title": "위험선 접근 · 짧은 경고",
+      "category": "판 진행",
+      "priority": "P1",
+      "kind": "sfx",
+      "status": "requested",
+      "brief": "위험선에 가까워졌다는 짧고 낮은 두 번의 신호. 계속 울리는 경보 대신 판단해야 할 순간만 알려줍니다.",
+      "productionNote": "게임 연결 예정",
+      "spec": {
+        "sampleRate": 48000,
+        "channels": 1,
+        "format": "ogg",
+        "codec": "vorbis",
+        "maxDurationSeconds": 0.55
+      },
+      "parameters": [
+        {
+          "key": "gainDb",
+          "label": "음량 (dB)",
+          "type": "number",
+          "default": 0,
+          "min": -24,
+          "max": 6,
+          "step": 0.5
+        },
+        {
+          "key": "trimStart",
+          "label": "시작 자르기 (초)",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 12,
+          "step": 0.01
+        },
+        {
+          "key": "trimEnd",
+          "label": "끝 자르기 (0=끝)",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 12,
+          "step": 0.01
+        },
+        {
+          "key": "fadeIn",
+          "label": "페이드 인 (초)",
+          "type": "number",
+          "default": 0.003,
+          "min": 0,
+          "max": 2,
+          "step": 0.001
+        },
+        {
+          "key": "fadeOut",
+          "label": "페이드 아웃 (초)",
+          "type": "number",
+          "default": 0.015,
+          "min": 0,
+          "max": 2,
+          "step": 0.001
+        },
+        {
+          "key": "pitchSemitones",
+          "label": "피치 (반음)",
+          "type": "number",
+          "default": 0,
+          "min": -12,
+          "max": 12,
+          "step": 0.5
+        }
+      ],
+      "preview": {
+        "mode": "solo",
+        "contextFiles": [],
+        "cues": [
+          {
+            "time": 0,
+            "pitch": 0
+          },
+          {
+            "time": 0.5,
+            "pitch": 0
+          },
+          {
+            "time": 1,
+            "pitch": 0
+          }
+        ],
+        "notes": "미리듣기는 제출 음원 확인용입니다. 실제 게임 녹음이나 자동 게임 이벤트 재현이 아닙니다."
+      },
+      "referenceFiles": [],
+      "delivery": {
+        "initial": "0.25~0.45초 경고음 1개.",
+        "output": "게임용 OGG Vorbis 자동 변환. 업로드 원본은 별도 보관.",
+        "source": "WAV 권장, 디자이너가 가진 지원 오디오 형식도 가능. 손실압축 원본을 OGG로 바꿔도 원음 품질이 복구되지는 않음."
+      },
+      "target": "UnityProject/Assets/Audio/SFX/sfx-danger-warning.ogg",
+      "apply": {
+        "slot": "sfx-danger-warning",
+        "hook": "NeonGame.Rise 완료 후 위험거리 임계 상태 진입 감지 추가",
+        "integrationStatus": "planned",
+        "notes": "경고 진입/해제에 여유폭을 두고 상태전이에서1회. 매 턴·블록·프레임 반복 금지. 시각 위험선은 유지."
+      },
+      "acceptance": [
+        "반복 청취와 여러 효과 동시 재생에서 피로·클리핑 확인",
+        "폰 스피커 모노와 이어폰에서 사건 의미 확인",
+        "불필요한 앞 무음과 지나치게 긴 꼬리 제거"
+      ],
+      "scene": {
+        "caption": "블록이 위쪽 위험선에 가까워진 검증용 배치.",
+        "source": "test-scene",
+        "poster": "context/scenes/danger.webp"
+      }
+    },
+    {
+      "id": "sfx-run-end",
+      "title": "게임 종료 · 에너지 꺼짐",
+      "category": "판 진행",
+      "priority": "P1",
+      "kind": "sfx",
+      "status": "requested",
+      "brief": "판이 끝났을 때 공명이 가라앉으며 별빛이 꺼지는 짧은 마무리. 놀라게 하는 큰 실패음보다 다음 도전을 받아들이는 톤으로 만듭니다.",
+      "productionNote": "게임 연결 예정",
+      "spec": {
+        "sampleRate": 48000,
+        "channels": 1,
+        "format": "ogg",
+        "codec": "vorbis",
+        "maxDurationSeconds": 1.4
+      },
+      "parameters": [
+        {
+          "key": "gainDb",
+          "label": "음량 (dB)",
+          "type": "number",
+          "default": 0,
+          "min": -24,
+          "max": 6,
+          "step": 0.5
+        },
+        {
+          "key": "trimStart",
+          "label": "시작 자르기 (초)",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 12,
+          "step": 0.01
+        },
+        {
+          "key": "trimEnd",
+          "label": "끝 자르기 (0=끝)",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 12,
+          "step": 0.01
+        },
+        {
+          "key": "fadeIn",
+          "label": "페이드 인 (초)",
+          "type": "number",
+          "default": 0.003,
+          "min": 0,
+          "max": 2,
+          "step": 0.001
+        },
+        {
+          "key": "fadeOut",
+          "label": "페이드 아웃 (초)",
+          "type": "number",
+          "default": 0.015,
+          "min": 0,
+          "max": 2,
+          "step": 0.001
+        },
+        {
+          "key": "pitchSemitones",
+          "label": "피치 (반음)",
+          "type": "number",
+          "default": 0,
+          "min": -12,
+          "max": 12,
+          "step": 0.5
+        }
+      ],
+      "preview": {
+        "mode": "solo",
+        "contextFiles": [],
+        "cues": [
+          {
+            "time": 0,
+            "pitch": 0
+          },
+          {
+            "time": 0.5,
+            "pitch": 0
+          },
+          {
+            "time": 1,
+            "pitch": 0
+          }
+        ],
+        "notes": "미리듣기는 제출 음원 확인용입니다. 실제 게임 녹음이나 자동 게임 이벤트 재현이 아닙니다."
+      },
+      "referenceFiles": [],
+      "delivery": {
+        "initial": "0.7~1.2초 종료음 1개.",
+        "output": "게임용 OGG Vorbis 자동 변환. 업로드 원본은 별도 보관.",
+        "source": "WAV 권장, 디자이너가 가진 지원 오디오 형식도 가능. 손실압축 원본을 OGG로 바꿔도 원음 품질이 복구되지는 않음."
+      },
+      "target": "UnityProject/Assets/Audio/SFX/sfx-run-end.ogg",
+      "apply": {
+        "slot": "sfx-run-end",
+        "hook": "NeonGame.Rise → Lost 확정",
+        "integrationStatus": "planned",
+        "notes": "실제 패배확정1회. 저장된 패배화면 복구/기록열람에는 재생하지 않음. 종료 시 음악처리와 연결 필요."
+      },
+      "acceptance": [
+        "반복 청취와 여러 효과 동시 재생에서 피로·클리핑 확인",
+        "폰 스피커 모노와 이어폰에서 사건 의미 확인",
+        "불필요한 앞 무음과 지나치게 긴 꼬리 제거"
+      ],
+      "scene": {
+        "caption": "패배 결과 화면. 검증용 판의 종료 상태를 실제 UI로 표시.",
+        "source": "test-scene",
+        "poster": "context/scenes/result.webp"
+      }
+    },
+    {
+      "id": "sfx-new-record",
+      "title": "최고 기록 · 신기록 확인",
+      "category": "판 진행",
+      "priority": "P1",
+      "kind": "sfx",
+      "status": "requested",
+      "brief": "한 판에서 이전 최고 기록을 넘겼을 때 짧게 축하하는 별빛 음형. 별 강화와 같은 가족이지만 더 명확한 마무리로 구분합니다.",
+      "productionNote": "게임 연결 예정",
+      "spec": {
+        "sampleRate": 48000,
+        "channels": 1,
+        "format": "ogg",
+        "codec": "vorbis",
+        "maxDurationSeconds": 1.4
+      },
+      "parameters": [
+        {
+          "key": "gainDb",
+          "label": "음량 (dB)",
+          "type": "number",
+          "default": 0,
+          "min": -24,
+          "max": 6,
+          "step": 0.5
+        },
+        {
+          "key": "trimStart",
+          "label": "시작 자르기 (초)",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 12,
+          "step": 0.01
+        },
+        {
+          "key": "trimEnd",
+          "label": "끝 자르기 (0=끝)",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 12,
+          "step": 0.01
+        },
+        {
+          "key": "fadeIn",
+          "label": "페이드 인 (초)",
+          "type": "number",
+          "default": 0.003,
+          "min": 0,
+          "max": 2,
+          "step": 0.001
+        },
+        {
+          "key": "fadeOut",
+          "label": "페이드 아웃 (초)",
+          "type": "number",
+          "default": 0.015,
+          "min": 0,
+          "max": 2,
+          "step": 0.001
+        },
+        {
+          "key": "pitchSemitones",
+          "label": "피치 (반음)",
+          "type": "number",
+          "default": 0,
+          "min": -12,
+          "max": 12,
+          "step": 0.5
+        }
+      ],
+      "preview": {
+        "mode": "solo",
+        "contextFiles": [],
+        "cues": [
+          {
+            "time": 0,
+            "pitch": 0
+          },
+          {
+            "time": 0.5,
+            "pitch": 0
+          },
+          {
+            "time": 1,
+            "pitch": 0
+          }
+        ],
+        "notes": "미리듣기는 제출 음원 확인용입니다. 실제 게임 녹음이나 자동 게임 이벤트 재현이 아닙니다."
+      },
+      "referenceFiles": [],
+      "delivery": {
+        "initial": "0.65~1.1초 보상음 1개.",
+        "output": "게임용 OGG Vorbis 자동 변환. 업로드 원본은 별도 보관.",
+        "source": "WAV 권장, 디자이너가 가진 지원 오디오 형식도 가능. 손실압축 원본을 OGG로 바꿔도 원음 품질이 복구되지는 않음."
+      },
+      "target": "UnityProject/Assets/Audio/SFX/sfx-new-record.ogg",
+      "apply": {
+        "slot": "sfx-new-record",
+        "hook": "NeonLifecycle.RecordRun / NeonServices.RecordCompleted의 저장 성공 뒤 조건추가",
+        "integrationStatus": "planned",
+        "notes": "이전 판 최고값과 비교해 판당1회. 매 웨이브 기록갱신/이어하기/중복 결과처리에서 재생 금지. 연속 강화와 겹치면 순서 조정."
+      },
+      "acceptance": [
+        "반복 청취와 여러 효과 동시 재생에서 피로·클리핑 확인",
+        "폰 스피커 모노와 이어폰에서 사건 의미 확인",
+        "불필요한 앞 무음과 지나치게 긴 꼬리 제거"
+      ],
+      "scene": {
+        "caption": "기록 화면 외형 참고. 신기록 확정 순간의 고유음은 게임 연결 예정.",
+        "source": "game-capture",
+        "poster": "context/scenes/records.webp"
+      }
+    },
+    {
+      "id": "sfx-ui-touch",
+      "title": "메뉴 선택 · 버튼과 설정",
+      "category": "UI",
+      "priority": "P1",
+      "kind": "sfx",
+      "status": "requested",
+      "brief": "차분하고 짧은 유리 클릭. 시작·이어하기·설정·기록·튜토리얼 버튼에 공통으로 사용하고 전투음을 방해하지 않습니다.",
+      "productionNote": "현재 게임에서 시험 가능",
+      "spec": {
+        "sampleRate": 48000,
+        "channels": 1,
+        "format": "ogg",
+        "codec": "vorbis",
+        "maxDurationSeconds": 0.16
+      },
+      "parameters": [
+        {
+          "key": "gainDb",
+          "label": "음량 (dB)",
+          "type": "number",
+          "default": 0,
+          "min": -24,
+          "max": 6,
+          "step": 0.5
+        },
+        {
+          "key": "trimStart",
+          "label": "시작 자르기 (초)",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 12,
+          "step": 0.01
+        },
+        {
+          "key": "trimEnd",
+          "label": "끝 자르기 (0=끝)",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 12,
+          "step": 0.01
+        },
+        {
+          "key": "fadeIn",
+          "label": "페이드 인 (초)",
+          "type": "number",
+          "default": 0.003,
+          "min": 0,
+          "max": 2,
+          "step": 0.001
+        },
+        {
+          "key": "fadeOut",
+          "label": "페이드 아웃 (초)",
+          "type": "number",
+          "default": 0.015,
+          "min": 0,
+          "max": 2,
+          "step": 0.001
+        },
+        {
+          "key": "pitchSemitones",
+          "label": "피치 (반음)",
+          "type": "number",
+          "default": 0,
+          "min": -12,
+          "max": 12,
+          "step": 0.5
+        }
+      ],
+      "preview": {
+        "mode": "solo",
+        "contextFiles": [],
+        "cues": [
+          {
+            "time": 0,
+            "pitch": 0
+          },
+          {
+            "time": 0.5,
+            "pitch": 0
+          },
+          {
+            "time": 1,
+            "pitch": 0
+          }
+        ],
+        "notes": "미리듣기는 제출 음원 확인용입니다. 실제 게임 녹음이나 자동 게임 이벤트 재현이 아닙니다."
+      },
+      "referenceFiles": [
+        {
+          "path": "context/current-synth/05-ui-touch.wav",
+          "description": "기존 합성 함수 재현 참고음. 실제 게임 녹음·최종 음원 아님."
+        }
+      ],
+      "delivery": {
+        "initial": "0.04~0.10초 클릭 1개. 중요한 확인도 우선 이 소재 재사용.",
+        "output": "게임용 OGG Vorbis 자동 변환. 업로드 원본은 별도 보관.",
+        "source": "WAV 권장, 디자이너가 가진 지원 오디오 형식도 가능. 손실압축 원본을 OGG로 바꿔도 원음 품질이 복구되지는 않음."
+      },
+      "target": "UnityProject/Assets/Audio/SFX/sfx-ui-touch.ogg",
+      "apply": {
+        "slot": "sfx-ui-touch",
+        "hook": "NeonView.ShellButton / ConfigureReleaseView.UiSound → NeonAudio.Ui",
+        "integrationStatus": "ready",
+        "notes": "현재 ShellButton/설정slider commit 연결. HUD일시정지·튜토리얼Next/Skip·Esc는 연결누락보완필요. 슬라이더매픽셀음 금지. 동일버튼중복호출 금지."
+      },
+      "acceptance": [
+        "반복 청취와 여러 효과 동시 재생에서 피로·클리핑 확인",
+        "폰 스피커 모노와 이어폰에서 사건 의미 확인",
+        "불필요한 앞 무음과 지나치게 긴 꼬리 제거"
+      ],
+      "scene": {
+        "caption": "타이틀의 시작·메뉴 버튼. 클릭 소리를 짧게 확인.",
+        "source": "game-capture",
+        "poster": "context/scenes/title.webp"
+      }
+    },
+    {
+      "id": "sfx-ui-back",
+      "title": "뒤로 · 취소",
+      "category": "UI",
+      "priority": "P1",
+      "kind": "sfx",
+      "status": "requested",
+      "brief": "선택 클릭과 같은 재질의 더 낮고 짧은 복귀음. 창 닫기·취소·뒤로 이동이 승인과 다르게 느껴지게 합니다.",
+      "productionNote": "게임 연결 예정",
+      "spec": {
+        "sampleRate": 48000,
+        "channels": 1,
+        "format": "ogg",
+        "codec": "vorbis",
+        "maxDurationSeconds": 0.16
+      },
+      "parameters": [
+        {
+          "key": "gainDb",
+          "label": "음량 (dB)",
+          "type": "number",
+          "default": 0,
+          "min": -24,
+          "max": 6,
+          "step": 0.5
+        },
+        {
+          "key": "trimStart",
+          "label": "시작 자르기 (초)",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 12,
+          "step": 0.01
+        },
+        {
+          "key": "trimEnd",
+          "label": "끝 자르기 (0=끝)",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 12,
+          "step": 0.01
+        },
+        {
+          "key": "fadeIn",
+          "label": "페이드 인 (초)",
+          "type": "number",
+          "default": 0.003,
+          "min": 0,
+          "max": 2,
+          "step": 0.001
+        },
+        {
+          "key": "fadeOut",
+          "label": "페이드 아웃 (초)",
+          "type": "number",
+          "default": 0.015,
+          "min": 0,
+          "max": 2,
+          "step": 0.001
+        },
+        {
+          "key": "pitchSemitones",
+          "label": "피치 (반음)",
+          "type": "number",
+          "default": 0,
+          "min": -12,
+          "max": 12,
+          "step": 0.5
+        }
+      ],
+      "preview": {
+        "mode": "solo",
+        "contextFiles": [],
+        "cues": [
+          {
+            "time": 0,
+            "pitch": 0
+          },
+          {
+            "time": 0.5,
+            "pitch": 0
+          },
+          {
+            "time": 1,
+            "pitch": 0
+          }
+        ],
+        "notes": "미리듣기는 제출 음원 확인용입니다. 실제 게임 녹음이나 자동 게임 이벤트 재현이 아닙니다."
+      },
+      "referenceFiles": [],
+      "delivery": {
+        "initial": "0.04~0.10초 복귀음 1개. 선택클릭소재 변형 가능.",
+        "output": "게임용 OGG Vorbis 자동 변환. 업로드 원본은 별도 보관.",
+        "source": "WAV 권장, 디자이너가 가진 지원 오디오 형식도 가능. 손실압축 원본을 OGG로 바꿔도 원음 품질이 복구되지는 않음."
+      },
+      "target": "UnityProject/Assets/Audio/SFX/sfx-ui-back.ogg",
+      "apply": {
+        "slot": "sfx-ui-back",
+        "hook": "NeonLifecycle.BackShell / 확인창취소 분기",
+        "integrationStatus": "planned",
+        "notes": "취소가 실제 수행된 때만1회. 시스템뒤로와화면버튼공통라우팅 필요."
+      },
+      "acceptance": [
+        "반복 청취와 여러 효과 동시 재생에서 피로·클리핑 확인",
+        "폰 스피커 모노와 이어폰에서 사건 의미 확인",
+        "불필요한 앞 무음과 지나치게 긴 꼬리 제거"
+      ],
+      "scene": {
+        "caption": "설정 화면의 복귀 동작을 위한 참고. 뒤로 전용음은 게임 연결 예정.",
+        "source": "game-capture",
+        "poster": "context/scenes/settings.webp"
+      }
+    },
+    {
+      "id": "sfx-ui-error",
+      "title": "처리 실패 · 실행할 수 없음",
+      "category": "UI",
+      "priority": "P1",
+      "kind": "sfx",
+      "status": "requested",
+      "brief": "저장이나 서비스 동작이 실패했을 때 짧고 부드러운 거절음. 결과 설명 문구와 함께 사용하며 반복해서 재촉하지 않습니다.",
+      "productionNote": "게임 연결 예정",
+      "spec": {
+        "sampleRate": 48000,
+        "channels": 1,
+        "format": "ogg",
+        "codec": "vorbis",
+        "maxDurationSeconds": 0.4
+      },
+      "parameters": [
+        {
+          "key": "gainDb",
+          "label": "음량 (dB)",
+          "type": "number",
+          "default": 0,
+          "min": -24,
+          "max": 6,
+          "step": 0.5
+        },
+        {
+          "key": "trimStart",
+          "label": "시작 자르기 (초)",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 12,
+          "step": 0.01
+        },
+        {
+          "key": "trimEnd",
+          "label": "끝 자르기 (0=끝)",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 12,
+          "step": 0.01
+        },
+        {
+          "key": "fadeIn",
+          "label": "페이드 인 (초)",
+          "type": "number",
+          "default": 0.003,
+          "min": 0,
+          "max": 2,
+          "step": 0.001
+        },
+        {
+          "key": "fadeOut",
+          "label": "페이드 아웃 (초)",
+          "type": "number",
+          "default": 0.015,
+          "min": 0,
+          "max": 2,
+          "step": 0.001
+        },
+        {
+          "key": "pitchSemitones",
+          "label": "피치 (반음)",
+          "type": "number",
+          "default": 0,
+          "min": -12,
+          "max": 12,
+          "step": 0.5
+        }
+      ],
+      "preview": {
+        "mode": "solo",
+        "contextFiles": [],
+        "cues": [
+          {
+            "time": 0,
+            "pitch": 0
+          },
+          {
+            "time": 0.5,
+            "pitch": 0
+          },
+          {
+            "time": 1,
+            "pitch": 0
+          }
+        ],
+        "notes": "미리듣기는 제출 음원 확인용입니다. 실제 게임 녹음이나 자동 게임 이벤트 재현이 아닙니다."
+      },
+      "referenceFiles": [],
+      "delivery": {
+        "initial": "0.10~0.25초 거절음 1개.",
+        "output": "게임용 OGG Vorbis 자동 변환. 업로드 원본은 별도 보관.",
+        "source": "WAV 권장, 디자이너가 가진 지원 오디오 형식도 가능. 손실압축 원본을 OGG로 바꿔도 원음 품질이 복구되지는 않음."
+      },
+      "target": "UnityProject/Assets/Audio/SFX/sfx-ui-error.ogg",
+      "apply": {
+        "slot": "sfx-ui-error",
+        "hook": "Persist / FlushCheckpoint 및 사용자 서비스 결과 처리",
+        "integrationStatus": "planned",
+        "notes": "실패한 작업과 연결된1회알림. 백그라운드재시도마다재생금지. 광고를 안 봤다고 실패음 재생하지 않음."
+      },
+      "acceptance": [
+        "반복 청취와 여러 효과 동시 재생에서 피로·클리핑 확인",
+        "폰 스피커 모노와 이어폰에서 사건 의미 확인",
+        "불필요한 앞 무음과 지나치게 긴 꼬리 제거"
+      ],
+      "scene": {
+        "caption": "저장·서비스 처리 실패 알림 장면은 연결 예정입니다.",
+        "source": "planned"
+      }
+    },
+    {
+      "id": "sfx-reward-confirm",
+      "title": "광고 보상 · 실제 지급 확인",
+      "category": "추후 서비스",
+      "priority": "P2",
+      "kind": "sfx",
+      "status": "requested",
+      "brief": "보상형 광고 후 보상이 실제 지급됐을 때 짧은 획득 확인음. 수집 소리와 같은 소재를 재사용할 수 있습니다.",
+      "productionNote": "게임 연결 예정",
+      "spec": {
+        "sampleRate": 48000,
+        "channels": 1,
+        "format": "ogg",
+        "codec": "vorbis",
+        "maxDurationSeconds": 1
+      },
+      "parameters": [
+        {
+          "key": "gainDb",
+          "label": "음량 (dB)",
+          "type": "number",
+          "default": 0,
+          "min": -24,
+          "max": 6,
+          "step": 0.5
+        },
+        {
+          "key": "trimStart",
+          "label": "시작 자르기 (초)",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 12,
+          "step": 0.01
+        },
+        {
+          "key": "trimEnd",
+          "label": "끝 자르기 (0=끝)",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 12,
+          "step": 0.01
+        },
+        {
+          "key": "fadeIn",
+          "label": "페이드 인 (초)",
+          "type": "number",
+          "default": 0.003,
+          "min": 0,
+          "max": 2,
+          "step": 0.001
+        },
+        {
+          "key": "fadeOut",
+          "label": "페이드 아웃 (초)",
+          "type": "number",
+          "default": 0.015,
+          "min": 0,
+          "max": 2,
+          "step": 0.001
+        },
+        {
+          "key": "pitchSemitones",
+          "label": "피치 (반음)",
+          "type": "number",
+          "default": 0,
+          "min": -12,
+          "max": 12,
+          "step": 0.5
+        }
+      ],
+      "preview": {
+        "mode": "solo",
+        "contextFiles": [],
+        "cues": [
+          {
+            "time": 0,
+            "pitch": 0
+          },
+          {
+            "time": 0.5,
+            "pitch": 0
+          },
+          {
+            "time": 1,
+            "pitch": 0
+          }
+        ],
+        "notes": "미리듣기는 제출 음원 확인용입니다. 실제 게임 녹음이나 자동 게임 이벤트 재현이 아닙니다."
+      },
+      "referenceFiles": [],
+      "delivery": {
+        "initial": "0.35~0.75초 보상음 1개 또는 기존수집음 재사용. 서비스연결단계에서확정.",
+        "output": "게임용 OGG Vorbis 자동 변환. 업로드 원본은 별도 보관.",
+        "source": "WAV 권장, 디자이너가 가진 지원 오디오 형식도 가능. 손실압축 원본을 OGG로 바꿔도 원음 품질이 복구되지는 않음."
+      },
+      "target": "UnityProject/Assets/Audio/SFX/sfx-reward-confirm.ogg",
+      "apply": {
+        "slot": "sfx-reward-confirm",
+        "hook": "향후 광고 보상 영수증 확인 + 상태저장 성공 뒤",
+        "integrationStatus": "planned",
+        "notes": "애드몹 아직 미연결. 광고닫힘만으로재생금지. 보상중복차단과실제지급확정뒤1회. 광고재생중게임음악중지정책별도. 출시기본29종완료후선택제작."
+      },
+      "acceptance": [
+        "반복 청취와 여러 효과 동시 재생에서 피로·클리핑 확인",
+        "폰 스피커 모노와 이어폰에서 사건 의미 확인",
+        "불필요한 앞 무음과 지나치게 긴 꼬리 제거"
+      ],
+      "scene": {
+        "caption": "광고 보상이 실제 지급된 뒤의 확인 장면은 서비스 연결 후 준비합니다.",
+        "source": "planned"
+      }
+    }
+  ]
+}

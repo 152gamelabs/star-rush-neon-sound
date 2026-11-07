@@ -1,0 +1,12 @@
+* text=auto
+*.wav -text
+*.mp3 -text
+*.flac -text
+*.ogg -text
+*.m4a -text
+*.aif -text
+*.aiff -text
+*.webp -text
+*.png -text
+*.jpg -text
+*.mp4 -text

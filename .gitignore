@@ -1,0 +1,4 @@
+# Local tests and derived audio are not designer submissions.
+preview/
+bakes/
+exports/
