@@ -109,7 +109,7 @@
       ],
       "scene": {
         "source": "test-scene",
-        "caption": "열 블록 연쇄 파괴 → 0.30초 중앙 집결 → 올클리어 팡파르 → 에너지 보너스 흡수",
+        "caption": "20블록 연쇄 파괴 → 중앙 집결 → 올클리어 팡파르 → 에너지 보너스 흡수",
         "poster": "context/scenes/all-clear-new-0321.webp",
         "video": "context/scenes/all-clear-new-0321.mp4"
       }
@@ -4173,6 +4173,220 @@
         "caption": "올클리어 직전 · 중앙으로 모으기 실제 게임 실행판의 검증용 장면. 영상은 무음입니다.",
         "poster": "context/scenes/all-clear-new-0321.webp",
         "video": "context/scenes/all-clear-new-0321.mp4"
+      }
+    },
+    {
+      "id": "sfx-burst-hypernova",
+      "title": "15개 파괴 · 하이퍼노바",
+      "category": "새 연출",
+      "priority": "P0",
+      "kind": "sfx",
+      "status": "requested",
+      "brief": "15번째 파괴 순간 시작. 첫 0.12초 짧은 역흡입 뒤 금빛 이중 충격파를 두 타격으로 표현합니다. 슈퍼노바보다 넓고 묵직하되 팡파르와 구별되는 음색.",
+      "productionNote": "전용 슬롯에서 시험",
+      "spec": {
+        "sampleRate": 48000,
+        "channels": 1,
+        "format": "ogg",
+        "codec": "vorbis",
+        "maxDurationSeconds": 0.86
+      },
+      "parameters": [
+        {
+          "key": "gainDb",
+          "label": "음량 (dB)",
+          "type": "number",
+          "default": 0,
+          "min": -24,
+          "max": 6,
+          "step": 0.5
+        },
+        {
+          "key": "trimStart",
+          "label": "시작 자르기 (초)",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 12,
+          "step": 0.01
+        },
+        {
+          "key": "trimEnd",
+          "label": "끝 자르기 (0=끝)",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 12,
+          "step": 0.01
+        },
+        {
+          "key": "fadeIn",
+          "label": "페이드 인 (초)",
+          "type": "number",
+          "default": 0.003,
+          "min": 0,
+          "max": 2,
+          "step": 0.001
+        },
+        {
+          "key": "fadeOut",
+          "label": "페이드 아웃 (초)",
+          "type": "number",
+          "default": 0.015,
+          "min": 0,
+          "max": 2,
+          "step": 0.001
+        },
+        {
+          "key": "pitchSemitones",
+          "label": "피치 (반음)",
+          "type": "number",
+          "default": 0,
+          "min": -12,
+          "max": 12,
+          "step": 0.5
+        }
+      ],
+      "preview": {
+        "mode": "solo",
+        "contextFiles": [],
+        "cues": [
+          {
+            "time": 0,
+            "pitch": 0
+          }
+        ],
+        "notes": "미리듣기는 제출 음원 확인용입니다. 실제 게임 녹음이나 자동 게임 이벤트 재현이 아닙니다."
+      },
+      "referenceFiles": [],
+      "delivery": {
+        "initial": "0.86초 이내 기준음 1개. 역흡입과 파동을 한 파일에 포함.",
+        "output": "게임용 OGG Vorbis 자동 변환. 업로드 원본은 별도 보관.",
+        "source": "WAV 권장, 디자이너가 가진 지원 오디오 형식도 가능. 손실압축 원본을 OGG로 바꿔도 원음 품질이 복구되지는 않음."
+      },
+      "target": "UnityProject/Assets/Audio/SFX/sfx-burst-hypernova.ogg",
+      "apply": {
+        "slot": "sfx-burst-hypernova",
+        "hook": "NeonGame.Chain → NeonAudio.Milestone(5)",
+        "integrationStatus": "ready",
+        "notes": "실제로 파괴된 전투 블록 15개 이상에서 한 번. 올클리어는 별도 최고 연출로 이어지며 이 단계가 끝나기 전에 시작할 수 있습니다."
+      },
+      "acceptance": [
+        "순차 폭발과 겹쳐도 단계 상승이 들리는지 확인",
+        "모노 폰 스피커에서 과도한 고음과 클리핑이 없는지 확인"
+      ],
+      "scene": {
+        "source": "test-scene",
+        "caption": "15개 파괴 · 하이퍼노바 실제 실행판 검증용 장면. 무음 영상이며 자동 오디오 동기화는 없습니다.",
+        "poster": "context/scenes/burst-15-0321.webp",
+        "video": "context/scenes/burst-15-0321.mp4"
+      }
+    },
+    {
+      "id": "sfx-burst-galaxy",
+      "title": "20개 파괴 · 갤럭시버스트",
+      "category": "새 연출",
+      "priority": "P0",
+      "kind": "sfx",
+      "status": "requested",
+      "brief": "20번째 파괴 순간 시작. 첫 0.18초 회전하며 모이는 별빛 뒤 세 번의 넓은 파동. 깊은 어택과 반짝이는 상승음. 올클리어가 이어질 때 겹치지 않도록 후반 꼬리는 빠르게 비웁니다.",
+      "productionNote": "전용 슬롯에서 시험",
+      "spec": {
+        "sampleRate": 48000,
+        "channels": 1,
+        "format": "ogg",
+        "codec": "vorbis",
+        "maxDurationSeconds": 1.05
+      },
+      "parameters": [
+        {
+          "key": "gainDb",
+          "label": "음량 (dB)",
+          "type": "number",
+          "default": 0,
+          "min": -24,
+          "max": 6,
+          "step": 0.5
+        },
+        {
+          "key": "trimStart",
+          "label": "시작 자르기 (초)",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 12,
+          "step": 0.01
+        },
+        {
+          "key": "trimEnd",
+          "label": "끝 자르기 (0=끝)",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 12,
+          "step": 0.01
+        },
+        {
+          "key": "fadeIn",
+          "label": "페이드 인 (초)",
+          "type": "number",
+          "default": 0.003,
+          "min": 0,
+          "max": 2,
+          "step": 0.001
+        },
+        {
+          "key": "fadeOut",
+          "label": "페이드 아웃 (초)",
+          "type": "number",
+          "default": 0.015,
+          "min": 0,
+          "max": 2,
+          "step": 0.001
+        },
+        {
+          "key": "pitchSemitones",
+          "label": "피치 (반음)",
+          "type": "number",
+          "default": 0,
+          "min": -12,
+          "max": 12,
+          "step": 0.5
+        }
+      ],
+      "preview": {
+        "mode": "solo",
+        "contextFiles": [],
+        "cues": [
+          {
+            "time": 0,
+            "pitch": 0
+          }
+        ],
+        "notes": "미리듣기는 제출 음원 확인용입니다. 실제 게임 녹음이나 자동 게임 이벤트 재현이 아닙니다."
+      },
+      "referenceFiles": [],
+      "delivery": {
+        "initial": "1.05초 이내 기준음 1개. 역흡입과 파동을 한 파일에 포함.",
+        "output": "게임용 OGG Vorbis 자동 변환. 업로드 원본은 별도 보관.",
+        "source": "WAV 권장, 디자이너가 가진 지원 오디오 형식도 가능. 손실압축 원본을 OGG로 바꿔도 원음 품질이 복구되지는 않음."
+      },
+      "target": "UnityProject/Assets/Audio/SFX/sfx-burst-galaxy.ogg",
+      "apply": {
+        "slot": "sfx-burst-galaxy",
+        "hook": "NeonGame.Chain → NeonAudio.Milestone(6)",
+        "integrationStatus": "ready",
+        "notes": "실제로 파괴된 전투 블록 20개 이상에서 한 번. 올클리어는 별도 최고 연출로 이어지며 이 단계가 끝나기 전에 시작할 수 있습니다."
+      },
+      "acceptance": [
+        "순차 폭발과 겹쳐도 단계 상승이 들리는지 확인",
+        "모노 폰 스피커에서 과도한 고음과 클리핑이 없는지 확인"
+      ],
+      "scene": {
+        "source": "test-scene",
+        "caption": "20개 파괴 · 갤럭시버스트 실제 실행판 검증용 장면. 무음 영상이며 자동 오디오 동기화는 없습니다.",
+        "poster": "context/scenes/burst-20-0321.webp",
+        "video": "context/scenes/burst-20-0321.mp4"
       }
     }
   ]

@@ -1,6 +1,6 @@
 # Star Rush Neon 오디오 연결표
 
-요청 기획·OGG 변환과 실제 게임 이벤트 연결은 별개다. 요청 36개 중 16개를 게임에서 시험할 수 있다. 나머지 20개 역할은 제작 가능 / 게임 연결 예정이다.
+요청 기획·OGG 변환과 실제 게임 이벤트 연결은 별개다. 요청 38개 중 18개를 게임에서 시험할 수 있다. 나머지 20개 역할은 제작 가능 / 게임 연결 예정이다.
 
 | 현재 요청 ID | 호출 | 실제 범위 |
 |---|---|---|
@@ -17,6 +17,7 @@
 
 | sfx-charge-anticipation | Capture → Compress | 점화 직전 압축 시작 1회 |
 | sfx-burst-spark / flare / nova / supernova | Chain → Milestone(1..4) | 실제 전투 블록 3 / 5 / 7 / 10개 파괴 문턱마다 1회 |
+| sfx-burst-hypernova / galaxy | Chain → Milestone(5..6) | 실제 전투 블록 15 / 20개 파괴 문턱마다 1회 |
 | sfx-all-clear-gather | Chain → GatherAllClear | 마지막 폭발 뒤 0.30초 집결, 이후 팡파르 |
 
 ## 다음 연결 작업
