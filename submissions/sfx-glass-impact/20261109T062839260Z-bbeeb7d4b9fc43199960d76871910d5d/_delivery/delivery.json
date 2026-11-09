@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "requestId": "sfx-glass-impact",
+  "revision": "20261109T062839260Z-bbeeb7d4b9fc43199960d76871910d5d",
+  "files": [
+    {
+      "sourceFile": "submissions/sfx-glass-impact/20261109T062839260Z-bbeeb7d4b9fc43199960d76871910d5d/01-Jump_01.wav",
+      "sourceName": "01-Jump_01.wav",
+      "originalName": "Jump_01.wav",
+      "sourceHash": "2e899160b90ad06b0144ee95da60db1fe6c6ce2ca018634a8b22383b10f2b0b0",
+      "outputFile": "submissions/sfx-glass-impact/20261109T062839260Z-bbeeb7d4b9fc43199960d76871910d5d/_delivery/0b38a31805b3de8173743d8b522e840ff91f819c39185c6da4f236dadec59e1b.ogg",
+      "outputHash": "0b38a31805b3de8173743d8b522e840ff91f819c39185c6da4f236dadec59e1b",
+      "duration": 0.118667,
+      "sampleRate": 48000,
+      "channels": 1,
+      "codec": "vorbis",
+      "bytes": 5462,
+      "transform": {
+        "source": {
+          "duration": 0.106009,
+          "codec": "pcm_s16le",
+          "sampleRate": 44100,
+          "channels": 2,
+          "bytes": 19390
+        },
+        "output": {
+          "duration": 0.118667,
+          "codec": "vorbis",
+          "sampleRate": 48000,
+          "channels": 1,
+          "bytes": 5462
+        },
+        "format": "ogg",
+        "codec": "vorbis",
+        "quality": 5,
+        "values": {
+          "gainDb": 0,
+          "trimStart": 0,
+          "trimEnd": 0,
+          "fadeIn": 0.003,
+          "fadeOut": 0.015,
+          "pitchSemitones": 0
+        },
+        "sourceStart": 0,
+        "sourceEnd": 0.106009,
+        "pitchRate": 1,
+        "expectedDuration": 0.106009,
+        "loopWasBaked": false
+      }
+    }
+  ]
+}

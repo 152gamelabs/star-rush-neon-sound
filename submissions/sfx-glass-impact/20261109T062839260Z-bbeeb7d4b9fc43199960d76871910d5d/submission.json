@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "sourceKind": "request",
+  "requestId": "sfx-glass-impact",
+  "revision": "20261109T062839260Z-bbeeb7d4b9fc43199960d76871910d5d",
+  "status": "submitted",
+  "createdAt": "2026-11-09T06:28:39.292Z",
+  "files": [
+    {
+      "name": "01-Jump_01.wav",
+      "originalName": "Jump_01.wav",
+      "step": 1
+    }
+  ],
+  "playback": {
+    "mode": "single"
+  },
+  "parameters": {
+    "gainDb": 0,
+    "trimStart": 0,
+    "trimEnd": 0,
+    "fadeIn": 0.003,
+    "fadeOut": 0.015,
+    "pitchSemitones": 0
+  },
+  "notes": ""
+}
