@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "sourceKind": "request",
+  "requestId": "sfx-crystal-cut",
+  "revision": "20261109T070206795Z-33921d686bf34d41a4825780a2ce221c",
+  "status": "submitted",
+  "createdAt": "2026-11-09T07:02:06.818Z",
+  "files": [
+    {
+      "name": "01-Land_01.wav",
+      "originalName": "Land_01.wav",
+      "step": 1
+    }
+  ],
+  "playback": {
+    "mode": "single"
+  },
+  "parameters": {
+    "gainDb": 0,
+    "trimStart": 0,
+    "trimEnd": 0,
+    "fadeIn": 0.003,
+    "fadeOut": 0.015,
+    "pitchSemitones": 0
+  },
+  "notes": ""
+}

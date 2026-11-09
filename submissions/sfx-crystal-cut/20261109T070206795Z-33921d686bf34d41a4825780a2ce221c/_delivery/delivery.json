@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "requestId": "sfx-crystal-cut",
+  "revision": "20261109T070206795Z-33921d686bf34d41a4825780a2ce221c",
+  "files": [
+    {
+      "sourceFile": "submissions/sfx-crystal-cut/20261109T070206795Z-33921d686bf34d41a4825780a2ce221c/01-Land_01.wav",
+      "sourceName": "01-Land_01.wav",
+      "originalName": "Land_01.wav",
+      "sourceHash": "f7398f4a13f09a563a63d54f5e10e29f9d7128bbe275bc9f7c97c47fcc190bfa",
+      "outputFile": "submissions/sfx-crystal-cut/20261109T070206795Z-33921d686bf34d41a4825780a2ce221c/_delivery/b6eb60278dc3908b9c38a148aaca291a9405b6c5dbf14ec5c3ba82ce0e467ba0.ogg",
+      "outputHash": "b6eb60278dc3908b9c38a148aaca291a9405b6c5dbf14ec5c3ba82ce0e467ba0",
+      "duration": 0.106021,
+      "sampleRate": 48000,
+      "channels": 1,
+      "codec": "vorbis",
+      "bytes": 5553,
+      "transform": {
+        "source": {
+          "duration": 0.106009,
+          "codec": "pcm_s16le",
+          "sampleRate": 44100,
+          "channels": 2,
+          "bytes": 19390
+        },
+        "output": {
+          "duration": 0.106021,
+          "codec": "vorbis",
+          "sampleRate": 48000,
+          "channels": 1,
+          "bytes": 5553
+        },
+        "format": "ogg",
+        "codec": "vorbis",
+        "quality": 5,
+        "values": {
+          "gainDb": 0,
+          "trimStart": 0,
+          "trimEnd": 0,
+          "fadeIn": 0.003,
+          "fadeOut": 0.015,
+          "pitchSemitones": 0
+        },
+        "sourceStart": 0,
+        "sourceEnd": 0.106009,
+        "pitchRate": 1,
+        "expectedDuration": 0.106009,
+        "loopWasBaked": false
+      }
+    }
+  ]
+}
