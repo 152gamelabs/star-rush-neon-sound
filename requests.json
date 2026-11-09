@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "boardVersion": "2.3.0",
+  "boardVersion": "2.4.0",
   "project": "Star Rush Neon",
   "engine": "Unity",
   "updatedAt": "2026-11-09",
@@ -109,9 +109,17 @@
       ],
       "scene": {
         "source": "test-scene",
-        "caption": "20블록 연쇄 파괴 → 중앙 집결 → 올클리어 팡파르 → 에너지 보너스 흡수",
-        "poster": "context/scenes/all-clear-new-0321.webp",
-        "video": "context/scenes/all-clear-new-0321.mp4"
+        "caption": "올클리어 · 전장 정리 팡파르 · 실제 게임 렌더러의 검증용 동작 영상. 장면으로 들어보기에서 현재 음원과 함께 확인합니다.",
+        "poster": "context/scenes/all-clear-new-0323.webp",
+        "video": "context/scenes/all-clear-new-0323.mp4",
+        "cues": [
+          {
+            "time": 4.4667,
+            "step": 1
+          }
+        ],
+        "cueSource": "engine-event-capture",
+        "captureFps": 30
       }
     },
     {
@@ -235,10 +243,18 @@
         "끝→처음 반복 경계의 클릭과 끊김 확인"
       ],
       "scene": {
-        "caption": "타이틀 화면의 별과 연결선. 차분하게 반복되는 음악을 위한 참고.",
-        "source": "game-capture",
-        "poster": "context/scenes/title.webp",
-        "video": "context/scenes/title.mp4"
+        "caption": "타이틀 음악 · 실제 게임 렌더러의 검증용 동작 영상. 장면으로 들어보기에서 현재 음원과 함께 확인합니다.",
+        "source": "test-scene",
+        "poster": "context/scenes/title-0323.webp",
+        "video": "context/scenes/title-0323.mp4",
+        "cues": [
+          {
+            "time": 0,
+            "step": 1
+          }
+        ],
+        "cueSource": "engine-event-capture",
+        "captureFps": 30
       }
     },
     {
@@ -367,10 +383,18 @@
         "끝→처음 반복 경계의 클릭과 끊김 확인"
       ],
       "scene": {
-        "caption": "새 전장의 은하수 배경과 블록 코어 빛. 음악은 배경에 깔리고 코어의 밝기 변화에는 별도 효과음을 두지 않습니다.",
+        "caption": "인게임 음악 · 실제 게임 렌더러의 검증용 동작 영상. 장면으로 들어보기에서 현재 음원과 함께 확인합니다.",
         "source": "test-scene",
-        "poster": "context/scenes/chamber-0317.webp",
-        "video": "context/scenes/chamber-0317.mp4"
+        "poster": "context/scenes/links-0323.webp",
+        "video": "context/scenes/links-0323.mp4",
+        "cues": [
+          {
+            "time": 0,
+            "step": 1
+          }
+        ],
+        "cueSource": "engine-event-capture",
+        "captureFps": 30
       }
     },
     {
@@ -488,10 +512,18 @@
         "불필요한 앞 무음과 지나치게 긴 꼬리 제거"
       ],
       "scene": {
-        "caption": "일반 사각 결정. 영상은 실제 물리로 별을 떨어뜨리는 검증용 접촉 장면.",
+        "caption": "사각 결정 · 기준 유리 타격 · 실제 게임 렌더러의 검증용 동작 영상. 장면으로 들어보기에서 현재 음원과 함께 확인합니다.",
         "source": "test-scene",
-        "poster": "context/scenes/block-glass.webp",
-        "video": "context/scenes/contact.mp4"
+        "poster": "context/scenes/block-glass-0323.webp",
+        "video": "context/scenes/block-glass-0323.mp4",
+        "cues": [
+          {
+            "time": 0.7667,
+            "step": 1
+          }
+        ],
+        "cueSource": "engine-event-capture",
+        "captureFps": 30
       }
     },
     {
@@ -604,9 +636,18 @@
         "불필요한 앞 무음과 지나치게 긴 꼬리 제거"
       ],
       "scene": {
-        "caption": "깎인 결정 형태의 고유 타격음을 위한 외형 참고.",
+        "caption": "육각 컷 결정 · 단단한 톡 · 실제 게임 렌더러의 검증용 동작 영상. 장면으로 들어보기에서 현재 음원과 함께 확인합니다.",
         "source": "test-scene",
-        "poster": "context/scenes/block-cut.webp"
+        "poster": "context/scenes/block-cut-0323.webp",
+        "video": "context/scenes/block-cut-0323.mp4",
+        "cues": [
+          {
+            "time": 0.7667,
+            "step": 1
+          }
+        ],
+        "cueSource": "engine-event-capture",
+        "captureFps": 30
       }
     },
     {
@@ -719,9 +760,18 @@
         "불필요한 앞 무음과 지나치게 긴 꼬리 제거"
       ],
       "scene": {
-        "caption": "팔각 결정의 고유 타격음을 위한 외형 참고.",
+        "caption": "팔각 결정 · 둥근 팅 · 실제 게임 렌더러의 검증용 동작 영상. 장면으로 들어보기에서 현재 음원과 함께 확인합니다.",
         "source": "test-scene",
-        "poster": "context/scenes/block-octagon.webp"
+        "poster": "context/scenes/block-octagon-0323.webp",
+        "video": "context/scenes/block-octagon-0323.mp4",
+        "cues": [
+          {
+            "time": 0.7667,
+            "step": 1
+          }
+        ],
+        "cueSource": "engine-event-capture",
+        "captureFps": 30
       }
     },
     {
@@ -834,9 +884,18 @@
         "불필요한 앞 무음과 지나치게 긴 꼬리 제거"
       ],
       "scene": {
-        "caption": "사다리꼴 결정의 고유 타격음을 위한 외형 참고.",
+        "caption": "사다리꼴 결정 · 꺾이는 틱 · 실제 게임 렌더러의 검증용 동작 영상. 장면으로 들어보기에서 현재 음원과 함께 확인합니다.",
         "source": "test-scene",
-        "poster": "context/scenes/block-trapezoid.webp"
+        "poster": "context/scenes/block-trapezoid-0323.webp",
+        "video": "context/scenes/block-trapezoid-0323.mp4",
+        "cues": [
+          {
+            "time": 0.7667,
+            "step": 1
+          }
+        ],
+        "cueSource": "engine-event-capture",
+        "captureFps": 30
       }
     },
     {
@@ -949,9 +1008,18 @@
         "불필요한 앞 무음과 지나치게 긴 꼬리 제거"
       ],
       "scene": {
-        "caption": "오각 결정의 고유 타격음을 위한 외형 참고.",
+        "caption": "오각 결정 · 얇은 킨 · 실제 게임 렌더러의 검증용 동작 영상. 장면으로 들어보기에서 현재 음원과 함께 확인합니다.",
         "source": "test-scene",
-        "poster": "context/scenes/block-pentagon.webp"
+        "poster": "context/scenes/block-pentagon-0323.webp",
+        "video": "context/scenes/block-pentagon-0323.mp4",
+        "cues": [
+          {
+            "time": 0.8,
+            "step": 1
+          }
+        ],
+        "cueSource": "engine-event-capture",
+        "captureFps": 30
       }
     },
     {
@@ -1064,9 +1132,18 @@
         "불필요한 앞 무음과 지나치게 긴 꼬리 제거"
       ],
       "scene": {
-        "caption": "방패 결정의 고유 타격음을 위한 외형 참고.",
+        "caption": "방패 결정 · 묵직한 통 · 실제 게임 렌더러의 검증용 동작 영상. 장면으로 들어보기에서 현재 음원과 함께 확인합니다.",
         "source": "test-scene",
-        "poster": "context/scenes/block-shield.webp"
+        "poster": "context/scenes/block-shield-0323.webp",
+        "video": "context/scenes/block-shield-0323.mp4",
+        "cues": [
+          {
+            "time": 0.7667,
+            "step": 1
+          }
+        ],
+        "cueSource": "engine-event-capture",
+        "captureFps": 30
       }
     },
     {
@@ -1184,10 +1261,22 @@
         "불필요한 앞 무음과 지나치게 긴 꼬리 제거"
       ],
       "scene": {
-        "caption": "분홍 원형 범퍼 접촉과 탄성 반응. 짧고 경쾌한 어택을 확인.",
+        "caption": "분홍 원형 · 탄성 반발 · 실제 게임 렌더러의 검증용 동작 영상. 장면으로 들어보기에서 현재 음원과 함께 확인합니다.",
         "source": "test-scene",
-        "poster": "context/scenes/block-bumper.webp",
-        "video": "context/scenes/bumper-contact.mp4"
+        "poster": "context/scenes/block-bumper-0323.webp",
+        "video": "context/scenes/block-bumper-0323.mp4",
+        "cues": [
+          {
+            "time": 0.7667,
+            "step": 1
+          },
+          {
+            "time": 1.4667,
+            "step": 2
+          }
+        ],
+        "cueSource": "engine-event-capture",
+        "captureFps": 30
       }
     },
     {
@@ -1300,9 +1389,18 @@
         "불필요한 앞 무음과 지나치게 긴 꼬리 제거"
       ],
       "scene": {
-        "caption": "레일 위에서 움직이는 마름모. 이동 상시음이 아닌 접촉음 요청.",
+        "caption": "초록 이동 마름모 · 짧은 전자 슬라이드 · 실제 게임 렌더러의 검증용 동작 영상. 장면으로 들어보기에서 현재 음원과 함께 확인합니다.",
         "source": "test-scene",
-        "poster": "context/scenes/block-mover.webp"
+        "poster": "context/scenes/block-mover-0323.webp",
+        "video": "context/scenes/block-mover-0323.mp4",
+        "cues": [
+          {
+            "time": 0.7667,
+            "step": 1
+          }
+        ],
+        "cueSource": "engine-event-capture",
+        "captureFps": 30
       }
     },
     {
@@ -1415,10 +1513,18 @@
         "불필요한 앞 무음과 지나치게 긴 꼬리 제거"
       ],
       "scene": {
-        "caption": "왼쪽 경사 블록의 외형과 실제 접촉·반사 참고.",
+        "caption": "왼쪽 경사 · 내려 스치는 슉 · 실제 게임 렌더러의 검증용 동작 영상. 장면으로 들어보기에서 현재 음원과 함께 확인합니다.",
         "source": "test-scene",
-        "poster": "context/scenes/block-slope-left.webp",
-        "video": "context/scenes/slope-contact.mp4"
+        "poster": "context/scenes/block-slope-left-0323.webp",
+        "video": "context/scenes/block-slope-left-0323.mp4",
+        "cues": [
+          {
+            "time": 0.8,
+            "step": 1
+          }
+        ],
+        "cueSource": "engine-event-capture",
+        "captureFps": 30
       }
     },
     {
@@ -1531,9 +1637,18 @@
         "불필요한 앞 무음과 지나치게 긴 꼬리 제거"
       ],
       "scene": {
-        "caption": "반대쪽 경사 블록의 외형 참고. 실제 회전 각도에 따라 반사 방향은 달라짐.",
+        "caption": "오른쪽 경사 · 올라 스치는 쉭 · 실제 게임 렌더러의 검증용 동작 영상. 장면으로 들어보기에서 현재 음원과 함께 확인합니다.",
         "source": "test-scene",
-        "poster": "context/scenes/block-slope-right.webp"
+        "poster": "context/scenes/block-slope-right-0323.webp",
+        "video": "context/scenes/block-slope-right-0323.mp4",
+        "cues": [
+          {
+            "time": 0.8333,
+            "step": 1
+          }
+        ],
+        "cueSource": "engine-event-capture",
+        "captureFps": 30
       }
     },
     {
@@ -1646,9 +1761,18 @@
         "불필요한 앞 무음과 지나치게 긴 꼬리 제거"
       ],
       "scene": {
-        "caption": "주황 점화 블록 외형. 아직 준비되지 않은 상태의 흡수음 요청이며 폭발음과 구분.",
+        "caption": "주황 점화별 · 아직 준비 안 된 흡수 · 실제 게임 렌더러의 검증용 동작 영상. 장면으로 들어보기에서 현재 음원과 함께 확인합니다.",
         "source": "test-scene",
-        "poster": "context/scenes/block-orange.webp"
+        "poster": "context/scenes/block-orange-0323.webp",
+        "video": "context/scenes/block-orange-0323.mp4",
+        "cues": [
+          {
+            "time": 0.7667,
+            "step": 1
+          }
+        ],
+        "cueSource": "engine-event-capture",
+        "captureFps": 30
       }
     },
     {
@@ -1766,10 +1890,18 @@
         "불필요한 앞 무음과 지나치게 긴 꼬리 제거"
       ],
       "scene": {
-        "caption": "블록 사이 연결선과 흐르는 빛. 새 연결·중복 충전의 에너지감 참고.",
+        "caption": "선 연결 · 중복 충전 · 실제 게임 렌더러의 검증용 동작 영상. 장면으로 들어보기에서 현재 음원과 함께 확인합니다.",
         "source": "test-scene",
-        "poster": "context/scenes/links.webp",
-        "video": "context/scenes/links.mp4"
+        "poster": "context/scenes/wall-0323.webp",
+        "video": "context/scenes/wall-0323.mp4",
+        "cues": [
+          {
+            "time": 1.8667,
+            "step": 1
+          }
+        ],
+        "cueSource": "engine-event-capture",
+        "captureFps": 30
       }
     },
     {
@@ -1882,9 +2014,18 @@
         "불필요한 앞 무음과 지나치게 긴 꼬리 제거"
       ],
       "scene": {
-        "caption": "첫 연결이 성공하면 버튼 없이 다음 점화 연습으로 넘어갑니다. 점화 준비 알림음은 게임 연결 예정입니다.",
+        "caption": "점화 준비 완료 알림 · 실제 게임 렌더러의 검증용 동작 영상. 장면으로 들어보기에서 현재 음원과 함께 확인합니다. 게임 연결 예정인 알림은 해당 상태의 참고 시점에 재생합니다.",
         "source": "test-scene",
-        "poster": "context/scenes/tutorial-ignition-0317.webp"
+        "poster": "context/scenes/ready-0323.webp",
+        "video": "context/scenes/ready-0323.mp4",
+        "cues": [
+          {
+            "time": 0.5,
+            "step": 1
+          }
+        ],
+        "cueSource": "engine-event-capture",
+        "captureFps": 30
       }
     },
     {
@@ -1998,9 +2139,17 @@
       ],
       "scene": {
         "source": "test-scene",
-        "caption": "별 흡수 뒤 압축 → 점화 → 단계별 폭발",
-        "poster": "context/scenes/burst-10-0321.webp",
-        "video": "context/scenes/burst-10-0321.mp4"
+        "caption": "점화 직전 · 에너지 압축 · 실제 게임 렌더러의 검증용 동작 영상. 장면으로 들어보기에서 현재 음원과 함께 확인합니다.",
+        "poster": "context/scenes/burst-10-0323.webp",
+        "video": "context/scenes/burst-10-0323.mp4",
+        "cues": [
+          {
+            "time": 0.2333,
+            "step": 1
+          }
+        ],
+        "cueSource": "engine-event-capture",
+        "captureFps": 30
       }
     },
     {
@@ -2118,10 +2267,18 @@
         "불필요한 앞 무음과 지나치게 긴 꼬리 제거"
       ],
       "scene": {
-        "caption": "모은 에너지가 주황 별에서 크게 터지는 중심 점화.",
+        "caption": "주황 점화 · 모았다가 팡 · 실제 게임 렌더러의 검증용 동작 영상. 장면으로 들어보기에서 현재 음원과 함께 확인합니다.",
         "source": "test-scene",
-        "poster": "context/scenes/detonation.webp",
-        "video": "context/scenes/detonation.mp4"
+        "poster": "context/scenes/detonation-0323.webp",
+        "video": "context/scenes/detonation-0323.mp4",
+        "cues": [
+          {
+            "time": 0.9,
+            "step": 1
+          }
+        ],
+        "cueSource": "engine-event-capture",
+        "captureFps": 30
       }
     },
     {
@@ -2239,10 +2396,68 @@
         "불필요한 앞 무음과 지나치게 긴 꼬리 제거"
       ],
       "scene": {
-        "caption": "빛이 연결망을 따라 번지고 블록이 순차적으로 터지는 흐름.",
+        "caption": "연결망 · 순차 연쇄 폭발 · 실제 게임 렌더러의 검증용 동작 영상. 장면으로 들어보기에서 현재 음원과 함께 확인합니다.",
         "source": "test-scene",
-        "poster": "context/scenes/cascade.webp",
-        "video": "context/scenes/detonation.mp4"
+        "poster": "context/scenes/detonation-0323.webp",
+        "video": "context/scenes/detonation-0323.mp4",
+        "cues": [
+          {
+            "time": 0.9333,
+            "step": 1
+          },
+          {
+            "time": 1.0667,
+            "step": 2
+          },
+          {
+            "time": 1.2333,
+            "step": 3
+          },
+          {
+            "time": 1.4,
+            "step": 4
+          },
+          {
+            "time": 1.5667,
+            "step": 5
+          },
+          {
+            "time": 1.7,
+            "step": 6
+          },
+          {
+            "time": 1.8667,
+            "step": 7
+          }
+        ],
+        "cueSource": "engine-event-capture",
+        "captureFps": 30,
+        "sequenceCues": [
+          {
+            "time": 1.0667,
+            "step": 1
+          },
+          {
+            "time": 1.2333,
+            "step": 2
+          },
+          {
+            "time": 1.4,
+            "step": 3
+          },
+          {
+            "time": 1.5667,
+            "step": 4
+          },
+          {
+            "time": 1.7,
+            "step": 5
+          },
+          {
+            "time": 1.8667,
+            "step": 6
+          }
+        ]
       }
     },
     {
@@ -2355,10 +2570,18 @@
         "불필요한 앞 무음과 지나치게 긴 꼬리 제거"
       ],
       "scene": {
-        "caption": "조준 점선은 최대 세 번의 반사를 표시합니다. 기존 무음 영상은 별을 놓는 순간과 낙하 접촉의 참고입니다.",
+        "caption": "별 놓기 · 짧은 출발 · 실제 게임 렌더러의 검증용 동작 영상. 장면으로 들어보기에서 현재 음원과 함께 확인합니다.",
         "source": "test-scene",
-        "poster": "context/scenes/aim-0317.webp",
-        "video": "context/scenes/contact.mp4"
+        "poster": "context/scenes/contact-0323.webp",
+        "video": "context/scenes/contact-0323.mp4",
+        "cues": [
+          {
+            "time": 0.0667,
+            "step": 1
+          }
+        ],
+        "cueSource": "engine-event-capture",
+        "captureFps": 30
       }
     },
     {
@@ -2476,10 +2699,18 @@
         "불필요한 앞 무음과 지나치게 긴 꼬리 제거"
       ],
       "scene": {
-        "caption": "폭발 뒤 에너지가 위쪽으로 모이는 수집. 영상은 점화부터 이어지는 전체 흐름.",
+        "caption": "폭발 에너지 · 위로 모이기 · 실제 게임 렌더러의 검증용 동작 영상. 장면으로 들어보기에서 현재 음원과 함께 확인합니다.",
         "source": "test-scene",
-        "poster": "context/scenes/collect.webp",
-        "video": "context/scenes/detonation.mp4"
+        "poster": "context/scenes/detonation-0323.webp",
+        "video": "context/scenes/detonation-0323.mp4",
+        "cues": [
+          {
+            "time": 2.9667,
+            "step": 1
+          }
+        ],
+        "cueSource": "engine-event-capture",
+        "captureFps": 30
       }
     },
     {
@@ -2597,9 +2828,18 @@
         "불필요한 앞 무음과 지나치게 긴 꼬리 제거"
       ],
       "scene": {
-        "caption": "강해진 상단 별과 게이지의 실제 렌더링. 강화 보상음의 기준 화면.",
+        "caption": "별 강화 · 출력 상승 · 실제 게임 렌더러의 검증용 동작 영상. 장면으로 들어보기에서 현재 음원과 함께 확인합니다.",
         "source": "test-scene",
-        "poster": "context/scenes/upgrade.webp"
+        "poster": "context/scenes/detonation-0323.webp",
+        "video": "context/scenes/detonation-0323.mp4",
+        "cues": [
+          {
+            "time": 2.9667,
+            "step": 1
+          }
+        ],
+        "cueSource": "engine-event-capture",
+        "captureFps": 30
       }
     },
     {
@@ -2712,9 +2952,22 @@
         "불필요한 앞 무음과 지나치게 긴 꼬리 제거"
       ],
       "scene": {
-        "caption": "전장 좌우 벽 위치 참고. 벽 반사 전용음은 게임 연결 예정.",
+        "caption": "벽 반사 · 작은 접촉 · 실제 게임 렌더러의 검증용 동작 영상. 장면으로 들어보기에서 현재 음원과 함께 확인합니다.",
         "source": "test-scene",
-        "poster": "context/scenes/game.webp"
+        "poster": "context/scenes/wall-0323.webp",
+        "video": "context/scenes/wall-0323.mp4",
+        "cues": [
+          {
+            "time": 1,
+            "step": 1
+          },
+          {
+            "time": 1.1333,
+            "step": 2
+          }
+        ],
+        "cueSource": "engine-event-capture",
+        "captureFps": 30
       }
     },
     {
@@ -2827,9 +3080,18 @@
         "불필요한 앞 무음과 지나치게 긴 꼬리 제거"
       ],
       "scene": {
-        "caption": "턴 종료 뒤 블록이 올라오는 단계의 참고 화면.",
+        "caption": "턴 종료 · 블록 상승과 등장 · 실제 게임 렌더러의 검증용 동작 영상. 장면으로 들어보기에서 현재 음원과 함께 확인합니다. 게임 연결 예정인 알림은 해당 상태의 참고 시점에 재생합니다.",
         "source": "test-scene",
-        "poster": "context/scenes/rise.webp"
+        "poster": "context/scenes/rise-0323.webp",
+        "video": "context/scenes/rise-0323.mp4",
+        "cues": [
+          {
+            "time": 0.5,
+            "step": 1
+          }
+        ],
+        "cueSource": "engine-event-capture",
+        "captureFps": 30
       }
     },
     {
@@ -2942,9 +3204,18 @@
         "불필요한 앞 무음과 지나치게 긴 꼬리 제거"
       ],
       "scene": {
-        "caption": "블록이 위쪽 위험선에 가까워진 검증용 배치.",
+        "caption": "위험선 가까이에 놓인 검증용 판입니다. 경고 소리의 참고 시작점은 0.5초이며 실제 접근 이벤트 연결은 예정입니다.",
         "source": "test-scene",
-        "poster": "context/scenes/danger.webp"
+        "poster": "context/scenes/danger-0323.webp",
+        "video": "context/scenes/danger-0323.mp4",
+        "cues": [
+          {
+            "time": 0.5,
+            "step": 1
+          }
+        ],
+        "cueSource": "engine-event-capture",
+        "captureFps": 30
       }
     },
     {
@@ -3057,9 +3328,18 @@
         "불필요한 앞 무음과 지나치게 긴 꼬리 제거"
       ],
       "scene": {
-        "caption": "패배 결과 화면. 검증용 판의 종료 상태를 실제 UI로 표시.",
+        "caption": "게임 종료 · 에너지 꺼짐 · 실제 게임 렌더러의 검증용 동작 영상. 장면으로 들어보기에서 현재 음원과 함께 확인합니다. 게임 연결 예정인 알림은 해당 상태의 참고 시점에 재생합니다.",
         "source": "test-scene",
-        "poster": "context/scenes/result.webp"
+        "poster": "context/scenes/result-0323.webp",
+        "video": "context/scenes/result-0323.mp4",
+        "cues": [
+          {
+            "time": 0.5,
+            "step": 1
+          }
+        ],
+        "cueSource": "engine-event-capture",
+        "captureFps": 30
       }
     },
     {
@@ -3172,9 +3452,18 @@
         "불필요한 앞 무음과 지나치게 긴 꼬리 제거"
       ],
       "scene": {
-        "caption": "기록 화면 외형 참고. 신기록 확정 순간의 고유음은 게임 연결 예정.",
-        "source": "game-capture",
-        "poster": "context/scenes/records.webp"
+        "caption": "기록 화면 전환 참고입니다. 신기록 확정 연출·게임 소리 연결은 아직 예정이며 이 영상은 신기록 달성을 재현하지 않습니다.",
+        "source": "test-scene",
+        "poster": "context/scenes/record-0323.webp",
+        "video": "context/scenes/record-0323.mp4",
+        "cues": [
+          {
+            "time": 0.5,
+            "step": 1
+          }
+        ],
+        "cueSource": "engine-event-capture",
+        "captureFps": 30
       }
     },
     {
@@ -3292,9 +3581,18 @@
         "불필요한 앞 무음과 지나치게 긴 꼬리 제거"
       ],
       "scene": {
-        "caption": "타이틀의 시작·메뉴 버튼. 클릭 소리를 짧게 확인.",
-        "source": "game-capture",
-        "poster": "context/scenes/title.webp"
+        "caption": "메뉴 선택 · 버튼과 설정 · 실제 게임 렌더러의 검증용 동작 영상. 장면으로 들어보기에서 현재 음원과 함께 확인합니다.",
+        "source": "test-scene",
+        "poster": "context/scenes/menu-touch-0323.webp",
+        "video": "context/scenes/menu-touch-0323.mp4",
+        "cues": [
+          {
+            "time": 0.5,
+            "step": 1
+          }
+        ],
+        "cueSource": "engine-event-capture",
+        "captureFps": 30
       }
     },
     {
@@ -3407,9 +3705,18 @@
         "불필요한 앞 무음과 지나치게 긴 꼬리 제거"
       ],
       "scene": {
-        "caption": "설정 화면의 복귀 동작을 위한 참고. 뒤로 전용음은 게임 연결 예정.",
-        "source": "game-capture",
-        "poster": "context/scenes/settings.webp"
+        "caption": "뒤로 · 취소 · 실제 게임 렌더러의 검증용 동작 영상. 장면으로 들어보기에서 현재 음원과 함께 확인합니다.",
+        "source": "test-scene",
+        "poster": "context/scenes/menu-back-0323.webp",
+        "video": "context/scenes/menu-back-0323.mp4",
+        "cues": [
+          {
+            "time": 0.5,
+            "step": 1
+          }
+        ],
+        "cueSource": "engine-event-capture",
+        "captureFps": 30
       }
     },
     {
@@ -3742,9 +4049,31 @@
       ],
       "scene": {
         "source": "test-scene",
-        "caption": "3개 파괴 · 스파크 실제 게임 실행판의 검증용 장면. 영상은 무음입니다.",
-        "poster": "context/scenes/burst-3-0321.webp",
-        "video": "context/scenes/burst-3-0321.mp4"
+        "caption": "3개 파괴 · 스파크 · 실제 게임 렌더러의 검증용 동작 영상. 장면으로 들어보기에서 현재 음원과 함께 확인합니다.",
+        "poster": "context/scenes/burst-3-0323.webp",
+        "video": "context/scenes/burst-3-0323.mp4",
+        "cues": [
+          {
+            "time": 1.2667,
+            "step": 1
+          }
+        ],
+        "cueSource": "engine-event-capture",
+        "captureFps": 30,
+        "sequenceCues": [
+          {
+            "time": 0.9333,
+            "step": 1
+          },
+          {
+            "time": 1.1,
+            "step": 2
+          },
+          {
+            "time": 1.2667,
+            "step": 3
+          }
+        ]
       }
     },
     {
@@ -3849,9 +4178,39 @@
       ],
       "scene": {
         "source": "test-scene",
-        "caption": "5개 파괴 · 플레어 실제 게임 실행판의 검증용 장면. 영상은 무음입니다.",
-        "poster": "context/scenes/burst-5-0321.webp",
-        "video": "context/scenes/burst-5-0321.mp4"
+        "caption": "5개 파괴 · 플레어 · 실제 게임 렌더러의 검증용 동작 영상. 장면으로 들어보기에서 현재 음원과 함께 확인합니다.",
+        "poster": "context/scenes/burst-5-0323.webp",
+        "video": "context/scenes/burst-5-0323.mp4",
+        "cues": [
+          {
+            "time": 1.6333,
+            "step": 1
+          }
+        ],
+        "cueSource": "engine-event-capture",
+        "captureFps": 30,
+        "sequenceCues": [
+          {
+            "time": 1,
+            "step": 1
+          },
+          {
+            "time": 1.1667,
+            "step": 2
+          },
+          {
+            "time": 1.3333,
+            "step": 3
+          },
+          {
+            "time": 1.5,
+            "step": 4
+          },
+          {
+            "time": 1.6333,
+            "step": 5
+          }
+        ]
       }
     },
     {
@@ -3956,9 +4315,47 @@
       ],
       "scene": {
         "source": "test-scene",
-        "caption": "7개 파괴 · 노바 실제 게임 실행판의 검증용 장면. 영상은 무음입니다.",
-        "poster": "context/scenes/burst-7-0321.webp",
-        "video": "context/scenes/burst-7-0321.mp4"
+        "caption": "7개 파괴 · 노바 · 실제 게임 렌더러의 검증용 동작 영상. 장면으로 들어보기에서 현재 음원과 함께 확인합니다.",
+        "poster": "context/scenes/burst-7-0323.webp",
+        "video": "context/scenes/burst-7-0323.mp4",
+        "cues": [
+          {
+            "time": 2,
+            "step": 1
+          }
+        ],
+        "cueSource": "engine-event-capture",
+        "captureFps": 30,
+        "sequenceCues": [
+          {
+            "time": 1.0333,
+            "step": 1
+          },
+          {
+            "time": 1.2,
+            "step": 2
+          },
+          {
+            "time": 1.3667,
+            "step": 3
+          },
+          {
+            "time": 1.5333,
+            "step": 4
+          },
+          {
+            "time": 1.6667,
+            "step": 5
+          },
+          {
+            "time": 1.8333,
+            "step": 6
+          },
+          {
+            "time": 2,
+            "step": 7
+          }
+        ]
       }
     },
     {
@@ -4063,9 +4460,59 @@
       ],
       "scene": {
         "source": "test-scene",
-        "caption": "10개 파괴 · 슈퍼노바 실제 게임 실행판의 검증용 장면. 영상은 무음입니다.",
-        "poster": "context/scenes/burst-10-0321.webp",
-        "video": "context/scenes/burst-10-0321.mp4"
+        "caption": "10개 파괴 · 슈퍼노바 · 실제 게임 렌더러의 검증용 동작 영상. 장면으로 들어보기에서 현재 음원과 함께 확인합니다.",
+        "poster": "context/scenes/burst-10-0323.webp",
+        "video": "context/scenes/burst-10-0323.mp4",
+        "cues": [
+          {
+            "time": 2.5667,
+            "step": 1
+          }
+        ],
+        "cueSource": "engine-event-capture",
+        "captureFps": 30,
+        "sequenceCues": [
+          {
+            "time": 1.1,
+            "step": 1
+          },
+          {
+            "time": 1.2667,
+            "step": 2
+          },
+          {
+            "time": 1.4333,
+            "step": 3
+          },
+          {
+            "time": 1.6,
+            "step": 4
+          },
+          {
+            "time": 1.7333,
+            "step": 5
+          },
+          {
+            "time": 1.9,
+            "step": 6
+          },
+          {
+            "time": 2.0667,
+            "step": 7
+          },
+          {
+            "time": 2.2333,
+            "step": 8
+          },
+          {
+            "time": 2.4,
+            "step": 9
+          },
+          {
+            "time": 2.5667,
+            "step": 10
+          }
+        ]
       }
     },
     {
@@ -4170,9 +4617,17 @@
       ],
       "scene": {
         "source": "test-scene",
-        "caption": "올클리어 직전 · 중앙으로 모으기 실제 게임 실행판의 검증용 장면. 영상은 무음입니다.",
-        "poster": "context/scenes/all-clear-new-0321.webp",
-        "video": "context/scenes/all-clear-new-0321.mp4"
+        "caption": "올클리어 직전 · 중앙으로 모으기 · 실제 게임 렌더러의 검증용 동작 영상. 장면으로 들어보기에서 현재 음원과 함께 확인합니다.",
+        "poster": "context/scenes/all-clear-new-0323.webp",
+        "video": "context/scenes/all-clear-new-0323.mp4",
+        "cues": [
+          {
+            "time": 4.1667,
+            "step": 1
+          }
+        ],
+        "cueSource": "engine-event-capture",
+        "captureFps": 30
       }
     },
     {
@@ -4277,9 +4732,79 @@
       ],
       "scene": {
         "source": "test-scene",
-        "caption": "15개 파괴 · 하이퍼노바 실제 실행판 검증용 장면. 무음 영상이며 자동 오디오 동기화는 없습니다.",
-        "poster": "context/scenes/burst-15-0321.webp",
-        "video": "context/scenes/burst-15-0321.mp4"
+        "caption": "15개 파괴 · 하이퍼노바 · 실제 게임 렌더러의 검증용 동작 영상. 장면으로 들어보기에서 현재 음원과 함께 확인합니다.",
+        "poster": "context/scenes/burst-15-0323.webp",
+        "video": "context/scenes/burst-15-0323.mp4",
+        "cues": [
+          {
+            "time": 3.3667,
+            "step": 1
+          }
+        ],
+        "cueSource": "engine-event-capture",
+        "captureFps": 30,
+        "sequenceCues": [
+          {
+            "time": 1.1,
+            "step": 1
+          },
+          {
+            "time": 1.2667,
+            "step": 2
+          },
+          {
+            "time": 1.4333,
+            "step": 3
+          },
+          {
+            "time": 1.6,
+            "step": 4
+          },
+          {
+            "time": 1.7333,
+            "step": 5
+          },
+          {
+            "time": 1.9,
+            "step": 6
+          },
+          {
+            "time": 2.0667,
+            "step": 7
+          },
+          {
+            "time": 2.2333,
+            "step": 8
+          },
+          {
+            "time": 2.4,
+            "step": 9
+          },
+          {
+            "time": 2.5667,
+            "step": 10
+          },
+          {
+            "time": 2.7,
+            "step": 11
+          },
+          {
+            "time": 2.8667,
+            "step": 12
+          },
+          {
+            "time": 3.0333,
+            "step": 13
+          },
+          {
+            "time": 3.2,
+            "step": 14
+          },
+          {
+            "time": 3.3667,
+            "step": 15
+          }
+        ]
       }
     },
     {
@@ -4384,9 +4909,99 @@
       ],
       "scene": {
         "source": "test-scene",
-        "caption": "20개 파괴 · 갤럭시버스트 실제 실행판 검증용 장면. 무음 영상이며 자동 오디오 동기화는 없습니다.",
-        "poster": "context/scenes/burst-20-0321.webp",
-        "video": "context/scenes/burst-20-0321.mp4"
+        "caption": "20개 파괴 · 갤럭시버스트 · 실제 게임 렌더러의 검증용 동작 영상. 장면으로 들어보기에서 현재 음원과 함께 확인합니다.",
+        "poster": "context/scenes/burst-20-0323.webp",
+        "video": "context/scenes/burst-20-0323.mp4",
+        "cues": [
+          {
+            "time": 4.1667,
+            "step": 1
+          }
+        ],
+        "cueSource": "engine-event-capture",
+        "captureFps": 30,
+        "sequenceCues": [
+          {
+            "time": 1.1,
+            "step": 1
+          },
+          {
+            "time": 1.2667,
+            "step": 2
+          },
+          {
+            "time": 1.4333,
+            "step": 3
+          },
+          {
+            "time": 1.6,
+            "step": 4
+          },
+          {
+            "time": 1.7333,
+            "step": 5
+          },
+          {
+            "time": 1.9,
+            "step": 6
+          },
+          {
+            "time": 2.0667,
+            "step": 7
+          },
+          {
+            "time": 2.2333,
+            "step": 8
+          },
+          {
+            "time": 2.4,
+            "step": 9
+          },
+          {
+            "time": 2.5667,
+            "step": 10
+          },
+          {
+            "time": 2.7,
+            "step": 11
+          },
+          {
+            "time": 2.8667,
+            "step": 12
+          },
+          {
+            "time": 3.0333,
+            "step": 13
+          },
+          {
+            "time": 3.2,
+            "step": 14
+          },
+          {
+            "time": 3.3667,
+            "step": 15
+          },
+          {
+            "time": 3.5,
+            "step": 16
+          },
+          {
+            "time": 3.6667,
+            "step": 17
+          },
+          {
+            "time": 3.8333,
+            "step": 18
+          },
+          {
+            "time": 4,
+            "step": 19
+          },
+          {
+            "time": 4.1667,
+            "step": 20
+          }
+        ]
       }
     }
   ]
