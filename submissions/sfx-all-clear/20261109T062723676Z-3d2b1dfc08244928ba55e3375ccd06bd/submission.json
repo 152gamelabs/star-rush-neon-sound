@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "sourceKind": "request",
+  "requestId": "sfx-all-clear",
+  "revision": "20261109T062723676Z-3d2b1dfc08244928ba55e3375ccd06bd",
+  "status": "submitted",
+  "createdAt": "2026-11-09T06:27:23.697Z",
+  "files": [
+    {
+      "name": "01-voice_01.wav",
+      "originalName": "voice_01.wav",
+      "step": 1
+    }
+  ],
+  "playback": {
+    "mode": "single"
+  },
+  "parameters": {
+    "gainDb": 0,
+    "trimStart": 0,
+    "trimEnd": 0,
+    "fadeIn": 0.003,
+    "fadeOut": 0.015,
+    "pitchSemitones": 0
+  },
+  "notes": ""
+}
