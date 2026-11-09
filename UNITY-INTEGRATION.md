@@ -1,18 +1,23 @@
 # Star Rush Neon 오디오 연결표
 
-요청 기획·OGG 변환과 실제 게임 이벤트 연결은 별개다. 요청30개 중 시험슬롯9개만 현재 연결됐다. 새21개 역할은 제작 가능 / 게임 연결 예정이다.
+요청 기획·OGG 변환과 실제 게임 이벤트 연결은 별개다. 요청 36개 중 16개를 게임에서 시험할 수 있다. 나머지 20개 역할은 제작 가능 / 게임 연결 예정이다.
 
 | 현재 요청 ID | 호출 | 실제 범위 |
 |---|---|---|
 | sfx-glass-impact | AddSpark → Impact(false) | 모든 비범퍼와 벽 접촉. 향후 사각 variant0 기준음으로 분리 |
 | sfx-bumper-impact | AddSpark → Impact(true) | 분홍 원형 범퍼 |
-| sfx-link-charge | Fall/ChargedEdge 및 Capture 끝 → Charge | 연결·재충전·압축 시작 공용 |
+| sfx-link-charge | Fall/ChargedEdge → Charge | 연결·재충전 |
 | sfx-ignition-blast | ChargeExplosion → Ignite | 첫 중심 점화 |
 | sfx-cascade-burst | Chain → Burst | .16초 cascade tick; 파괴 블록과 정확히1:1 아님 |
+| sfx-all-clear | Chain → AllClear | 올클리어 파동과 배너 등장 시 한 번. 시험 음원이 없으면 기존 합성 팡파르 재생 |
 | sfx-energy-collect | Chain→Collecting → Collect | 수집 시작1회. 입자별·상단도착별 아님 |
 | sfx-star-upgrade | Chain 레벨 변화 → Upgrade | 현재 수집 시작과 같은 프레임 |
 | sfx-ui-touch | ShellButton/slider commit → Ui | HUD pause/튜토리얼/키보드 일부 미연결 |
 | bgm-game-chamber | Awake / musicSource | 타이틀과 인게임 공용 |
+
+| sfx-charge-anticipation | Capture → Compress | 점화 직전 압축 시작 1회 |
+| sfx-burst-spark / flare / nova / supernova | Chain → Milestone(1..4) | 실제 전투 블록 3 / 5 / 7 / 10개 파괴 문턱마다 1회 |
+| sfx-all-clear-gather | Chain → GatherAllClear | 마지막 폭발 뒤 0.30초 집결, 이후 팡파르 |
 
 ## 다음 연결 작업
 

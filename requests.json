@@ -3,9 +3,117 @@
   "boardVersion": "2.3.0",
   "project": "Star Rush Neon",
   "engine": "Unity",
-  "updatedAt": "2026-11-06",
-  "planVersion": 1,
+  "updatedAt": "2026-11-09",
+  "planVersion": 3,
   "requests": [
+    {
+      "id": "sfx-all-clear",
+      "title": "올클리어 · 전장 정리 팡파르",
+      "category": "새 연출",
+      "priority": "P0",
+      "kind": "sfx",
+      "status": "requested",
+      "brief": "연쇄 폭발로 전장에 남은 블록이 모두 사라질 때 한 번 울리는 팡파르입니다. 마지막 파동과 보너스 배너가 뜨는 순간에 어택을 맞추고, 뒤이어 올라가는 별 에너지 수집음이 들릴 여백을 남겨 주세요.",
+      "productionNote": "전용 슬롯에서 시험",
+      "spec": {
+        "sampleRate": 48000,
+        "channels": 1,
+        "format": "ogg",
+        "codec": "vorbis",
+        "maxDurationSeconds": 1.1
+      },
+      "parameters": [
+        {
+          "key": "gainDb",
+          "label": "음량 (dB)",
+          "type": "number",
+          "default": 0,
+          "min": -24,
+          "max": 6,
+          "step": 0.5
+        },
+        {
+          "key": "trimStart",
+          "label": "시작 자르기 (초)",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 12,
+          "step": 0.01
+        },
+        {
+          "key": "trimEnd",
+          "label": "끝 자르기 (0=끝)",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 12,
+          "step": 0.01
+        },
+        {
+          "key": "fadeIn",
+          "label": "페이드 인 (초)",
+          "type": "number",
+          "default": 0.003,
+          "min": 0,
+          "max": 2,
+          "step": 0.001
+        },
+        {
+          "key": "fadeOut",
+          "label": "페이드 아웃 (초)",
+          "type": "number",
+          "default": 0.015,
+          "min": 0,
+          "max": 2,
+          "step": 0.001
+        },
+        {
+          "key": "pitchSemitones",
+          "label": "피치 (반음)",
+          "type": "number",
+          "default": 0,
+          "min": -12,
+          "max": 12,
+          "step": 0.5
+        }
+      ],
+      "preview": {
+        "mode": "solo",
+        "contextFiles": [],
+        "cues": [
+          {
+            "time": 0,
+            "pitch": 0
+          }
+        ],
+        "notes": "미리듣기는 제출 음원 확인용입니다. 실제 게임 녹음이나 자동 게임 이벤트 재현이 아닙니다."
+      },
+      "referenceFiles": [],
+      "delivery": {
+        "initial": "0.65~0.90초 기준음 1개. 짧은 어택과 한 번의 확실한 마무리.",
+        "output": "게임용 OGG Vorbis 자동 변환. 업로드 원본은 별도 보관.",
+        "source": "WAV 권장, 디자이너가 가진 지원 오디오 형식도 가능. 손실압축 원본을 OGG로 바꿔도 원음 품질이 복구되지는 않음."
+      },
+      "target": "UnityProject/Assets/Audio/SFX/sfx-all-clear.ogg",
+      "apply": {
+        "slot": "sfx-all-clear",
+        "hook": "NeonGame.Chain → NeonAudio.AllClear()",
+        "integrationStatus": "ready",
+        "notes": "마지막 파동과 올클리어 배너 등장 시 한 번 재생. 기존 팡파르를 교체하며, 연쇄 폭발음과 에너지 수집음은 별도입니다."
+      },
+      "acceptance": [
+        "마지막 블록 파괴 뒤에 보상 순간이 선명하게 느껴지는지 확인",
+        "연쇄 폭발과 수집음이 팡파르에 묻히지 않는지 확인",
+        "폰 스피커 모노와 이어폰에서 확인"
+      ],
+      "scene": {
+        "source": "test-scene",
+        "caption": "열 블록 연쇄 파괴 → 0.30초 중앙 집결 → 올클리어 팡파르 → 에너지 보너스 흡수",
+        "poster": "context/scenes/all-clear-new-0321.webp",
+        "video": "context/scenes/all-clear-new-0321.mp4"
+      }
+    },
     {
       "id": "bgm-title-chamber",
       "title": "타이틀 음악",
@@ -259,10 +367,10 @@
         "끝→처음 반복 경계의 클릭과 끊김 확인"
       ],
       "scene": {
-        "caption": "별이 튕기며 연결망을 만드는 전장. 음악이 접촉·점화 효과음을 가리지 않게.",
+        "caption": "새 전장의 은하수 배경과 블록 코어 빛. 음악은 배경에 깔리고 코어의 밝기 변화에는 별도 효과음을 두지 않습니다.",
         "source": "test-scene",
-        "poster": "context/scenes/game.webp",
-        "video": "context/scenes/links.mp4"
+        "poster": "context/scenes/chamber-0317.webp",
+        "video": "context/scenes/chamber-0317.mp4"
       }
     },
     {
@@ -1650,7 +1758,7 @@
         "slot": "sfx-link-charge",
         "hook": "NeonGame.Fall / shot.ChargedEdge → NeonAudio.Charge",
         "integrationStatus": "shared-preview",
-        "notes": "현재 최초 연결/재충전/점화 압축 시작 공용. Energy/6에 따라 gain .30~.55, pitch 1~1.15. 향후 압축 전용 분리. 파형 흐름 입자마다 소리 재생하지 않음."
+        "notes": "새 연결과 같은 연결의 재충전. 점화 직전 압축은 sfx-charge-anticipation 전용 슬롯으로 분리되었습니다."
       },
       "acceptance": [
         "반복 청취와 여러 효과 동시 재생에서 피로·클리핑 확인",
@@ -1774,9 +1882,9 @@
         "불필요한 앞 무음과 지나치게 긴 꼬리 제거"
       ],
       "scene": {
-        "caption": "주황으로 이어진 연결망의 외형 참고. 준비 완료 전환음은 게임 연결 예정.",
+        "caption": "첫 연결이 성공하면 버튼 없이 다음 점화 연습으로 넘어갑니다. 점화 준비 알림음은 게임 연결 예정입니다.",
         "source": "test-scene",
-        "poster": "context/scenes/links.webp"
+        "poster": "context/scenes/tutorial-ignition-0317.webp"
       }
     },
     {
@@ -1787,13 +1895,13 @@
       "kind": "sfx",
       "status": "requested",
       "brief": "빛이 모이며 안으로 한 번 당겨지는 짧은 역흡입. 마지막 순간은 여백을 남겨 이어지는 팡이 더 크게 느껴지게 합니다.",
-      "productionNote": "게임 연결 예정",
+      "productionNote": "전용 슬롯에서 시험",
       "spec": {
         "sampleRate": 48000,
         "channels": 1,
         "format": "ogg",
         "codec": "vorbis",
-        "maxDurationSeconds": 0.75
+        "maxDurationSeconds": 0.68
       },
       "parameters": [
         {
@@ -1879,9 +1987,9 @@
       "target": "UnityProject/Assets/Audio/SFX/sfx-charge-anticipation.ogg",
       "apply": {
         "slot": "sfx-charge-anticipation",
-        "hook": "NeonGame.Capture 종료 → Charging / NeonView.ChargeDuration",
-        "integrationStatus": "planned",
-        "notes": "현재 Charge 재사용. 전용 슬롯 및 .34~.68초 압축 길이 동기화 추가 필요. 게임의 결과 확정 시점을 바꾸지 않음."
+        "hook": "NeonGame.Capture → NeonAudio.Compress(strength)",
+        "integrationStatus": "ready",
+        "notes": "점화 직전 0.34~0.68초 압축 단계 시작에 한 번 재생. 선 연결음과 독립된 슬롯."
       },
       "acceptance": [
         "반복 청취와 여러 효과 동시 재생에서 피로·클리핑 확인",
@@ -1889,10 +1997,10 @@
         "불필요한 앞 무음과 지나치게 긴 꼬리 제거"
       ],
       "scene": {
-        "caption": "점화 직전 압축. 영상은 압축부터 폭발·수집까지 전체 흐름 참고.",
         "source": "test-scene",
-        "poster": "context/scenes/charge.webp",
-        "video": "context/scenes/detonation.mp4"
+        "caption": "별 흡수 뒤 압축 → 점화 → 단계별 폭발",
+        "poster": "context/scenes/burst-10-0321.webp",
+        "video": "context/scenes/burst-10-0321.mp4"
       }
     },
     {
@@ -2247,9 +2355,9 @@
         "불필요한 앞 무음과 지나치게 긴 꼬리 제거"
       ],
       "scene": {
-        "caption": "상단 별을 놓아 낙하시키는 순간. 영상은 낙하·블록 접촉 참고.",
+        "caption": "조준 점선은 최대 세 번의 반사를 표시합니다. 기존 무음 영상은 별을 놓는 순간과 낙하 접촉의 참고입니다.",
         "source": "test-scene",
-        "poster": "context/scenes/release.webp",
+        "poster": "context/scenes/aim-0317.webp",
         "video": "context/scenes/contact.mp4"
       }
     },
@@ -3530,6 +3638,541 @@
       "scene": {
         "caption": "광고 보상이 실제 지급된 뒤의 확인 장면은 서비스 연결 후 준비합니다.",
         "source": "planned"
+      }
+    },
+    {
+      "id": "sfx-burst-spark",
+      "title": "3개 파괴 · 스파크",
+      "category": "새 연출",
+      "priority": "P0",
+      "kind": "sfx",
+      "status": "requested",
+      "brief": "세 번째 전투 블록이 실제로 파괴될 때 짧고 맑은 성공음. 다음 폭발음 사이에 들어갈 수 있게 짧게 마무리.",
+      "productionNote": "전용 슬롯에서 시험",
+      "spec": {
+        "sampleRate": 48000,
+        "channels": 1,
+        "format": "ogg",
+        "codec": "vorbis",
+        "maxDurationSeconds": 0.24
+      },
+      "parameters": [
+        {
+          "key": "gainDb",
+          "label": "음량 (dB)",
+          "type": "number",
+          "default": 0,
+          "min": -24,
+          "max": 6,
+          "step": 0.5
+        },
+        {
+          "key": "trimStart",
+          "label": "시작 자르기 (초)",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 12,
+          "step": 0.01
+        },
+        {
+          "key": "trimEnd",
+          "label": "끝 자르기 (0=끝)",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 12,
+          "step": 0.01
+        },
+        {
+          "key": "fadeIn",
+          "label": "페이드 인 (초)",
+          "type": "number",
+          "default": 0.003,
+          "min": 0,
+          "max": 2,
+          "step": 0.001
+        },
+        {
+          "key": "fadeOut",
+          "label": "페이드 아웃 (초)",
+          "type": "number",
+          "default": 0.015,
+          "min": 0,
+          "max": 2,
+          "step": 0.001
+        },
+        {
+          "key": "pitchSemitones",
+          "label": "피치 (반음)",
+          "type": "number",
+          "default": 0,
+          "min": -12,
+          "max": 12,
+          "step": 0.5
+        }
+      ],
+      "preview": {
+        "mode": "solo",
+        "contextFiles": [],
+        "cues": [
+          {
+            "time": 0,
+            "pitch": 0
+          }
+        ],
+        "notes": "미리듣기는 제출 음원 확인용입니다. 실제 게임 녹음이나 자동 게임 이벤트 재현이 아닙니다."
+      },
+      "referenceFiles": [],
+      "delivery": {
+        "initial": "0.24초 이내 기준음 1개. 어택 앞 무음 없이 제작.",
+        "output": "게임용 OGG Vorbis 자동 변환. 업로드 원본은 별도 보관.",
+        "source": "WAV 권장, 디자이너가 가진 지원 오디오 형식도 가능. 손실압축 원본을 OGG로 바꿔도 원음 품질이 복구되지는 않음."
+      },
+      "target": "UnityProject/Assets/Audio/SFX/sfx-burst-spark.ogg",
+      "apply": {
+        "slot": "sfx-burst-spark",
+        "hook": "NeonGame.Chain → NeonAudio.Milestone(1)",
+        "integrationStatus": "ready",
+        "notes": "실제 파괴 누적 횟수의 문턱을 넘을 때 한 번 재생. 한 번의 큰 연쇄에서 앞 단계도 차례로 들립니다. 점화별 자체는 파괴 개수에서 제외합니다."
+      },
+      "acceptance": [
+        "순차 폭발과 겹쳐도 단계 상승이 들리는지 확인",
+        "모노 폰 스피커에서 과도한 고음과 클리핑이 없는지 확인"
+      ],
+      "scene": {
+        "source": "test-scene",
+        "caption": "3개 파괴 · 스파크 실제 게임 실행판의 검증용 장면. 영상은 무음입니다.",
+        "poster": "context/scenes/burst-3-0321.webp",
+        "video": "context/scenes/burst-3-0321.mp4"
+      }
+    },
+    {
+      "id": "sfx-burst-flare",
+      "title": "5개 파괴 · 플레어",
+      "category": "새 연출",
+      "priority": "P0",
+      "kind": "sfx",
+      "status": "requested",
+      "brief": "다섯 번째 파괴 순간에 스파크보다 한 단계 풍성한 상승음. 유리 고음과 가벼운 저음 타격을 겹치기.",
+      "productionNote": "전용 슬롯에서 시험",
+      "spec": {
+        "sampleRate": 48000,
+        "channels": 1,
+        "format": "ogg",
+        "codec": "vorbis",
+        "maxDurationSeconds": 0.32
+      },
+      "parameters": [
+        {
+          "key": "gainDb",
+          "label": "음량 (dB)",
+          "type": "number",
+          "default": 0,
+          "min": -24,
+          "max": 6,
+          "step": 0.5
+        },
+        {
+          "key": "trimStart",
+          "label": "시작 자르기 (초)",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 12,
+          "step": 0.01
+        },
+        {
+          "key": "trimEnd",
+          "label": "끝 자르기 (0=끝)",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 12,
+          "step": 0.01
+        },
+        {
+          "key": "fadeIn",
+          "label": "페이드 인 (초)",
+          "type": "number",
+          "default": 0.003,
+          "min": 0,
+          "max": 2,
+          "step": 0.001
+        },
+        {
+          "key": "fadeOut",
+          "label": "페이드 아웃 (초)",
+          "type": "number",
+          "default": 0.015,
+          "min": 0,
+          "max": 2,
+          "step": 0.001
+        },
+        {
+          "key": "pitchSemitones",
+          "label": "피치 (반음)",
+          "type": "number",
+          "default": 0,
+          "min": -12,
+          "max": 12,
+          "step": 0.5
+        }
+      ],
+      "preview": {
+        "mode": "solo",
+        "contextFiles": [],
+        "cues": [
+          {
+            "time": 0,
+            "pitch": 0
+          }
+        ],
+        "notes": "미리듣기는 제출 음원 확인용입니다. 실제 게임 녹음이나 자동 게임 이벤트 재현이 아닙니다."
+      },
+      "referenceFiles": [],
+      "delivery": {
+        "initial": "0.32초 이내 기준음 1개. 어택 앞 무음 없이 제작.",
+        "output": "게임용 OGG Vorbis 자동 변환. 업로드 원본은 별도 보관.",
+        "source": "WAV 권장, 디자이너가 가진 지원 오디오 형식도 가능. 손실압축 원본을 OGG로 바꿔도 원음 품질이 복구되지는 않음."
+      },
+      "target": "UnityProject/Assets/Audio/SFX/sfx-burst-flare.ogg",
+      "apply": {
+        "slot": "sfx-burst-flare",
+        "hook": "NeonGame.Chain → NeonAudio.Milestone(2)",
+        "integrationStatus": "ready",
+        "notes": "실제 파괴 누적 횟수의 문턱을 넘을 때 한 번 재생. 한 번의 큰 연쇄에서 앞 단계도 차례로 들립니다. 점화별 자체는 파괴 개수에서 제외합니다."
+      },
+      "acceptance": [
+        "순차 폭발과 겹쳐도 단계 상승이 들리는지 확인",
+        "모노 폰 스피커에서 과도한 고음과 클리핑이 없는지 확인"
+      ],
+      "scene": {
+        "source": "test-scene",
+        "caption": "5개 파괴 · 플레어 실제 게임 실행판의 검증용 장면. 영상은 무음입니다.",
+        "poster": "context/scenes/burst-5-0321.webp",
+        "video": "context/scenes/burst-5-0321.mp4"
+      }
+    },
+    {
+      "id": "sfx-burst-nova",
+      "title": "7개 파괴 · 노바",
+      "category": "새 연출",
+      "priority": "P0",
+      "kind": "sfx",
+      "status": "requested",
+      "brief": "일곱 번째 파괴와 보라 파동에 맞추는 강한 보상음. 짧은 어택 뒤 넓어지는 잔향으로 단계 상승을 전달.",
+      "productionNote": "전용 슬롯에서 시험",
+      "spec": {
+        "sampleRate": 48000,
+        "channels": 1,
+        "format": "ogg",
+        "codec": "vorbis",
+        "maxDurationSeconds": 0.42
+      },
+      "parameters": [
+        {
+          "key": "gainDb",
+          "label": "음량 (dB)",
+          "type": "number",
+          "default": 0,
+          "min": -24,
+          "max": 6,
+          "step": 0.5
+        },
+        {
+          "key": "trimStart",
+          "label": "시작 자르기 (초)",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 12,
+          "step": 0.01
+        },
+        {
+          "key": "trimEnd",
+          "label": "끝 자르기 (0=끝)",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 12,
+          "step": 0.01
+        },
+        {
+          "key": "fadeIn",
+          "label": "페이드 인 (초)",
+          "type": "number",
+          "default": 0.003,
+          "min": 0,
+          "max": 2,
+          "step": 0.001
+        },
+        {
+          "key": "fadeOut",
+          "label": "페이드 아웃 (초)",
+          "type": "number",
+          "default": 0.015,
+          "min": 0,
+          "max": 2,
+          "step": 0.001
+        },
+        {
+          "key": "pitchSemitones",
+          "label": "피치 (반음)",
+          "type": "number",
+          "default": 0,
+          "min": -12,
+          "max": 12,
+          "step": 0.5
+        }
+      ],
+      "preview": {
+        "mode": "solo",
+        "contextFiles": [],
+        "cues": [
+          {
+            "time": 0,
+            "pitch": 0
+          }
+        ],
+        "notes": "미리듣기는 제출 음원 확인용입니다. 실제 게임 녹음이나 자동 게임 이벤트 재현이 아닙니다."
+      },
+      "referenceFiles": [],
+      "delivery": {
+        "initial": "0.42초 이내 기준음 1개. 어택 앞 무음 없이 제작.",
+        "output": "게임용 OGG Vorbis 자동 변환. 업로드 원본은 별도 보관.",
+        "source": "WAV 권장, 디자이너가 가진 지원 오디오 형식도 가능. 손실압축 원본을 OGG로 바꿔도 원음 품질이 복구되지는 않음."
+      },
+      "target": "UnityProject/Assets/Audio/SFX/sfx-burst-nova.ogg",
+      "apply": {
+        "slot": "sfx-burst-nova",
+        "hook": "NeonGame.Chain → NeonAudio.Milestone(3)",
+        "integrationStatus": "ready",
+        "notes": "실제 파괴 누적 횟수의 문턱을 넘을 때 한 번 재생. 한 번의 큰 연쇄에서 앞 단계도 차례로 들립니다. 점화별 자체는 파괴 개수에서 제외합니다."
+      },
+      "acceptance": [
+        "순차 폭발과 겹쳐도 단계 상승이 들리는지 확인",
+        "모노 폰 스피커에서 과도한 고음과 클리핑이 없는지 확인"
+      ],
+      "scene": {
+        "source": "test-scene",
+        "caption": "7개 파괴 · 노바 실제 게임 실행판의 검증용 장면. 영상은 무음입니다.",
+        "poster": "context/scenes/burst-7-0321.webp",
+        "video": "context/scenes/burst-7-0321.mp4"
+      }
+    },
+    {
+      "id": "sfx-burst-supernova",
+      "title": "10개 파괴 · 슈퍼노바",
+      "category": "새 연출",
+      "priority": "P0",
+      "kind": "sfx",
+      "status": "requested",
+      "brief": "열 번째 파괴와 청백색 파동의 큰 성취음. 선명한 저음과 별빛 음색을 함께 쓰되 후속 올클리어 팡파르가 들어올 자리를 남기기.",
+      "productionNote": "전용 슬롯에서 시험",
+      "spec": {
+        "sampleRate": 48000,
+        "channels": 1,
+        "format": "ogg",
+        "codec": "vorbis",
+        "maxDurationSeconds": 0.52
+      },
+      "parameters": [
+        {
+          "key": "gainDb",
+          "label": "음량 (dB)",
+          "type": "number",
+          "default": 0,
+          "min": -24,
+          "max": 6,
+          "step": 0.5
+        },
+        {
+          "key": "trimStart",
+          "label": "시작 자르기 (초)",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 12,
+          "step": 0.01
+        },
+        {
+          "key": "trimEnd",
+          "label": "끝 자르기 (0=끝)",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 12,
+          "step": 0.01
+        },
+        {
+          "key": "fadeIn",
+          "label": "페이드 인 (초)",
+          "type": "number",
+          "default": 0.003,
+          "min": 0,
+          "max": 2,
+          "step": 0.001
+        },
+        {
+          "key": "fadeOut",
+          "label": "페이드 아웃 (초)",
+          "type": "number",
+          "default": 0.015,
+          "min": 0,
+          "max": 2,
+          "step": 0.001
+        },
+        {
+          "key": "pitchSemitones",
+          "label": "피치 (반음)",
+          "type": "number",
+          "default": 0,
+          "min": -12,
+          "max": 12,
+          "step": 0.5
+        }
+      ],
+      "preview": {
+        "mode": "solo",
+        "contextFiles": [],
+        "cues": [
+          {
+            "time": 0,
+            "pitch": 0
+          }
+        ],
+        "notes": "미리듣기는 제출 음원 확인용입니다. 실제 게임 녹음이나 자동 게임 이벤트 재현이 아닙니다."
+      },
+      "referenceFiles": [],
+      "delivery": {
+        "initial": "0.52초 이내 기준음 1개. 어택 앞 무음 없이 제작.",
+        "output": "게임용 OGG Vorbis 자동 변환. 업로드 원본은 별도 보관.",
+        "source": "WAV 권장, 디자이너가 가진 지원 오디오 형식도 가능. 손실압축 원본을 OGG로 바꿔도 원음 품질이 복구되지는 않음."
+      },
+      "target": "UnityProject/Assets/Audio/SFX/sfx-burst-supernova.ogg",
+      "apply": {
+        "slot": "sfx-burst-supernova",
+        "hook": "NeonGame.Chain → NeonAudio.Milestone(4)",
+        "integrationStatus": "ready",
+        "notes": "실제 파괴 누적 횟수의 문턱을 넘을 때 한 번 재생. 한 번의 큰 연쇄에서 앞 단계도 차례로 들립니다. 점화별 자체는 파괴 개수에서 제외합니다."
+      },
+      "acceptance": [
+        "순차 폭발과 겹쳐도 단계 상승이 들리는지 확인",
+        "모노 폰 스피커에서 과도한 고음과 클리핑이 없는지 확인"
+      ],
+      "scene": {
+        "source": "test-scene",
+        "caption": "10개 파괴 · 슈퍼노바 실제 게임 실행판의 검증용 장면. 영상은 무음입니다.",
+        "poster": "context/scenes/burst-10-0321.webp",
+        "video": "context/scenes/burst-10-0321.mp4"
+      }
+    },
+    {
+      "id": "sfx-all-clear-gather",
+      "title": "올클리어 직전 · 중앙으로 모으기",
+      "category": "새 연출",
+      "priority": "P0",
+      "kind": "sfx",
+      "status": "requested",
+      "brief": "마지막 블록의 폭발이 시작된 뒤 0.30초 동안 빛이 중앙으로 모이는 상승 스웰. 0.30초 지점에서 올클리어 팡파르가 바로 이어짐.",
+      "productionNote": "전용 슬롯에서 시험",
+      "spec": {
+        "sampleRate": 48000,
+        "channels": 1,
+        "format": "ogg",
+        "codec": "vorbis",
+        "maxDurationSeconds": 0.3
+      },
+      "parameters": [
+        {
+          "key": "gainDb",
+          "label": "음량 (dB)",
+          "type": "number",
+          "default": 0,
+          "min": -24,
+          "max": 6,
+          "step": 0.5
+        },
+        {
+          "key": "trimStart",
+          "label": "시작 자르기 (초)",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 12,
+          "step": 0.01
+        },
+        {
+          "key": "trimEnd",
+          "label": "끝 자르기 (0=끝)",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 12,
+          "step": 0.01
+        },
+        {
+          "key": "fadeIn",
+          "label": "페이드 인 (초)",
+          "type": "number",
+          "default": 0.003,
+          "min": 0,
+          "max": 2,
+          "step": 0.001
+        },
+        {
+          "key": "fadeOut",
+          "label": "페이드 아웃 (초)",
+          "type": "number",
+          "default": 0.015,
+          "min": 0,
+          "max": 2,
+          "step": 0.001
+        },
+        {
+          "key": "pitchSemitones",
+          "label": "피치 (반음)",
+          "type": "number",
+          "default": 0,
+          "min": -12,
+          "max": 12,
+          "step": 0.5
+        }
+      ],
+      "preview": {
+        "mode": "solo",
+        "contextFiles": [],
+        "cues": [
+          {
+            "time": 0,
+            "pitch": 0
+          }
+        ],
+        "notes": "미리듣기는 제출 음원 확인용입니다. 실제 게임 녹음이나 자동 게임 이벤트 재현이 아닙니다."
+      },
+      "referenceFiles": [],
+      "delivery": {
+        "initial": "0.3초 이내 기준음 1개. 어택 앞 무음 없이 제작.",
+        "output": "게임용 OGG Vorbis 자동 변환. 업로드 원본은 별도 보관.",
+        "source": "WAV 권장, 디자이너가 가진 지원 오디오 형식도 가능. 손실압축 원본을 OGG로 바꿔도 원음 품질이 복구되지는 않음."
+      },
+      "target": "UnityProject/Assets/Audio/SFX/sfx-all-clear-gather.ogg",
+      "apply": {
+        "slot": "sfx-all-clear-gather",
+        "hook": "NeonGame.Chain → NeonAudio.GatherAllClear()",
+        "integrationStatus": "ready",
+        "notes": "올클리어가 확정된 연쇄에서 마지막 폭발 직후 한 번 재생. 0.30초 뒤 팡파르로 연결."
+      },
+      "acceptance": [
+        "순차 폭발과 겹쳐도 단계 상승이 들리는지 확인",
+        "모노 폰 스피커에서 과도한 고음과 클리핑이 없는지 확인"
+      ],
+      "scene": {
+        "source": "test-scene",
+        "caption": "올클리어 직전 · 중앙으로 모으기 실제 게임 실행판의 검증용 장면. 영상은 무음입니다.",
+        "poster": "context/scenes/all-clear-new-0321.webp",
+        "video": "context/scenes/all-clear-new-0321.mp4"
       }
     }
   ]
