@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "sourceKind": "request",
+  "requestId": "sfx-crystal-octagon",
+  "revision": "20261109T062856892Z-ce3dc95a6029431ebe7ac5697f86e47e",
+  "status": "submitted",
+  "createdAt": "2026-11-09T06:28:56.924Z",
+  "files": [
+    {
+      "name": "01-Land_01.wav",
+      "originalName": "Land_01.wav",
+      "step": 1
+    }
+  ],
+  "playback": {
+    "mode": "single"
+  },
+  "parameters": {
+    "gainDb": 0,
+    "trimStart": 0,
+    "trimEnd": 0,
+    "fadeIn": 0.003,
+    "fadeOut": 0.015,
+    "pitchSemitones": 0
+  },
+  "notes": ""
+}
