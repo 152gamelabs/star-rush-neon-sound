@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "sourceKind": "request",
+  "requestId": "bgm-game-chamber",
+  "revision": "20261113T065851290Z-9237c41fa27d47aab8aeaa05caef778c",
+  "status": "submitted",
+  "createdAt": "2026-11-13T06:58:52.403Z",
+  "files": [
+    {
+      "name": "01-BGM_Ingame.wav",
+      "originalName": "BGM_Ingame.wav",
+      "step": 1
+    }
+  ],
+  "playback": {
+    "mode": "single"
+  },
+  "parameters": {
+    "gainDb": 0,
+    "trimStart": 0,
+    "trimEnd": 0,
+    "fadeIn": 0,
+    "fadeOut": 0,
+    "pitchSemitones": 0,
+    "loop": true,
+    "loopStart": 0,
+    "loopEnd": 0
+  },
+  "notes": ""
+}
