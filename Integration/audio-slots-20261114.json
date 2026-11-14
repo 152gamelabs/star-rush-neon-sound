@@ -1,0 +1,1081 @@
+[
+  {
+    "id": "sfx-glass-impact",
+    "kind": "sfx",
+    "maxDurationSeconds": 12,
+    "maxBytes": 12582912,
+    "label": "사각 결정 · 유리 타격",
+    "description": "사각 결정에만 적용됩니다. 다른 모양과 벽은 각자의 슬롯 또는 기본음을 사용합니다. 자동 피치 변화 없음.",
+    "hook": "NeonAudio.Impact(strength, tile): SquareVariant == 0",
+    "playbackModes": [
+      "single",
+      "random"
+    ],
+    "scene": {
+      "caption": "사각 결정 · 기준 유리 타격 · 실제 게임 렌더러의 검증용 동작 영상. 장면으로 들어보기에서 현재 음원과 함께 확인합니다.",
+      "source": "test-scene",
+      "poster": "context/scenes/block-glass-0323.webp",
+      "video": "context/scenes/block-glass-0323.mp4",
+      "cues": [
+        {
+          "time": 0.7667,
+          "step": 1
+        }
+      ],
+      "cueSource": "engine-event-capture",
+      "captureFps": 30
+    }
+  },
+  {
+    "id": "sfx-bumper-impact",
+    "kind": "sfx",
+    "maxDurationSeconds": 12,
+    "maxBytes": 12582912,
+    "label": "분홍 범퍼에 별이 닿을 때",
+    "description": "분홍 원형 범퍼에 부딪힐 때 나는 탄성 있는 소리입니다. 반짝이는 연출과 함께 빠른 어택으로 튕기는 감각을 시험합니다.",
+    "hook": "NeonAudio.Impact(strength, true)",
+    "playbackModes": [
+      "single",
+      "random"
+    ],
+    "scene": {
+      "caption": "분홍 원형 · 탄성 반발 · 실제 게임 렌더러의 검증용 동작 영상. 장면으로 들어보기에서 현재 음원과 함께 확인합니다.",
+      "source": "test-scene",
+      "poster": "context/scenes/block-bumper-0323.webp",
+      "video": "context/scenes/block-bumper-0323.mp4",
+      "cues": [
+        {
+          "time": 0.7667,
+          "step": 1
+        },
+        {
+          "time": 1.4667,
+          "step": 2
+        }
+      ],
+      "cueSource": "engine-event-capture",
+      "captureFps": 30
+    }
+  },
+  {
+    "id": "sfx-link-charge",
+    "kind": "sfx",
+    "maxDurationSeconds": 12,
+    "maxBytes": 12582912,
+    "label": "연결선에 에너지가 쌓일 때",
+    "description": "새 연결과 같은 선 재충전의 에너지 소리입니다. 점화 직전 압축은 별도 슬롯입니다.",
+    "hook": "NeonAudio.Charge(strength)",
+    "playbackModes": [
+      "single",
+      "random"
+    ],
+    "scene": {
+      "caption": "선 연결 · 중복 충전 · 실제 게임 렌더러의 검증용 동작 영상. 장면으로 들어보기에서 현재 음원과 함께 확인합니다.",
+      "source": "test-scene",
+      "poster": "context/scenes/wall-0323.webp",
+      "video": "context/scenes/wall-0323.mp4",
+      "cues": [
+        {
+          "time": 1.8667,
+          "step": 1
+        }
+      ],
+      "cueSource": "engine-event-capture",
+      "captureFps": 30
+    }
+  },
+  {
+    "id": "sfx-ignition-blast",
+    "kind": "sfx",
+    "maxDurationSeconds": 12,
+    "maxBytes": 12582912,
+    "label": "주황 별이 크게 점화할 때",
+    "description": "주황 별에 모은 에너지가 퐉 터지는 첫 폭발음입니다. 음악이 잠깐 작아지는 핵심 장면에서 시험합니다.",
+    "hook": "NeonAudio.Ignite(strength)",
+    "playbackModes": [
+      "single",
+      "random"
+    ],
+    "scene": {
+      "caption": "주황 점화 · 모았다가 팡 · 실제 게임 렌더러의 검증용 동작 영상. 장면으로 들어보기에서 현재 음원과 함께 확인합니다.",
+      "source": "test-scene",
+      "poster": "context/scenes/detonation-0323.webp",
+      "video": "context/scenes/detonation-0323.mp4",
+      "cues": [
+        {
+          "time": 0.9,
+          "step": 1
+        }
+      ],
+      "cueSource": "engine-event-capture",
+      "captureFps": 30
+    }
+  },
+  {
+    "id": "sfx-cascade-burst",
+    "kind": "sfx",
+    "maxDurationSeconds": 12,
+    "maxBytes": 12582912,
+    "label": "이어진 블록이 차례로 터질 때",
+    "description": "연결망의 순차 폭발이 진행될 때 .16초 간격으로 재생됩니다. 현재 파괴 블록마다 정확히 한 번 재생되는 구조는 아닙니다.",
+    "hook": "NeonAudio.Burst(strength)",
+    "playbackModes": [
+      "single",
+      "random",
+      "sequence",
+      "sequence-random"
+    ],
+    "scene": {
+      "caption": "연결망 · 순차 연쇄 폭발 · 실제 게임 렌더러의 검증용 동작 영상. 장면으로 들어보기에서 현재 음원과 함께 확인합니다.",
+      "source": "test-scene",
+      "poster": "context/scenes/detonation-0323.webp",
+      "video": "context/scenes/detonation-0323.mp4",
+      "cues": [
+        {
+          "time": 0.9333,
+          "step": 1
+        },
+        {
+          "time": 1.0667,
+          "step": 2
+        },
+        {
+          "time": 1.2333,
+          "step": 3
+        },
+        {
+          "time": 1.4,
+          "step": 4
+        },
+        {
+          "time": 1.5667,
+          "step": 5
+        },
+        {
+          "time": 1.7,
+          "step": 6
+        },
+        {
+          "time": 1.8667,
+          "step": 7
+        }
+      ],
+      "cueSource": "engine-event-capture",
+      "captureFps": 30,
+      "sequenceCues": [
+        {
+          "time": 1.0667,
+          "step": 1
+        },
+        {
+          "time": 1.2333,
+          "step": 2
+        },
+        {
+          "time": 1.4,
+          "step": 3
+        },
+        {
+          "time": 1.5667,
+          "step": 4
+        },
+        {
+          "time": 1.7,
+          "step": 5
+        },
+        {
+          "time": 1.8667,
+          "step": 6
+        }
+      ]
+    }
+  },
+  {
+    "id": "sfx-energy-collect",
+    "kind": "sfx",
+    "maxDurationSeconds": 12,
+    "maxBytes": 12582912,
+    "label": "에너지가 상단 별로 모일 때",
+    "description": "폭발 뒤 흩어진 에너지가 상단 별과 게이지로 올라가는 수집음입니다. 현재 수집 단계 시작에 한 번 재생됩니다.",
+    "hook": "NeonAudio.Collect(strength)",
+    "playbackModes": [
+      "single",
+      "random"
+    ],
+    "scene": {
+      "caption": "폭발 에너지 · 위로 모이기 · 실제 게임 렌더러의 검증용 동작 영상. 장면으로 들어보기에서 현재 음원과 함께 확인합니다.",
+      "source": "test-scene",
+      "poster": "context/scenes/detonation-0323.webp",
+      "video": "context/scenes/detonation-0323.mp4",
+      "cues": [
+        {
+          "time": 2.9667,
+          "step": 1
+        }
+      ],
+      "cueSource": "engine-event-capture",
+      "captureFps": 30
+    }
+  },
+  {
+    "id": "sfx-star-upgrade",
+    "kind": "sfx",
+    "maxDurationSeconds": 12,
+    "maxBytes": 12582912,
+    "label": "별이 강화되는 순간",
+    "description": "모은 에너지로 별의 출력 단계가 올라갈 때 나는 보상음입니다. 수집음과 함께 들려도 강화 순간이 구분되는지 확인합니다.",
+    "hook": "NeonAudio.Upgrade()",
+    "playbackModes": [
+      "single",
+      "random"
+    ],
+    "scene": {
+      "caption": "별 강화 · 출력 상승 · 실제 게임 렌더러의 검증용 동작 영상. 장면으로 들어보기에서 현재 음원과 함께 확인합니다.",
+      "source": "test-scene",
+      "poster": "context/scenes/detonation-0323.webp",
+      "video": "context/scenes/detonation-0323.mp4",
+      "cues": [
+        {
+          "time": 2.9667,
+          "step": 1
+        }
+      ],
+      "cueSource": "engine-event-capture",
+      "captureFps": 30
+    }
+  },
+  {
+    "id": "sfx-ui-touch",
+    "kind": "sfx",
+    "maxDurationSeconds": 12,
+    "maxBytes": 12582912,
+    "label": "메뉴 버튼을 누를 때",
+    "description": "타이틀·설정 등 메뉴를 선택할 때 나는 짧은 클릭음입니다. 게임이 멈춘 메뉴에서도 바로 시험할 수 있습니다.",
+    "hook": "NeonAudio.Ui()",
+    "playbackModes": [
+      "single",
+      "random"
+    ],
+    "scene": {
+      "caption": "메뉴 선택 · 버튼과 설정 · 실제 게임 렌더러의 검증용 동작 영상. 장면으로 들어보기에서 현재 음원과 함께 확인합니다.",
+      "source": "test-scene",
+      "poster": "context/scenes/menu-touch-0323.webp",
+      "video": "context/scenes/menu-touch-0323.mp4",
+      "cues": [
+        {
+          "time": 0.5,
+          "step": 1
+        }
+      ],
+      "cueSource": "engine-event-capture",
+      "captureFps": 30
+    }
+  },
+  {
+    "id": "bgm-game-chamber",
+    "kind": "bgm",
+    "maxDurationSeconds": 600,
+    "maxBytes": 33554432,
+    "label": "타이틀과 전장의 배경음악",
+    "description": "현재 타이틀과 전장에서 공용으로 반복되는 배경음악입니다. 타이틀에서는 작아지고 점화할 때 잠깐 줄어드는 기존 믹싱과 함께 시험합니다.",
+    "hook": "NeonAudio musicSource",
+    "playbackModes": [
+      "single"
+    ],
+    "scene": {
+      "caption": "인게임 음악 · 실제 게임 렌더러의 검증용 동작 영상. 장면으로 들어보기에서 현재 음원과 함께 확인합니다.",
+      "source": "test-scene",
+      "poster": "context/scenes/links-0323.webp",
+      "video": "context/scenes/links-0323.mp4",
+      "cues": [
+        {
+          "time": 0,
+          "step": 1
+        }
+      ],
+      "cueSource": "engine-event-capture",
+      "captureFps": 30
+    }
+  },
+  {
+    "id": "sfx-all-clear",
+    "kind": "sfx",
+    "maxDurationSeconds": 1.1,
+    "maxBytes": 12582912,
+    "label": "올클리어 팡파르",
+    "description": "마지막 블록이 사라진 뒤 올클리어 파동과 보너스 배너가 나올 때 한 번 울리는 전용음입니다.",
+    "hook": "NeonAudio.AllClear()",
+    "playbackModes": [
+      "single",
+      "random"
+    ],
+    "scene": {
+      "source": "test-scene",
+      "caption": "올클리어 · 전장 정리 팡파르 · 실제 게임 렌더러의 검증용 동작 영상. 장면으로 들어보기에서 현재 음원과 함께 확인합니다.",
+      "poster": "context/scenes/all-clear-new-0323.webp",
+      "video": "context/scenes/all-clear-new-0323.mp4",
+      "cues": [
+        {
+          "time": 4.4667,
+          "step": 1
+        }
+      ],
+      "cueSource": "engine-event-capture",
+      "captureFps": 30
+    }
+  },
+  {
+    "id": "sfx-burst-spark",
+    "kind": "sfx",
+    "maxDurationSeconds": 0.24,
+    "maxBytes": 12582912,
+    "label": "3개 파괴 · 스파크",
+    "description": "세 번째 전투 블록이 실제로 파괴될 때 짧고 맑은 성공음. 다음 폭발음 사이에 들어갈 수 있게 짧게 마무리.",
+    "hook": "NeonAudio.Milestone(1)",
+    "playbackModes": [
+      "single",
+      "random",
+      "sequence",
+      "sequence-random"
+    ],
+    "scene": {
+      "source": "test-scene",
+      "caption": "3개 파괴 · 스파크 · 실제 게임 렌더러의 검증용 동작 영상. 장면으로 들어보기에서 현재 음원과 함께 확인합니다.",
+      "poster": "context/scenes/burst-3-0323.webp",
+      "video": "context/scenes/burst-3-0323.mp4",
+      "cues": [
+        {
+          "time": 1.2667,
+          "step": 1
+        }
+      ],
+      "cueSource": "engine-event-capture",
+      "captureFps": 30,
+      "sequenceCues": [
+        {
+          "time": 0.9333,
+          "step": 1
+        },
+        {
+          "time": 1.1,
+          "step": 2
+        },
+        {
+          "time": 1.2667,
+          "step": 3
+        }
+      ]
+    }
+  },
+  {
+    "id": "sfx-burst-flare",
+    "kind": "sfx",
+    "maxDurationSeconds": 0.32,
+    "maxBytes": 12582912,
+    "label": "5개 파괴 · 플레어",
+    "description": "다섯 번째 파괴 순간에 스파크보다 한 단계 풍성한 상승음. 유리 고음과 가벼운 저음 타격을 겹치기.",
+    "hook": "NeonAudio.Milestone(2)",
+    "playbackModes": [
+      "single",
+      "random",
+      "sequence",
+      "sequence-random"
+    ],
+    "scene": {
+      "source": "test-scene",
+      "caption": "5개 파괴 · 플레어 · 실제 게임 렌더러의 검증용 동작 영상. 장면으로 들어보기에서 현재 음원과 함께 확인합니다.",
+      "poster": "context/scenes/burst-5-0323.webp",
+      "video": "context/scenes/burst-5-0323.mp4",
+      "cues": [
+        {
+          "time": 1.6333,
+          "step": 1
+        }
+      ],
+      "cueSource": "engine-event-capture",
+      "captureFps": 30,
+      "sequenceCues": [
+        {
+          "time": 1,
+          "step": 1
+        },
+        {
+          "time": 1.1667,
+          "step": 2
+        },
+        {
+          "time": 1.3333,
+          "step": 3
+        },
+        {
+          "time": 1.5,
+          "step": 4
+        },
+        {
+          "time": 1.6333,
+          "step": 5
+        }
+      ]
+    }
+  },
+  {
+    "id": "sfx-burst-nova",
+    "kind": "sfx",
+    "maxDurationSeconds": 0.42,
+    "maxBytes": 12582912,
+    "label": "7개 파괴 · 노바",
+    "description": "일곱 번째 파괴와 보라 파동에 맞추는 강한 보상음. 짧은 어택 뒤 넓어지는 잔향으로 단계 상승을 전달.",
+    "hook": "NeonAudio.Milestone(3)",
+    "playbackModes": [
+      "single",
+      "random",
+      "sequence",
+      "sequence-random"
+    ],
+    "scene": {
+      "source": "test-scene",
+      "caption": "7개 파괴 · 노바 · 실제 게임 렌더러의 검증용 동작 영상. 장면으로 들어보기에서 현재 음원과 함께 확인합니다.",
+      "poster": "context/scenes/burst-7-0323.webp",
+      "video": "context/scenes/burst-7-0323.mp4",
+      "cues": [
+        {
+          "time": 2,
+          "step": 1
+        }
+      ],
+      "cueSource": "engine-event-capture",
+      "captureFps": 30,
+      "sequenceCues": [
+        {
+          "time": 1.0333,
+          "step": 1
+        },
+        {
+          "time": 1.2,
+          "step": 2
+        },
+        {
+          "time": 1.3667,
+          "step": 3
+        },
+        {
+          "time": 1.5333,
+          "step": 4
+        },
+        {
+          "time": 1.6667,
+          "step": 5
+        },
+        {
+          "time": 1.8333,
+          "step": 6
+        },
+        {
+          "time": 2,
+          "step": 7
+        }
+      ]
+    }
+  },
+  {
+    "id": "sfx-burst-supernova",
+    "kind": "sfx",
+    "maxDurationSeconds": 0.52,
+    "maxBytes": 12582912,
+    "label": "10개 파괴 · 슈퍼노바",
+    "description": "열 번째 파괴와 청백색 파동의 큰 성취음. 선명한 저음과 별빛 음색을 함께 쓰되 후속 올클리어 팡파르가 들어올 자리를 남기기.",
+    "hook": "NeonAudio.Milestone(4)",
+    "playbackModes": [
+      "single",
+      "random",
+      "sequence",
+      "sequence-random"
+    ],
+    "scene": {
+      "source": "test-scene",
+      "caption": "10개 파괴 · 슈퍼노바 · 실제 게임 렌더러의 검증용 동작 영상. 장면으로 들어보기에서 현재 음원과 함께 확인합니다.",
+      "poster": "context/scenes/burst-10-0323.webp",
+      "video": "context/scenes/burst-10-0323.mp4",
+      "cues": [
+        {
+          "time": 2.5667,
+          "step": 1
+        }
+      ],
+      "cueSource": "engine-event-capture",
+      "captureFps": 30,
+      "sequenceCues": [
+        {
+          "time": 1.1,
+          "step": 1
+        },
+        {
+          "time": 1.2667,
+          "step": 2
+        },
+        {
+          "time": 1.4333,
+          "step": 3
+        },
+        {
+          "time": 1.6,
+          "step": 4
+        },
+        {
+          "time": 1.7333,
+          "step": 5
+        },
+        {
+          "time": 1.9,
+          "step": 6
+        },
+        {
+          "time": 2.0667,
+          "step": 7
+        },
+        {
+          "time": 2.2333,
+          "step": 8
+        },
+        {
+          "time": 2.4,
+          "step": 9
+        },
+        {
+          "time": 2.5667,
+          "step": 10
+        }
+      ]
+    }
+  },
+  {
+    "id": "sfx-all-clear-gather",
+    "kind": "sfx",
+    "maxDurationSeconds": 0.3,
+    "maxBytes": 12582912,
+    "label": "올클리어 직전 · 중앙으로 모으기",
+    "description": "마지막 블록의 폭발이 시작된 뒤 0.30초 동안 빛이 중앙으로 모이는 상승 스웰. 0.30초 지점에서 올클리어 팡파르가 바로 이어짐.",
+    "hook": "NeonAudio.GatherAllClear()",
+    "playbackModes": [
+      "single",
+      "random"
+    ],
+    "scene": {
+      "source": "test-scene",
+      "caption": "올클리어 직전 · 중앙으로 모으기 · 실제 게임 렌더러의 검증용 동작 영상. 장면으로 들어보기에서 현재 음원과 함께 확인합니다.",
+      "poster": "context/scenes/all-clear-new-0323.webp",
+      "video": "context/scenes/all-clear-new-0323.mp4",
+      "cues": [
+        {
+          "time": 4.1667,
+          "step": 1
+        }
+      ],
+      "cueSource": "engine-event-capture",
+      "captureFps": 30
+    }
+  },
+  {
+    "id": "sfx-charge-anticipation",
+    "kind": "sfx",
+    "maxDurationSeconds": 0.68,
+    "maxBytes": 12582912,
+    "label": "점화 직전 · 에너지 압축",
+    "description": "빛이 모이며 안으로 한 번 당겨지는 짧은 역흡입. 마지막 순간은 여백을 남겨 이어지는 팡이 더 크게 느껴지게 합니다.",
+    "hook": "NeonAudio.Compress(strength)",
+    "playbackModes": [
+      "single",
+      "random"
+    ],
+    "scene": {
+      "source": "test-scene",
+      "caption": "점화 직전 · 에너지 압축 · 실제 게임 렌더러의 검증용 동작 영상. 장면으로 들어보기에서 현재 음원과 함께 확인합니다.",
+      "poster": "context/scenes/burst-10-0323.webp",
+      "video": "context/scenes/burst-10-0323.mp4",
+      "cues": [
+        {
+          "time": 0.2333,
+          "step": 1
+        }
+      ],
+      "cueSource": "engine-event-capture",
+      "captureFps": 30
+    }
+  },
+  {
+    "id": "sfx-burst-hypernova",
+    "kind": "sfx",
+    "maxDurationSeconds": 0.86,
+    "maxBytes": 12582912,
+    "label": "15개 파괴 · 하이퍼노바",
+    "description": "15번째 파괴 순간 시작. 첫 0.12초 짧은 역흡입 뒤 금빛 이중 충격파를 두 타격으로 표현합니다. 슈퍼노바보다 넓고 묵직하되 팡파르와 구별되는 음색.",
+    "hook": "NeonAudio.Milestone(5)",
+    "playbackModes": [
+      "single",
+      "random",
+      "sequence",
+      "sequence-random"
+    ],
+    "scene": {
+      "source": "test-scene",
+      "caption": "15개 파괴 · 하이퍼노바 · 실제 게임 렌더러의 검증용 동작 영상. 장면으로 들어보기에서 현재 음원과 함께 확인합니다.",
+      "poster": "context/scenes/burst-15-0323.webp",
+      "video": "context/scenes/burst-15-0323.mp4",
+      "cues": [
+        {
+          "time": 3.3667,
+          "step": 1
+        }
+      ],
+      "cueSource": "engine-event-capture",
+      "captureFps": 30,
+      "sequenceCues": [
+        {
+          "time": 1.1,
+          "step": 1
+        },
+        {
+          "time": 1.2667,
+          "step": 2
+        },
+        {
+          "time": 1.4333,
+          "step": 3
+        },
+        {
+          "time": 1.6,
+          "step": 4
+        },
+        {
+          "time": 1.7333,
+          "step": 5
+        },
+        {
+          "time": 1.9,
+          "step": 6
+        },
+        {
+          "time": 2.0667,
+          "step": 7
+        },
+        {
+          "time": 2.2333,
+          "step": 8
+        },
+        {
+          "time": 2.4,
+          "step": 9
+        },
+        {
+          "time": 2.5667,
+          "step": 10
+        },
+        {
+          "time": 2.7,
+          "step": 11
+        },
+        {
+          "time": 2.8667,
+          "step": 12
+        },
+        {
+          "time": 3.0333,
+          "step": 13
+        },
+        {
+          "time": 3.2,
+          "step": 14
+        },
+        {
+          "time": 3.3667,
+          "step": 15
+        }
+      ]
+    }
+  },
+  {
+    "id": "sfx-burst-galaxy",
+    "kind": "sfx",
+    "maxDurationSeconds": 1.05,
+    "maxBytes": 12582912,
+    "label": "20개 파괴 · 갤럭시버스트",
+    "description": "20번째 파괴 순간 시작. 첫 0.18초 회전하며 모이는 별빛 뒤 세 번의 넓은 파동. 깊은 어택과 반짝이는 상승음. 올클리어가 이어질 때 겹치지 않도록 후반 꼬리는 빠르게 비웁니다.",
+    "hook": "NeonAudio.Milestone(6)",
+    "playbackModes": [
+      "single",
+      "random",
+      "sequence",
+      "sequence-random"
+    ],
+    "scene": {
+      "source": "test-scene",
+      "caption": "20개 파괴 · 갤럭시버스트 · 실제 게임 렌더러의 검증용 동작 영상. 장면으로 들어보기에서 현재 음원과 함께 확인합니다.",
+      "poster": "context/scenes/burst-20-0323.webp",
+      "video": "context/scenes/burst-20-0323.mp4",
+      "cues": [
+        {
+          "time": 4.1667,
+          "step": 1
+        }
+      ],
+      "cueSource": "engine-event-capture",
+      "captureFps": 30,
+      "sequenceCues": [
+        {
+          "time": 1.1,
+          "step": 1
+        },
+        {
+          "time": 1.2667,
+          "step": 2
+        },
+        {
+          "time": 1.4333,
+          "step": 3
+        },
+        {
+          "time": 1.6,
+          "step": 4
+        },
+        {
+          "time": 1.7333,
+          "step": 5
+        },
+        {
+          "time": 1.9,
+          "step": 6
+        },
+        {
+          "time": 2.0667,
+          "step": 7
+        },
+        {
+          "time": 2.2333,
+          "step": 8
+        },
+        {
+          "time": 2.4,
+          "step": 9
+        },
+        {
+          "time": 2.5667,
+          "step": 10
+        },
+        {
+          "time": 2.7,
+          "step": 11
+        },
+        {
+          "time": 2.8667,
+          "step": 12
+        },
+        {
+          "time": 3.0333,
+          "step": 13
+        },
+        {
+          "time": 3.2,
+          "step": 14
+        },
+        {
+          "time": 3.3667,
+          "step": 15
+        },
+        {
+          "time": 3.5,
+          "step": 16
+        },
+        {
+          "time": 3.6667,
+          "step": 17
+        },
+        {
+          "time": 3.8333,
+          "step": 18
+        },
+        {
+          "time": 4,
+          "step": 19
+        },
+        {
+          "time": 4.1667,
+          "step": 20
+        }
+      ]
+    }
+  },
+  {
+    "id": "sfx-crystal-cut",
+    "kind": "sfx",
+    "maxDurationSeconds": 12,
+    "maxBytes": 12582912,
+    "label": "육각 컷 결정 · 단단한 톡",
+    "description": "이 모양의 접촉음만 독립적으로 교체합니다. 미지정 시 기본 타격음, 자동 피치 변화 없음.",
+    "hook": "NeonAudio.Impact(strength, tile)",
+    "playbackModes": [
+      "single",
+      "random"
+    ],
+    "scene": {
+      "caption": "육각 컷 결정 · 단단한 톡 · 실제 게임 렌더러의 검증용 동작 영상. 장면으로 들어보기에서 현재 음원과 함께 확인합니다.",
+      "source": "test-scene",
+      "poster": "context/scenes/block-cut-0323.webp",
+      "video": "context/scenes/block-cut-0323.mp4",
+      "cues": [
+        {
+          "time": 0.7667,
+          "step": 1
+        }
+      ],
+      "cueSource": "engine-event-capture",
+      "captureFps": 30
+    }
+  },
+  {
+    "id": "sfx-crystal-octagon",
+    "kind": "sfx",
+    "maxDurationSeconds": 12,
+    "maxBytes": 12582912,
+    "label": "팔각 결정 · 둥근 팅",
+    "description": "이 모양의 접촉음만 독립적으로 교체합니다. 미지정 시 기본 타격음, 자동 피치 변화 없음.",
+    "hook": "NeonAudio.Impact(strength, tile)",
+    "playbackModes": [
+      "single",
+      "random"
+    ],
+    "scene": {
+      "caption": "팔각 결정 · 둥근 팅 · 실제 게임 렌더러의 검증용 동작 영상. 장면으로 들어보기에서 현재 음원과 함께 확인합니다.",
+      "source": "test-scene",
+      "poster": "context/scenes/block-octagon-0323.webp",
+      "video": "context/scenes/block-octagon-0323.mp4",
+      "cues": [
+        {
+          "time": 0.7667,
+          "step": 1
+        }
+      ],
+      "cueSource": "engine-event-capture",
+      "captureFps": 30
+    }
+  },
+  {
+    "id": "sfx-crystal-trapezoid",
+    "kind": "sfx",
+    "maxDurationSeconds": 12,
+    "maxBytes": 12582912,
+    "label": "사다리꼴 결정 · 꺾이는 틱",
+    "description": "이 모양의 접촉음만 독립적으로 교체합니다. 미지정 시 기본 타격음, 자동 피치 변화 없음.",
+    "hook": "NeonAudio.Impact(strength, tile)",
+    "playbackModes": [
+      "single",
+      "random"
+    ],
+    "scene": {
+      "caption": "사다리꼴 결정 · 꺾이는 틱 · 실제 게임 렌더러의 검증용 동작 영상. 장면으로 들어보기에서 현재 음원과 함께 확인합니다.",
+      "source": "test-scene",
+      "poster": "context/scenes/block-trapezoid-0323.webp",
+      "video": "context/scenes/block-trapezoid-0323.mp4",
+      "cues": [
+        {
+          "time": 0.7667,
+          "step": 1
+        }
+      ],
+      "cueSource": "engine-event-capture",
+      "captureFps": 30
+    }
+  },
+  {
+    "id": "sfx-crystal-pentagon",
+    "kind": "sfx",
+    "maxDurationSeconds": 12,
+    "maxBytes": 12582912,
+    "label": "오각 결정 · 얇은 킨",
+    "description": "이 모양의 접촉음만 독립적으로 교체합니다. 미지정 시 기본 타격음, 자동 피치 변화 없음.",
+    "hook": "NeonAudio.Impact(strength, tile)",
+    "playbackModes": [
+      "single",
+      "random"
+    ],
+    "scene": {
+      "caption": "오각 결정 · 얇은 킨 · 실제 게임 렌더러의 검증용 동작 영상. 장면으로 들어보기에서 현재 음원과 함께 확인합니다.",
+      "source": "test-scene",
+      "poster": "context/scenes/block-pentagon-0323.webp",
+      "video": "context/scenes/block-pentagon-0323.mp4",
+      "cues": [
+        {
+          "time": 0.8,
+          "step": 1
+        }
+      ],
+      "cueSource": "engine-event-capture",
+      "captureFps": 30
+    }
+  },
+  {
+    "id": "sfx-crystal-shield",
+    "kind": "sfx",
+    "maxDurationSeconds": 12,
+    "maxBytes": 12582912,
+    "label": "방패 결정 · 묵직한 통",
+    "description": "이 모양의 접촉음만 독립적으로 교체합니다. 미지정 시 기본 타격음, 자동 피치 변화 없음.",
+    "hook": "NeonAudio.Impact(strength, tile)",
+    "playbackModes": [
+      "single",
+      "random"
+    ],
+    "scene": {
+      "caption": "방패 결정 · 묵직한 통 · 실제 게임 렌더러의 검증용 동작 영상. 장면으로 들어보기에서 현재 음원과 함께 확인합니다.",
+      "source": "test-scene",
+      "poster": "context/scenes/block-shield-0323.webp",
+      "video": "context/scenes/block-shield-0323.mp4",
+      "cues": [
+        {
+          "time": 0.7667,
+          "step": 1
+        }
+      ],
+      "cueSource": "engine-event-capture",
+      "captureFps": 30
+    }
+  },
+  {
+    "id": "sfx-mover-impact",
+    "kind": "sfx",
+    "maxDurationSeconds": 12,
+    "maxBytes": 12582912,
+    "label": "초록 이동 마름모 · 짧은 전자 슬라이드",
+    "description": "이 모양의 접촉음만 독립적으로 교체합니다. 미지정 시 기본 타격음, 자동 피치 변화 없음.",
+    "hook": "NeonAudio.Impact(strength, tile)",
+    "playbackModes": [
+      "single",
+      "random"
+    ],
+    "scene": {
+      "caption": "초록 이동 마름모 · 짧은 전자 슬라이드 · 실제 게임 렌더러의 검증용 동작 영상. 장면으로 들어보기에서 현재 음원과 함께 확인합니다.",
+      "source": "test-scene",
+      "poster": "context/scenes/block-mover-0323.webp",
+      "video": "context/scenes/block-mover-0323.mp4",
+      "cues": [
+        {
+          "time": 0.7667,
+          "step": 1
+        }
+      ],
+      "cueSource": "engine-event-capture",
+      "captureFps": 30
+    }
+  },
+  {
+    "id": "sfx-slope-left-impact",
+    "kind": "sfx",
+    "maxDurationSeconds": 12,
+    "maxBytes": 12582912,
+    "label": "왼쪽 경사 · 내려 스치는 슉",
+    "description": "이 모양의 접촉음만 독립적으로 교체합니다. 미지정 시 기본 타격음, 자동 피치 변화 없음.",
+    "hook": "NeonAudio.Impact(strength, tile)",
+    "playbackModes": [
+      "single",
+      "random"
+    ],
+    "scene": {
+      "caption": "왼쪽 경사 · 내려 스치는 슉 · 실제 게임 렌더러의 검증용 동작 영상. 장면으로 들어보기에서 현재 음원과 함께 확인합니다.",
+      "source": "test-scene",
+      "poster": "context/scenes/block-slope-left-0323.webp",
+      "video": "context/scenes/block-slope-left-0323.mp4",
+      "cues": [
+        {
+          "time": 0.8,
+          "step": 1
+        }
+      ],
+      "cueSource": "engine-event-capture",
+      "captureFps": 30
+    }
+  },
+  {
+    "id": "sfx-slope-right-impact",
+    "kind": "sfx",
+    "maxDurationSeconds": 12,
+    "maxBytes": 12582912,
+    "label": "오른쪽 경사 · 올라 스치는 쉭",
+    "description": "이 모양의 접촉음만 독립적으로 교체합니다. 미지정 시 기본 타격음, 자동 피치 변화 없음.",
+    "hook": "NeonAudio.Impact(strength, tile)",
+    "playbackModes": [
+      "single",
+      "random"
+    ],
+    "scene": {
+      "caption": "오른쪽 경사 · 올라 스치는 쉭 · 실제 게임 렌더러의 검증용 동작 영상. 장면으로 들어보기에서 현재 음원과 함께 확인합니다.",
+      "source": "test-scene",
+      "poster": "context/scenes/block-slope-right-0323.webp",
+      "video": "context/scenes/block-slope-right-0323.mp4",
+      "cues": [
+        {
+          "time": 0.8333,
+          "step": 1
+        }
+      ],
+      "cueSource": "engine-event-capture",
+      "captureFps": 30
+    }
+  },
+  {
+    "id": "sfx-orange-absorb",
+    "kind": "sfx",
+    "maxDurationSeconds": 12,
+    "maxBytes": 12582912,
+    "label": "주황 점화별 · 아직 준비 안 된 흡수",
+    "description": "이 모양의 접촉음만 독립적으로 교체합니다. 미지정 시 기본 타격음, 자동 피치 변화 없음.",
+    "hook": "NeonAudio.Impact(strength, tile)",
+    "playbackModes": [
+      "single",
+      "random"
+    ],
+    "scene": {
+      "caption": "주황 점화별 · 아직 준비 안 된 흡수 · 실제 게임 렌더러의 검증용 동작 영상. 장면으로 들어보기에서 현재 음원과 함께 확인합니다.",
+      "source": "test-scene",
+      "poster": "context/scenes/block-orange-0323.webp",
+      "video": "context/scenes/block-orange-0323.mp4",
+      "cues": [
+        {
+          "time": 0.7667,
+          "step": 1
+        }
+      ],
+      "cueSource": "engine-event-capture",
+      "captureFps": 30
+    }
+  },
+  {
+    "id": "sfx-wall-impact",
+    "kind": "sfx",
+    "maxDurationSeconds": 12,
+    "maxBytes": 12582912,
+    "label": "벽 반사 · 작은 접촉",
+    "description": "이 모양의 접촉음만 독립적으로 교체합니다. 미지정 시 기본 타격음, 자동 피치 변화 없음.",
+    "hook": "NeonAudio.Impact(strength, tile)",
+    "playbackModes": [
+      "single",
+      "random"
+    ],
+    "scene": {
+      "caption": "벽 반사 · 작은 접촉 · 실제 게임 렌더러의 검증용 동작 영상. 장면으로 들어보기에서 현재 음원과 함께 확인합니다.",
+      "source": "test-scene",
+      "poster": "context/scenes/wall-0323.webp",
+      "video": "context/scenes/wall-0323.mp4",
+      "cues": [
+        {
+          "time": 1,
+          "step": 1
+        },
+        {
+          "time": 1.1333,
+          "step": 2
+        }
+      ],
+      "cueSource": "engine-event-capture",
+      "captureFps": 30
+    }
+  }
+]

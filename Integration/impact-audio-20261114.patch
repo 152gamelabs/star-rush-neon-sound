@@ -1,0 +1,70 @@
+--- a/UnityProject/Assets/Scripts/NeonAudio.cs
++++ b/UnityProject/Assets/Scripts/NeonAudio.cs
+@@ -97,10 +97,33 @@
+         }
+ 
+         public void Impact(float strength,bool bumper)
++            =>Impact(strength,bumper?new Tile(6,TileKind.Bumper,0,0,1):new Tile(6,TileKind.Square,0,0,1));
++
++        internal static int ImpactSlot(Tile tile)
++        {
++            if(tile==null)return 27; // Wall, never the square preview.
++            switch(tile.kind)
++            {
++                case TileKind.Square:
++                    int variant=Rules.SquareVariant(tile);
++                    return variant==0?0:17+variant;
++                case TileKind.Bumper:return 1;
++                case TileKind.LegacyOctagon:return 19;
++                case TileKind.Mover:case TileKind.MoverVertical:return 23;
++                case TileKind.SlopeLeft:return 24;
++                case TileKind.SlopeRight:return 25;
++                case TileKind.Orange:return 26;
++                default:return 27;
++            }
++        }
++        public void Impact(float strength,Tile tile,float fixedPitch=1f)
+         {
+             if(gamePaused||Time.unscaledTime-lastImpact<.045f)return;
+             lastImpact=Time.unscaledTime;
+-            Play(bumper?1:0,.44f+Mathf.Clamp01(strength)*.38f,bumper?2:1,Pitch());
++            bool bumper=tile!=null&&tile.kind==TileKind.Bumper;
++            // Fallback is the original synth, never another shape's imported clip.
++            PlaySlot(ImpactSlot(tile),syntheticEffects[bumper?1:0],.44f+Mathf.Clamp01(strength)*.38f,bumper?2:1,
++                float.IsNaN(fixedPitch)||float.IsInfinity(fixedPitch)?1f:Mathf.Clamp(fixedPitch,.1f,3f));
+             if(strength>.88f)Haptic();
+         }
+         public void Charge(float strength)
+@@ -165,7 +188,7 @@
+ 
+         void Play(AudioClip clip,float gain,int priority,float pitch)
+         {
+-            if(background||NeonPreferences.Current.sfx<=0)return;
++            if(clip==null||background||NeonPreferences.Current.sfx<=0)return;
+             int selected=-1;
+             for(int i=0;i<VoiceCount;i++)if(!voices[i].isPlaying){selected=i;break;}
+             if(selected<0)
+--- a/UnityProject/Assets/Scripts/NeonAudioPreview.cs
++++ b/UnityProject/Assets/Scripts/NeonAudioPreview.cs
+@@ -28,7 +28,9 @@
+             "sfx-glass-impact","sfx-bumper-impact","sfx-link-charge","sfx-ignition-blast",
+             "sfx-energy-collect","sfx-ui-touch","sfx-star-upgrade","sfx-cascade-burst","bgm-game-chamber","sfx-all-clear",
+             "sfx-burst-spark","sfx-burst-flare","sfx-burst-nova","sfx-burst-supernova",
+-            "sfx-all-clear-gather","sfx-charge-anticipation","sfx-burst-hypernova","sfx-burst-galaxy"
++            "sfx-all-clear-gather","sfx-charge-anticipation","sfx-burst-hypernova","sfx-burst-galaxy",
++            "sfx-crystal-cut","sfx-crystal-octagon","sfx-crystal-trapezoid","sfx-crystal-pentagon","sfx-crystal-shield",
++            "sfx-mover-impact","sfx-slope-left-impact","sfx-slope-right-impact","sfx-orange-absorb","sfx-wall-impact"
+         };
+         const long MaxManifestBytes=65536,MaxEffectBytes=12*1024*1024,MaxMusicBytes=32*1024*1024;
+         const int MaxMusicSeconds=600;
+--- a/UnityProject/Assets/Scripts/NeonGame.cs
++++ b/UnityProject/Assets/Scripts/NeonGame.cs
+@@ -816,7 +816,7 @@
+             };
+             sparks.Add(spark);
+             view.RegisterImpact(spark);
+-            audioBus?.Impact(spark.strength,tile!=null&&tile.kind==TileKind.Bumper);
++            audioBus?.Impact(spark.strength,tile);
+         }
+         void UpdateSparks(float dt)
+         {
