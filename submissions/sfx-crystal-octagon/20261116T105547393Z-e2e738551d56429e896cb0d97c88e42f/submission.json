@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "sourceKind": "request",
+  "requestId": "sfx-crystal-octagon",
+  "revision": "20261116T105547393Z-e2e738551d56429e896cb0d97c88e42f",
+  "status": "submitted",
+  "createdAt": "2026-11-16T10:55:47.783Z",
+  "files": [
+    {
+      "name": "01-SFX_팔각결정.wav",
+      "originalName": "SFX_팔각결정.wav",
+      "step": 1
+    }
+  ],
+  "playback": {
+    "mode": "single"
+  },
+  "parameters": {
+    "gainDb": 0,
+    "trimStart": 0,
+    "trimEnd": 0,
+    "fadeIn": 0.003,
+    "fadeOut": 0.015,
+    "pitchSemitones": 0
+  },
+  "notes": ""
+}
