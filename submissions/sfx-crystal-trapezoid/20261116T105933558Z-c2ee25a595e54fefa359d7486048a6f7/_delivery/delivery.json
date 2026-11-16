@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "requestId": "sfx-crystal-trapezoid",
+  "revision": "20261116T105933558Z-c2ee25a595e54fefa359d7486048a6f7",
+  "files": [
+    {
+      "sourceFile": "submissions/sfx-crystal-trapezoid/20261116T105933558Z-c2ee25a595e54fefa359d7486048a6f7/01-SFX_사다리꼴 결정.wav",
+      "sourceName": "01-SFX_사다리꼴 결정.wav",
+      "originalName": "SFX_사다리꼴 결정.wav",
+      "sourceHash": "1f8a0afbfeee7de3df416dd386187cc3dd356511f35cfc032f9c4faf9f68e8f3",
+      "outputFile": "submissions/sfx-crystal-trapezoid/20261116T105933558Z-c2ee25a595e54fefa359d7486048a6f7/_delivery/2718193c92d17af98a68cc04fed54e18c0eb1d6b7464a433b8d892799d0eab95.ogg",
+      "outputHash": "2718193c92d17af98a68cc04fed54e18c0eb1d6b7464a433b8d892799d0eab95",
+      "duration": 2.803104,
+      "sampleRate": 48000,
+      "channels": 1,
+      "codec": "vorbis",
+      "bytes": 20288,
+      "transform": {
+        "source": {
+          "duration": 2.803104,
+          "codec": "pcm_s24le",
+          "sampleRate": 48000,
+          "channels": 2,
+          "bytes": 807984
+        },
+        "output": {
+          "duration": 2.803104,
+          "codec": "vorbis",
+          "sampleRate": 48000,
+          "channels": 1,
+          "bytes": 20288
+        },
+        "format": "ogg",
+        "codec": "vorbis",
+        "quality": 5,
+        "values": {
+          "gainDb": 0,
+          "trimStart": 0,
+          "trimEnd": 0,
+          "fadeIn": 0.003,
+          "fadeOut": 0.015,
+          "pitchSemitones": 0
+        },
+        "sourceStart": 0,
+        "sourceEnd": 2.803104,
+        "pitchRate": 1,
+        "expectedDuration": 2.803104,
+        "loopWasBaked": false
+      }
+    }
+  ]
+}
