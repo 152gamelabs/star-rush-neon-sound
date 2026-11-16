@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "requestId": "sfx-crystal-cut",
+  "revision": "20261116T105420738Z-c93355236b6e45d1b7d97162517c0ffd",
+  "files": [
+    {
+      "sourceFile": "submissions/sfx-crystal-cut/20261116T105420738Z-c93355236b6e45d1b7d97162517c0ffd/01-SFX_육각 컷 결정.wav",
+      "sourceName": "01-SFX_육각 컷 결정.wav",
+      "originalName": "SFX_육각 컷 결정.wav",
+      "sourceHash": "7b84e2cc95df4c1dec384555e5a9242c61ba0e2738f6457e333dfdcca85d465f",
+      "outputFile": "submissions/sfx-crystal-cut/20261116T105420738Z-c93355236b6e45d1b7d97162517c0ffd/_delivery/93b4e20a506eab6222935d9c91b5e909a6c2ab7c44515ece30999f8a29fb9afd.ogg",
+      "outputHash": "93b4e20a506eab6222935d9c91b5e909a6c2ab7c44515ece30999f8a29fb9afd",
+      "duration": 2.803104,
+      "sampleRate": 48000,
+      "channels": 1,
+      "codec": "vorbis",
+      "bytes": 20665,
+      "transform": {
+        "source": {
+          "duration": 2.803104,
+          "codec": "pcm_s24le",
+          "sampleRate": 48000,
+          "channels": 2,
+          "bytes": 807984
+        },
+        "output": {
+          "duration": 2.803104,
+          "codec": "vorbis",
+          "sampleRate": 48000,
+          "channels": 1,
+          "bytes": 20665
+        },
+        "format": "ogg",
+        "codec": "vorbis",
+        "quality": 5,
+        "values": {
+          "gainDb": 0,
+          "trimStart": 0,
+          "trimEnd": 0,
+          "fadeIn": 0.003,
+          "fadeOut": 0.015,
+          "pitchSemitones": 0
+        },
+        "sourceStart": 0,
+        "sourceEnd": 2.803104,
+        "pitchRate": 1,
+        "expectedDuration": 2.803104,
+        "loopWasBaked": false
+      }
+    }
+  ]
+}
