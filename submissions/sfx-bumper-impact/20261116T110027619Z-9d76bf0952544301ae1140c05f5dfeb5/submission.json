@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "sourceKind": "request",
+  "requestId": "sfx-bumper-impact",
+  "revision": "20261116T110027619Z-9d76bf0952544301ae1140c05f5dfeb5",
+  "status": "submitted",
+  "createdAt": "2026-11-16T11:00:27.981Z",
+  "files": [
+    {
+      "name": "01-SFX_분홍 원형 결정.wav",
+      "originalName": "SFX_분홍 원형 결정.wav",
+      "step": 1
+    }
+  ],
+  "playback": {
+    "mode": "single"
+  },
+  "parameters": {
+    "gainDb": 0,
+    "trimStart": 0,
+    "trimEnd": 0,
+    "fadeIn": 0.003,
+    "fadeOut": 0.015,
+    "pitchSemitones": 0
+  },
+  "notes": ""
+}
