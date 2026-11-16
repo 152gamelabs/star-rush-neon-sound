@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "requestId": "sfx-crystal-pentagon",
+  "revision": "20261116T105950751Z-67e2c89afcb04c408321c21570e58972",
+  "files": [
+    {
+      "sourceFile": "submissions/sfx-crystal-pentagon/20261116T105950751Z-67e2c89afcb04c408321c21570e58972/01-SFX_오각 결정.wav",
+      "sourceName": "01-SFX_오각 결정.wav",
+      "originalName": "SFX_오각 결정.wav",
+      "sourceHash": "e6f59f1fe4ab0d6cec3a7af19b52068744effe449c83ef37b8a5ee01be31a6e4",
+      "outputFile": "submissions/sfx-crystal-pentagon/20261116T105950751Z-67e2c89afcb04c408321c21570e58972/_delivery/4af384569aa13455b02aa7dd7ba1a9280139236ec18d37ec51db18b44c990560.ogg",
+      "outputHash": "4af384569aa13455b02aa7dd7ba1a9280139236ec18d37ec51db18b44c990560",
+      "duration": 2.803104,
+      "sampleRate": 48000,
+      "channels": 1,
+      "codec": "vorbis",
+      "bytes": 20651,
+      "transform": {
+        "source": {
+          "duration": 2.803104,
+          "codec": "pcm_s24le",
+          "sampleRate": 48000,
+          "channels": 2,
+          "bytes": 807984
+        },
+        "output": {
+          "duration": 2.803104,
+          "codec": "vorbis",
+          "sampleRate": 48000,
+          "channels": 1,
+          "bytes": 20651
+        },
+        "format": "ogg",
+        "codec": "vorbis",
+        "quality": 5,
+        "values": {
+          "gainDb": 0,
+          "trimStart": 0,
+          "trimEnd": 0,
+          "fadeIn": 0.003,
+          "fadeOut": 0.015,
+          "pitchSemitones": 0
+        },
+        "sourceStart": 0,
+        "sourceEnd": 2.803104,
+        "pitchRate": 1,
+        "expectedDuration": 2.803104,
+        "loopWasBaked": false
+      }
+    }
+  ]
+}

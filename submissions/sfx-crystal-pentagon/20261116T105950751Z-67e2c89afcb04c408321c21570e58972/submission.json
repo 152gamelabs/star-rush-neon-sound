@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "sourceKind": "request",
+  "requestId": "sfx-crystal-pentagon",
+  "revision": "20261116T105950751Z-67e2c89afcb04c408321c21570e58972",
+  "status": "submitted",
+  "createdAt": "2026-11-16T10:59:51.592Z",
+  "files": [
+    {
+      "name": "01-SFX_오각 결정.wav",
+      "originalName": "SFX_오각 결정.wav",
+      "step": 1
+    }
+  ],
+  "playback": {
+    "mode": "single"
+  },
+  "parameters": {
+    "gainDb": 0,
+    "trimStart": 0,
+    "trimEnd": 0,
+    "fadeIn": 0.003,
+    "fadeOut": 0.015,
+    "pitchSemitones": 0
+  },
+  "notes": ""
+}
