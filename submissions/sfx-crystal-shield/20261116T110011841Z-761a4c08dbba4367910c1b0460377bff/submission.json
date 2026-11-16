@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "sourceKind": "request",
+  "requestId": "sfx-crystal-shield",
+  "revision": "20261116T110011841Z-761a4c08dbba4367910c1b0460377bff",
+  "status": "submitted",
+  "createdAt": "2026-11-16T11:00:12.052Z",
+  "files": [
+    {
+      "name": "01-SFX_방패 결정.wav",
+      "originalName": "SFX_방패 결정.wav",
+      "step": 1
+    }
+  ],
+  "playback": {
+    "mode": "single"
+  },
+  "parameters": {
+    "gainDb": 0,
+    "trimStart": 0,
+    "trimEnd": 0,
+    "fadeIn": 0.003,
+    "fadeOut": 0.015,
+    "pitchSemitones": 0
+  },
+  "notes": ""
+}

@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "requestId": "sfx-crystal-shield",
+  "revision": "20261116T110011841Z-761a4c08dbba4367910c1b0460377bff",
+  "files": [
+    {
+      "sourceFile": "submissions/sfx-crystal-shield/20261116T110011841Z-761a4c08dbba4367910c1b0460377bff/01-SFX_방패 결정.wav",
+      "sourceName": "01-SFX_방패 결정.wav",
+      "originalName": "SFX_방패 결정.wav",
+      "sourceHash": "16c5d6c8bc1b878197480f59f8eb3b397006a9e425e2d7cf10004d62a5836fa1",
+      "outputFile": "submissions/sfx-crystal-shield/20261116T110011841Z-761a4c08dbba4367910c1b0460377bff/_delivery/1232136f78ad26f697574e7ce3f1598610cba836c0a28d8ee59e4606a0b5eb20.ogg",
+      "outputHash": "1232136f78ad26f697574e7ce3f1598610cba836c0a28d8ee59e4606a0b5eb20",
+      "duration": 2.803104,
+      "sampleRate": 48000,
+      "channels": 1,
+      "codec": "vorbis",
+      "bytes": 20533,
+      "transform": {
+        "source": {
+          "duration": 2.803104,
+          "codec": "pcm_s24le",
+          "sampleRate": 48000,
+          "channels": 2,
+          "bytes": 807984
+        },
+        "output": {
+          "duration": 2.803104,
+          "codec": "vorbis",
+          "sampleRate": 48000,
+          "channels": 1,
+          "bytes": 20533
+        },
+        "format": "ogg",
+        "codec": "vorbis",
+        "quality": 5,
+        "values": {
+          "gainDb": 0,
+          "trimStart": 0,
+          "trimEnd": 0,
+          "fadeIn": 0.003,
+          "fadeOut": 0.015,
+          "pitchSemitones": 0
+        },
+        "sourceStart": 0,
+        "sourceEnd": 2.803104,
+        "pitchRate": 1,
+        "expectedDuration": 2.803104,
+        "loopWasBaked": false
+      }
+    }
+  ]
+}
