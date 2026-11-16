@@ -127,14 +127,20 @@
         "끝→처음 반복 경계의 클릭과 끊김 확인"
       ],
       "scene": {
-        "caption": "인게임 음악 · 실제 게임 렌더러의 검증용 동작 영상. 장면으로 들어보기에서 현재 음원과 함께 확인합니다.",
         "source": "test-scene",
-        "poster": "context/scenes/links-0323.webp",
-        "video": "context/scenes/links-0323.mp4",
+        "caption": "배경음악: 연결된 블록이 있는 게임 화면. 반복 음악을 함께 들어보세요. 최신 PC 실행판의 실제 렌더러로 녹화한 제작용 테스트 장면이며 영상 자체는 무음입니다.",
+        "poster": "context/scenes/music-20261116.webp",
+        "video": "context/scenes/music-20261116.mp4",
         "cues": [
           {
-            "time": 0,
-            "step": 1
+            "step": 1,
+            "time": 0.0
+          }
+        ],
+        "sequenceCues": [
+          {
+            "step": 1,
+            "time": 0.0
           }
         ],
         "cueSource": "engine-event-capture",
@@ -247,7 +253,51 @@
         "반복 청취와 여러 효과 동시 재생에서 피로·클리핑 확인",
         "폰 스피커 모노와 이어폰에서 사건 의미 확인",
         "불필요한 앞 무음과 지나치게 긴 꼬리 제거"
-      ]
+      ],
+      "scene": {
+        "source": "test-scene",
+        "caption": "블록 공통 타격: 일반·범퍼·이동 블록의 충돌 장면을 이어 붙였습니다. 종류 구분 없이 7개 소리를 랜덤으로 제작합니다. 최신 PC 실행판의 실제 렌더러로 녹화한 제작용 테스트 장면이며 영상 자체는 무음입니다.",
+        "poster": "context/scenes/block-random-20261116.webp",
+        "video": "context/scenes/block-random-20261116.mp4",
+        "cues": [
+          {
+            "step": 1,
+            "time": 0.9
+          },
+          {
+            "step": 1,
+            "time": 4.2333
+          },
+          {
+            "step": 1,
+            "time": 4.9333
+          },
+          {
+            "step": 1,
+            "time": 7.5667
+          }
+        ],
+        "sequenceCues": [
+          {
+            "step": 1,
+            "time": 0.9
+          },
+          {
+            "step": 1,
+            "time": 4.2333
+          },
+          {
+            "step": 1,
+            "time": 4.9333
+          },
+          {
+            "step": 1,
+            "time": 7.5667
+          }
+        ],
+        "cueSource": "engine-event-capture",
+        "captureFps": 30
+      }
     },
     {
       "id": "sfx-link-charge",
@@ -359,14 +409,20 @@
         "불필요한 앞 무음과 지나치게 긴 꼬리 제거"
       ],
       "scene": {
-        "caption": "선 연결 · 중복 충전 · 실제 게임 렌더러의 검증용 동작 영상. 장면으로 들어보기에서 현재 음원과 함께 확인합니다.",
         "source": "test-scene",
-        "poster": "context/scenes/wall-0323.webp",
-        "video": "context/scenes/wall-0323.mp4",
+        "caption": "선 연결: 0.67초에 블록 사이 연결선이 나타납니다. 최신 PC 실행판의 실제 렌더러로 녹화한 제작용 테스트 장면이며 영상 자체는 무음입니다.",
+        "poster": "context/scenes/connection-20261116.webp",
+        "video": "context/scenes/connection-20261116.mp4",
         "cues": [
           {
-            "time": 1.8667,
-            "step": 1
+            "step": 1,
+            "time": 0.6667
+          }
+        ],
+        "sequenceCues": [
+          {
+            "step": 1,
+            "time": 0.6667
           }
         ],
         "cueSource": "engine-event-capture",
@@ -479,7 +535,27 @@
         "반복 청취와 여러 효과 동시 재생에서 피로·클리핑 확인",
         "폰 스피커 모노와 이어폰에서 사건 의미 확인",
         "불필요한 앞 무음과 지나치게 긴 꼬리 제거"
-      ]
+      ],
+      "scene": {
+        "source": "test-scene",
+        "caption": "마지막 블록: 연쇄 마지막 타격 구간(약 1.83초)을 확인하는 무음 참고 영상입니다. 최신 PC 실행판의 실제 렌더러로 녹화한 제작용 테스트 장면이며 영상 자체는 무음입니다.",
+        "poster": "context/scenes/final-chain-20261116.webp",
+        "video": "context/scenes/final-chain-20261116.mp4",
+        "cues": [
+          {
+            "step": 1,
+            "time": 1.8333
+          }
+        ],
+        "sequenceCues": [
+          {
+            "step": 1,
+            "time": 1.8333
+          }
+        ],
+        "cueSource": "engine-event-capture",
+        "captureFps": 30
+      }
     },
     {
       "id": "sfx-ui-touch",
@@ -591,14 +667,20 @@
         "불필요한 앞 무음과 지나치게 긴 꼬리 제거"
       ],
       "scene": {
-        "caption": "메뉴 선택 · 버튼과 설정 · 실제 게임 렌더러의 검증용 동작 영상. 장면으로 들어보기에서 현재 음원과 함께 확인합니다.",
         "source": "test-scene",
-        "poster": "context/scenes/menu-touch-0323.webp",
-        "video": "context/scenes/menu-touch-0323.mp4",
+        "caption": "공통 UI 클릭: 0.67초에 설정 버튼을 눌러 화면이 바뀝니다. 최신 PC 실행판의 실제 렌더러로 녹화한 제작용 테스트 장면이며 영상 자체는 무음입니다.",
+        "poster": "context/scenes/ui-20261116.webp",
+        "video": "context/scenes/ui-20261116.mp4",
         "cues": [
           {
-            "time": 0.5,
-            "step": 1
+            "step": 1,
+            "time": 0.6667
+          }
+        ],
+        "sequenceCues": [
+          {
+            "step": 1,
+            "time": 0.6667
           }
         ],
         "cueSource": "engine-event-capture",
@@ -702,7 +784,27 @@
       "acceptance": [
         "순차 폭발과 겹쳐도 단계 상승이 들리는지 확인",
         "모노 폰 스피커에서 과도한 고음과 클리핑이 없는지 확인"
-      ]
+      ],
+      "scene": {
+        "source": "test-scene",
+        "caption": "단계 이름: 연쇄가 끝나고 노바 글자가 찍히는 순간(약 2.03초). 각 단계 공통 효과음 1개를 제작합니다. 최신 PC 실행판의 실제 렌더러로 녹화한 제작용 테스트 장면이며 영상 자체는 무음입니다.",
+        "poster": "context/scenes/final-chain-20261116.webp",
+        "video": "context/scenes/final-chain-20261116.mp4",
+        "cues": [
+          {
+            "step": 1,
+            "time": 2.0333
+          }
+        ],
+        "sequenceCues": [
+          {
+            "step": 1,
+            "time": 2.0333
+          }
+        ],
+        "cueSource": "engine-event-capture",
+        "captureFps": 30
+      }
     }
   ]
 }
