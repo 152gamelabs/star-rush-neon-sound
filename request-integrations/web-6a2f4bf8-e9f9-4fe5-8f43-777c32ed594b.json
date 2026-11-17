@@ -20,7 +20,9 @@
     "video": "context/scenes/wall-contact-20261117.mp4"
   },
   "apply": {
-    "integrationStatus": "reference-ready",
-    "notes": "연출 영상과 영상 싱크 미리듣기 등록. 실제 웹 게임 사운드 연결은 별도입니다."
+    "integrationStatus": "web-preview-ready",
+    "webEvent": "sfx-wall-contact",
+    "hook": "NeonGame.Fall → wall contact",
+    "notes": "보드에서 선택한 음원과 볼륨·피치를 웹 게임에서 즉시 미리듣기. PC·모바일 음원 반영은 별도입니다."
   }
 }
