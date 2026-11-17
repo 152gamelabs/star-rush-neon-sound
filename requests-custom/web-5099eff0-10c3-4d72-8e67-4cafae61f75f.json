@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "request": {
+    "id": "web-5099eff0-10c3-4d72-8e67-4cafae61f75f",
+    "title": "점화블록에 별이 닿을떄 위치가 필요함",
+    "brief": "별이 점화별",
+    "kind": "sfx",
+    "category": "새 요청",
+    "status": "requested",
+    "parameters": [],
+    "spec": {
+      "format": "ogg",
+      "sampleRate": 48000,
+      "channels": 1,
+      "maxDurationSeconds": 120
+    }
+  }
+}
