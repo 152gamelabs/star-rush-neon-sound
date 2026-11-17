@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "requestId": "sfx-stage-stamp",
+  "revision": "20261117T065011445Z-c6e44e10-7c8c-42cb-9e89-8aec4a852dfd",
+  "createdAt": "2026-11-17T06:50:11.445Z",
+  "status": "submitted",
+  "files": [
+    {
+      "name": "01-NAME_HIT.ogg",
+      "originalName": "NAME_HIT.ogg",
+      "size": 63934
+    }
+  ],
+  "parameters": {
+    "gainDb": 0,
+    "trimStart": 0,
+    "trimEnd": 0,
+    "fadeIn": 0,
+    "fadeOut": 0,
+    "pitchSemitones": 0
+  },
+  "notes": "",
+  "playback": {
+    "mode": "single"
+  }
+}
