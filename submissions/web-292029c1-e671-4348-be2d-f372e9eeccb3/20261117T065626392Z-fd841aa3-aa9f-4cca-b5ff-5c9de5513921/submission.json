@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "requestId": "web-292029c1-e671-4348-be2d-f372e9eeccb3",
+  "revision": "20261117T065626392Z-fd841aa3-aa9f-4cca-b5ff-5c9de5513921",
+  "createdAt": "2026-11-17T06:56:26.392Z",
+  "status": "submitted",
+  "files": [
+    {
+      "name": "01-Game_Over.ogg",
+      "originalName": "Game_Over.ogg",
+      "size": 85224
+    }
+  ],
+  "parameters": {
+    "gainDb": 0,
+    "trimStart": 0,
+    "trimEnd": 0,
+    "fadeIn": 0,
+    "fadeOut": 0,
+    "pitchSemitones": 0
+  },
+  "notes": "",
+  "playback": {
+    "mode": "single"
+  }
+}
