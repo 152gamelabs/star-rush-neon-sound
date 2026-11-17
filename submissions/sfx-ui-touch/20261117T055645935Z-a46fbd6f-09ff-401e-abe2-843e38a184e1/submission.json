@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "requestId": "sfx-ui-touch",
+  "revision": "20261117T055645935Z-a46fbd6f-09ff-401e-abe2-843e38a184e1",
+  "createdAt": "2026-11-17T05:56:45.935Z",
+  "status": "submitted",
+  "files": [
+    {
+      "name": "01-ui_Button.ogg",
+      "originalName": "ui_Button.ogg",
+      "size": 19698
+    }
+  ],
+  "parameters": {
+    "gainDb": 0,
+    "trimStart": 0,
+    "trimEnd": 0,
+    "fadeIn": 0,
+    "fadeOut": 0,
+    "pitchSemitones": 0
+  },
+  "notes": "",
+  "playback": {
+    "mode": "single"
+  }
+}
