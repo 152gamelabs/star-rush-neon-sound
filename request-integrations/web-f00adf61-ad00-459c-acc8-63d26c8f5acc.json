@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "requestId": "web-f00adf61-ad00-459c-acc8-63d26c8f5acc",
+  "scene": {
+    "video": "context/scenes/wave-rise-20261117.mp4",
+    "cueSource": "engine-event-capture",
+    "cues": [
+      {
+        "time": 0.5,
+        "step": 1
+      }
+    ],
+    "captureFps": 30,
+    "source": "test-scene",
+    "caption": "다음 웨이브로 넘어가며 블록들이 올라오는 장면입니다. 0.50초에 상승이 시작됩니다. 최신 PC 캡처 실행판의 격리 테스트 장면이며 영상 자체는 무음입니다.",
+    "poster": "context/scenes/wave-rise-20261117.webp"
+  },
+  "apply": {
+    "integrationStatus": "reference-ready",
+    "notes": "참고 영상 및 영상 싱크 미리듣기 등록. 실제 웹 게임 재생 이벤트 연결은 별도 작업입니다."
+  }
+}
