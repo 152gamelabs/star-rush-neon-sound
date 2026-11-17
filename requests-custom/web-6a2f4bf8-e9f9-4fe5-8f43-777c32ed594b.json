@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "request": {
+    "id": "web-6a2f4bf8-e9f9-4fe5-8f43-777c32ed594b",
+    "title": "별이 벽에 튕길때 소리",
+    "brief": "별이 벽에 튕길때 소리",
+    "kind": "sfx",
+    "category": "새 요청",
+    "status": "requested",
+    "parameters": [],
+    "spec": {
+      "format": "ogg",
+      "sampleRate": 48000,
+      "channels": 1,
+      "maxDurationSeconds": 120
+    }
+  }
+}
