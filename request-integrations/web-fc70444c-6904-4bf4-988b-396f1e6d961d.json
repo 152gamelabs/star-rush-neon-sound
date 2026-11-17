@@ -40,7 +40,9 @@
     "poster": "context/scenes/block-explosion-20261117.webp"
   },
   "apply": {
-    "integrationStatus": "reference-ready",
-    "notes": "참고 영상 및 영상 싱크 미리듣기 등록. 실제 웹 게임 재생 이벤트 연결은 별도 작업입니다."
+    "integrationStatus": "web-preview-ready",
+    "webEvent": "sfx-block-destroyed",
+    "hook": "NeonGame.Chain → DestructionsAt → NeonAudio.Destroyed",
+    "notes": "보드에서 선택한 음원과 볼륨·피치를 웹 게임에서 바로 미리듣기. GitHub 저장 전에도 반영되며 PC·모바일 음원 반영은 별도입니다."
   }
 }
