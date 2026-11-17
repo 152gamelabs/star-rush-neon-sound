@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "requestId": "bgm-game-chamber",
+  "revision": "20261117T054122538Z-62271147-6ef9-442c-aa3b-cf0d4bfa915a",
+  "createdAt": "2026-11-17T05:41:22.538Z",
+  "status": "submitted",
+  "files": [
+    {
+      "name": "01-BGM_Ingame.ogg",
+      "originalName": "BGM_Ingame.ogg",
+      "size": 1095360
+    }
+  ],
+  "parameters": {
+    "gainDb": -8,
+    "trimStart": 0,
+    "trimEnd": 0,
+    "fadeIn": 0,
+    "fadeOut": 0,
+    "pitchSemitones": 0
+  },
+  "notes": "",
+  "playback": {
+    "mode": "single"
+  }
+}
