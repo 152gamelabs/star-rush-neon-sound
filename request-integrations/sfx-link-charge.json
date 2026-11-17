@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "apply": {
+    "integrationStatus": "web-preview-ready",
+    "webEvent": "sfx-link-charge",
+    "slot": "sfx-link-charge",
+    "hook": "NeonGame.Chain → next linked ignition (lastCascade > 0) → NeonAudio.LinkBurst",
+    "notes": "기존 요청 ID와 제출본은 유지. 첫 점화/일반 선 생성·충전 제외, 마지막 슬로우는 별도 유지."
+  },
+  "requestId": "sfx-link-charge",
+  "scene": {
+    "caption": "연결선을 따라 연쇄가 터지는 실제 게임 제작용 장면. 1.13초부터 연쇄 진행 시점에 공통 효과음이 반복 재생됩니다. 영상은 무음입니다.",
+    "captureFps": 30,
+    "video": "context/scenes/link-burst-20261117.mp4",
+    "poster": "context/scenes/link-burst-20261117.webp",
+    "sequenceCues": [
+      {
+        "step": 1,
+        "time": 1.1333
+      },
+      {
+        "step": 1,
+        "time": 1.3333
+      },
+      {
+        "step": 1,
+        "time": 1.4667
+      },
+      {
+        "step": 1,
+        "time": 1.6
+      },
+      {
+        "step": 1,
+        "time": 1.7
+      },
+      {
+        "step": 1,
+        "time": 1.8
+      }
+    ],
+    "source": "test-scene",
+    "cues": [
+      {
+        "step": 1,
+        "time": 1.1333
+      },
+      {
+        "step": 1,
+        "time": 1.3333
+      },
+      {
+        "step": 1,
+        "time": 1.4667
+      },
+      {
+        "step": 1,
+        "time": 1.6
+      },
+      {
+        "step": 1,
+        "time": 1.7
+      },
+      {
+        "step": 1,
+        "time": 1.8
+      }
+    ],
+    "cueSource": "engine-event-capture"
+  }
+}
