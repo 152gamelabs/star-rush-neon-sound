@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "requestId": "sfx-final-slowdown",
+  "revision": "20261117T055631799Z-d830104a-1a15-4a76-bd54-cf46d647db52",
+  "createdAt": "2026-11-17T05:56:31.799Z",
+  "status": "submitted",
+  "files": [
+    {
+      "name": "01-Bass_Drop.ogg",
+      "originalName": "Bass_Drop.ogg",
+      "size": 47319
+    }
+  ],
+  "parameters": {
+    "gainDb": 0,
+    "trimStart": 0,
+    "trimEnd": 0,
+    "fadeIn": 0,
+    "fadeOut": 0,
+    "pitchSemitones": 0
+  },
+  "notes": "",
+  "playback": {
+    "mode": "single"
+  }
+}
