@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "requestId": "sfx-link-charge",
+  "revision": "20261117T064245305Z-204faf84-1090-45e4-8bb9-08fcc1563406",
+  "createdAt": "2026-11-17T06:42:45.305Z",
+  "status": "submitted",
+  "files": [
+    {
+      "name": "01-block_Line_01.ogg",
+      "originalName": "block_Line_01.ogg",
+      "size": 51340
+    },
+    {
+      "name": "02-block_Line_02.ogg",
+      "originalName": "block_Line_02.ogg",
+      "size": 49360
+    },
+    {
+      "name": "03-block_Line_03.ogg",
+      "originalName": "block_Line_03.ogg",
+      "size": 46758
+    },
+    {
+      "name": "04-block_Line_04.ogg",
+      "originalName": "block_Line_04.ogg",
+      "size": 48402
+    },
+    {
+      "name": "05-block_Line_05.ogg",
+      "originalName": "block_Line_05.ogg",
+      "size": 47208
+    },
+    {
+      "name": "06-block_Line_06.ogg",
+      "originalName": "block_Line_06.ogg",
+      "size": 45177
+    },
+    {
+      "name": "07-block_Line_07.ogg",
+      "originalName": "block_Line_07.ogg",
+      "size": 47072
+    }
+  ],
+  "parameters": {
+    "gainDb": 0,
+    "trimStart": 0,
+    "trimEnd": 0,
+    "fadeIn": 0,
+    "fadeOut": 0,
+    "pitchSemitones": 0
+  },
+  "notes": "",
+  "playback": {
+    "mode": "single"
+  }
+}
