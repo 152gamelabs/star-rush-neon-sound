@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "requestId": "web-c7375cda-a0e1-46ab-a5f3-d553ff90bb88",
+  "scene": {
+    "captureFps": 30,
+    "cueSource": "engine-event-capture",
+    "source": "test-scene",
+    "caption": "점화블록에 처음 연결되며 기존 파란 연결선이 주황색으로 바뀌는 순간(0.67초)입니다. 실제 LinkShot.Hit 규칙과 렌더러를 이용한 제작용 테스트 장면이며 폭발 전 충전과 구분합니다. 영상은 무음입니다.",
+    "poster": "context/scenes/orange-link-20261117.webp",
+    "cues": [
+      {
+        "step": 1,
+        "time": 0.6666667
+      }
+    ],
+    "video": "context/scenes/orange-link-20261117.mp4"
+  },
+  "apply": {
+    "integrationStatus": "reference-ready",
+    "notes": "연출 영상과 영상 싱크 미리듣기 등록. 실제 웹 게임 사운드 연결은 별도입니다."
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "requestId": "web-6a2f4bf8-e9f9-4fe5-8f43-777c32ed594b",
+  "scene": {
+    "captureFps": 30,
+    "cueSource": "engine-event-capture",
+    "source": "test-scene",
+    "caption": "별이 오른쪽 벽에 튕기는 장면입니다. 1.13초와 1.27초의 실제 벽 접촉에 미리듣기를 맞췄습니다. 블록 접촉과 구분하며 영상은 무음입니다.",
+    "poster": "context/scenes/wall-contact-20261117.webp",
+    "cues": [
+      {
+        "step": 1,
+        "time": 1.1333333
+      },
+      {
+        "step": 2,
+        "time": 1.2666667
+      }
+    ],
+    "video": "context/scenes/wall-contact-20261117.mp4"
+  },
+  "apply": {
+    "integrationStatus": "reference-ready",
+    "notes": "연출 영상과 영상 싱크 미리듣기 등록. 실제 웹 게임 사운드 연결은 별도입니다."
+  }
+}

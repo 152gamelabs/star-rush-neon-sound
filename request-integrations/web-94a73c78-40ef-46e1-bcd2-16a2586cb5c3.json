@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "requestId": "web-94a73c78-40ef-46e1-bcd2-16a2586cb5c3",
+  "scene": {
+    "captureFps": 30,
+    "cueSource": "engine-event-capture",
+    "source": "test-scene",
+    "caption": "별이 점화블록 안으로 흡수되는 순간입니다. 0.90초부터 흡수가 시작되며, 이후 폭발음과 구분합니다. 최신 렌더러의 격리 테스트 장면이고 영상은 무음입니다.",
+    "poster": "context/scenes/ignition-absorption-20261117.webp",
+    "cues": [
+      {
+        "step": 1,
+        "time": 0.9
+      }
+    ],
+    "video": "context/scenes/ignition-absorption-20261117.mp4"
+  },
+  "apply": {
+    "integrationStatus": "reference-ready",
+    "notes": "연출 영상과 영상 싱크 미리듣기 등록. 실제 웹 게임 사운드 연결은 별도입니다."
+  }
+}
