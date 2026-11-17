@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "request": {
+    "id": "web-292029c1-e671-4348-be2d-f372e9eeccb3",
+    "title": "게임 종료될때 가벼운 징글",
+    "brief": "게임 종료될때 가벼운 징글",
+    "kind": "sfx",
+    "category": "새 요청",
+    "status": "requested",
+    "parameters": [],
+    "spec": {
+      "format": "ogg",
+      "sampleRate": 48000,
+      "channels": 1,
+      "maxDurationSeconds": 120
+    }
+  }
+}
