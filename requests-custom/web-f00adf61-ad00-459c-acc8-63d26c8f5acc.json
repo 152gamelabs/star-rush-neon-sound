@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "request": {
+    "id": "web-f00adf61-ad00-459c-acc8-63d26c8f5acc",
+    "title": "웨이브 턴 소리 (블록들이 올라오는 타이밍)",
+    "brief": "웨이브 턴 소리 (블록들이 올라오는 타이밍)",
+    "kind": "sfx",
+    "category": "새 요청",
+    "status": "requested",
+    "parameters": [],
+    "spec": {
+      "format": "ogg",
+      "sampleRate": 48000,
+      "channels": 1,
+      "maxDurationSeconds": 120
+    }
+  }
+}
