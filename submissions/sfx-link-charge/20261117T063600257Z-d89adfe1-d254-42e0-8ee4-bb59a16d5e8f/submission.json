@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "requestId": "sfx-link-charge",
+  "revision": "20261117T063600257Z-d89adfe1-d254-42e0-8ee4-bb59a16d5e8f",
+  "createdAt": "2026-11-17T06:36:00.257Z",
+  "status": "submitted",
+  "files": [
+    {
+      "name": "01-Block_Line.ogg",
+      "originalName": "Block_Line.ogg",
+      "size": 14874
+    }
+  ],
+  "parameters": {
+    "gainDb": 0,
+    "trimStart": 0,
+    "trimEnd": 0,
+    "fadeIn": 0,
+    "fadeOut": 0,
+    "pitchSemitones": 0
+  },
+  "notes": "",
+  "playback": {
+    "mode": "single"
+  }
+}
