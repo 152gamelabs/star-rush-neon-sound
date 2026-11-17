@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "requestId": "web-292029c1-e671-4348-be2d-f372e9eeccb3",
+  "scene": {
+    "caption": "블록이 위험선을 넘어 결과 화면이 열리는 순간(1.10초). 실제 최신 게임의 별도 테스트 판이며 영상은 무음입니다.",
+    "cueSource": "engine-event-capture",
+    "source": "test-scene",
+    "poster": "context/scenes/game-over-20261117.webp",
+    "cues": [
+      {
+        "time": 1.1,
+        "step": 1
+      }
+    ],
+    "video": "context/scenes/game-over-20261117.mp4",
+    "captureFps": 30
+  },
+  "apply": {
+    "integrationStatus": "web-preview-ready",
+    "webEvent": "sfx-game-over",
+    "notes": "웹 게임 실시간 음원 미리듣기 연결. PC·모바일 출시 음원 반영은 별도.",
+    "hook": "NeonGame.Rise → Rules.Lost → result menu"
+  }
+}
