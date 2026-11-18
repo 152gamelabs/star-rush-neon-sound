@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "requestId": "web-f00adf61-ad00-459c-acc8-63d26c8f5acc",
+  "revision": "20261118T093225661Z-2eb5d2bd-c490-44a9-b49f-90a63748d62c",
+  "createdAt": "2026-11-18T09:32:25.661Z",
+  "status": "submitted",
+  "files": [
+    {
+      "name": "01-SFX_웨이브 턴 소리.ogg",
+      "originalName": "SFX_웨이브 턴 소리.ogg",
+      "size": 53644
+    }
+  ],
+  "parameters": {
+    "gainDb": -3.5,
+    "trimStart": 0,
+    "trimEnd": 0,
+    "fadeIn": 0,
+    "fadeOut": 0,
+    "pitchSemitones": 0
+  },
+  "notes": "",
+  "playback": {
+    "mode": "single"
+  }
+}
