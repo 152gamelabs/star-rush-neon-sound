@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "requestId": "web-6bcc28be-e6ea-4f65-8555-005020eaff61",
+  "revision": "20261118T094123679Z-4e0955dd-3ccc-42c2-b29b-18fc446f62fa",
+  "createdAt": "2026-11-18T09:41:23.679Z",
+  "status": "submitted",
+  "files": [
+    {
+      "name": "01-SFX_터진 블록들이 별이 되어 흡수되는 소리.ogg",
+      "originalName": "SFX_터진 블록들이 별이 되어 흡수되는 소리.ogg",
+      "size": 52759
+    }
+  ],
+  "parameters": {
+    "gainDb": -7,
+    "trimStart": 0,
+    "trimEnd": 0,
+    "fadeIn": 0,
+    "fadeOut": 0,
+    "pitchSemitones": 0
+  },
+  "notes": "",
+  "playback": {
+    "mode": "single"
+  }
+}
