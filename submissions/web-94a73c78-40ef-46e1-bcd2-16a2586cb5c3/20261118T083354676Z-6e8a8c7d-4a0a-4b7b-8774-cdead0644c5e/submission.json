@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "requestId": "web-94a73c78-40ef-46e1-bcd2-16a2586cb5c3",
+  "revision": "20261118T083354676Z-6e8a8c7d-4a0a-4b7b-8774-cdead0644c5e",
+  "createdAt": "2026-11-18T08:33:54.676Z",
+  "status": "submitted",
+  "files": [
+    {
+      "name": "01-SFX_점화블록에 흡수되는 소리.ogg",
+      "originalName": "SFX_점화블록에 흡수되는 소리.ogg",
+      "size": 46863
+    }
+  ],
+  "parameters": {
+    "gainDb": 0,
+    "trimStart": 0,
+    "trimEnd": 0,
+    "fadeIn": 0,
+    "fadeOut": 0,
+    "pitchSemitones": 0
+  },
+  "notes": "",
+  "playback": {
+    "mode": "single"
+  }
+}
