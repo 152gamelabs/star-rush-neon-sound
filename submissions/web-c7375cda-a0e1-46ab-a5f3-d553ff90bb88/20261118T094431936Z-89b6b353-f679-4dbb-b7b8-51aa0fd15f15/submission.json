@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "requestId": "web-c7375cda-a0e1-46ab-a5f3-d553ff90bb88",
+  "revision": "20261118T094431936Z-89b6b353-f679-4dbb-b7b8-51aa0fd15f15",
+  "createdAt": "2026-11-18T09:44:31.936Z",
+  "status": "submitted",
+  "files": [
+    {
+      "name": "01-SFX_점화블록에 별이 들어가서 선이 주황색으로 변할때 소리.ogg",
+      "originalName": "SFX_점화블록에 별이 들어가서 선이 주황색으로 변할때 소리.ogg",
+      "size": 80897
+    }
+  ],
+  "parameters": {
+    "gainDb": 0,
+    "trimStart": 0,
+    "trimEnd": 0,
+    "fadeIn": 0,
+    "fadeOut": 0,
+    "pitchSemitones": 0
+  },
+  "notes": "",
+  "playback": {
+    "mode": "single"
+  }
+}
