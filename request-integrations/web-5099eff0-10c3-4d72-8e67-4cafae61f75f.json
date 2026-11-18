@@ -2,13 +2,13 @@
   "schemaVersion": 1,
   "requestId": "web-5099eff0-10c3-4d72-8e67-4cafae61f75f",
   "scene": {
-    "caption": "별이 점화블록에 처음 닿아 흡수되기 시작하는 순간(0.90초)에 재생합니다. 충전 후 폭발 시점(1.67초)이 아닙니다. 영상은 무음입니다.",
+    "caption": "점화별이 충전을 마치고 폭발을 시작하는 순간(약 1.67초)에 재생합니다. 최초 접촉·흡수 시점과 별개입니다. 영상은 무음입니다.",
     "cueSource": "engine-event-capture",
     "source": "test-scene",
     "poster": "context/scenes/ignition-contact-20261117.webp",
     "cues": [
       {
-        "time": 0.9,
+        "time": 1.6666667,
         "step": 1
       }
     ],
@@ -17,8 +17,8 @@
   },
   "apply": {
     "integrationStatus": "web-preview-ready",
-    "webEvent": "sfx-ignition-contact",
-    "hook": "NeonGame.Fall → world.Absorbed (first contact)",
+    "webEvent": "sfx-ignition-blast",
+    "hook": "NeonAudio.Ignite → sfx-ignition-blast (charged ignition explosion)",
     "notes": "보드에서 선택한 음원과 볼륨·피치를 웹 게임에서 즉시 미리듣기. PC·모바일 음원 반영은 별도입니다."
   }
 }
