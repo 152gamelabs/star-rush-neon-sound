@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "request": {
+    "id": "web-472f6392-eb65-4636-a4f1-88c72570f8b9",
+    "title": "그냥 테스트 보드 요청사항",
+    "brief": "그냥 테스트 보드 요청사항",
+    "kind": "sfx",
+    "category": "새 요청",
+    "status": "requested",
+    "parameters": [],
+    "spec": {
+      "format": "ogg",
+      "sampleRate": 48000,
+      "channels": 1,
+      "maxDurationSeconds": 120
+    }
+  }
+}
