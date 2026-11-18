@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "requestId": "web-fc70444c-6904-4bf4-988b-396f1e6d961d",
+  "revision": "20261118T085848825Z-6a3cc35e-a357-4a0a-9efd-0e8f60161bb0",
+  "createdAt": "2026-11-18T08:58:48.825Z",
+  "status": "submitted",
+  "files": [
+    {
+      "name": "01-SFX_연결된 블록들이 터지는 소리.ogg",
+      "originalName": "SFX_연결된 블록들이 터지는 소리.ogg",
+      "size": 53104
+    }
+  ],
+  "parameters": {
+    "gainDb": 0,
+    "trimStart": 0,
+    "trimEnd": 0,
+    "fadeIn": 0,
+    "fadeOut": 0,
+    "pitchSemitones": 0
+  },
+  "notes": "",
+  "playback": {
+    "mode": "single"
+  }
+}
