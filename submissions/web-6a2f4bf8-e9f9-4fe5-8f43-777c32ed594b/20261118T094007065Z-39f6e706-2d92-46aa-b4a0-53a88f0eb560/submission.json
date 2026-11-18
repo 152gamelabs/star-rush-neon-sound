@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "requestId": "web-6a2f4bf8-e9f9-4fe5-8f43-777c32ed594b",
+  "revision": "20261118T094007065Z-39f6e706-2d92-46aa-b4a0-53a88f0eb560",
+  "createdAt": "2026-11-18T09:40:07.065Z",
+  "status": "submitted",
+  "files": [
+    {
+      "name": "01-SFX_별이 벽에 튕길때 소리.ogg",
+      "originalName": "SFX_별이 벽에 튕길때 소리.ogg",
+      "size": 45374
+    }
+  ],
+  "parameters": {
+    "gainDb": -7.5,
+    "trimStart": 0,
+    "trimEnd": 0,
+    "fadeIn": 0,
+    "fadeOut": 0,
+    "pitchSemitones": 0
+  },
+  "notes": "",
+  "playback": {
+    "mode": "single"
+  }
+}
