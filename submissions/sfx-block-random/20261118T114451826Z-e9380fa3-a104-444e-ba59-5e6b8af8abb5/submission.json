@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "requestId": "sfx-block-random",
+  "revision": "20261118T114451826Z-e9380fa3-a104-444e-ba59-5e6b8af8abb5",
+  "createdAt": "2026-11-18T11:44:51.826Z",
+  "status": "submitted",
+  "files": [
+    {
+      "name": "01-SFX_block_01.ogg",
+      "originalName": "SFX_block_01.ogg",
+      "size": 40235
+    },
+    {
+      "name": "02-SFX_block_02.ogg",
+      "originalName": "SFX_block_02.ogg",
+      "size": 40236
+    },
+    {
+      "name": "03-SFX_block_03.ogg",
+      "originalName": "SFX_block_03.ogg",
+      "size": 40450
+    },
+    {
+      "name": "04-SFX_block_04.ogg",
+      "originalName": "SFX_block_04.ogg",
+      "size": 40762
+    },
+    {
+      "name": "05-SFX_block_05.ogg",
+      "originalName": "SFX_block_05.ogg",
+      "size": 40340
+    },
+    {
+      "name": "06-SFX_block_06.ogg",
+      "originalName": "SFX_block_06.ogg",
+      "size": 40639
+    },
+    {
+      "name": "07-SFX_block_07.ogg",
+      "originalName": "SFX_block_07.ogg",
+      "size": 39839
+    }
+  ],
+  "parameters": {
+    "gainDb": 0,
+    "trimStart": 0,
+    "trimEnd": 0,
+    "fadeIn": 0,
+    "fadeOut": 0,
+    "pitchSemitones": 0
+  },
+  "notes": "",
+  "playback": {
+    "mode": "sequence"
+  }
+}
