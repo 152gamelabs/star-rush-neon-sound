@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "requestId": "web-5099eff0-10c3-4d72-8e67-4cafae61f75f",
+  "revision": "20261118T084526334Z-b5b8b8c9-6397-4f29-8fa3-fafbe0672fe2",
+  "createdAt": "2026-11-18T08:45:26.334Z",
+  "status": "submitted",
+  "files": [
+    {
+      "name": "01-SFX_점화별이 충전 후 폭발할때 소리.ogg",
+      "originalName": "SFX_점화별이 충전 후 폭발할때 소리.ogg",
+      "size": 79197
+    }
+  ],
+  "parameters": {
+    "gainDb": 0,
+    "trimStart": 0,
+    "trimEnd": 0,
+    "fadeIn": 0,
+    "fadeOut": 0,
+    "pitchSemitones": 0
+  },
+  "notes": "",
+  "playback": {
+    "mode": "single"
+  }
+}
