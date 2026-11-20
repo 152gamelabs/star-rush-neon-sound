@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "requestId": "web-fc70444c-6904-4bf4-988b-396f1e6d961d",
+  "revision": "20261120T085503830Z-45c59635-7106-40b1-b365-f255d6d6f493",
+  "createdAt": "2026-11-20T08:55:03.830Z",
+  "status": "submitted",
+  "files": [
+    {
+      "name": "01-SFX_점화블록에 흡수되는 소리_1.ogg",
+      "originalName": "SFX_점화블록에 흡수되는 소리_1.ogg",
+      "size": 57287
+    },
+    {
+      "name": "02-SFX_점화블록에 흡수되는 소리_2.ogg",
+      "originalName": "SFX_점화블록에 흡수되는 소리_2.ogg",
+      "size": 64573
+    },
+    {
+      "name": "03-SFX_점화블록에 흡수되는 소리_3.ogg",
+      "originalName": "SFX_점화블록에 흡수되는 소리_3.ogg",
+      "size": 62603
+    },
+    {
+      "name": "04-SFX_점화블록에 흡수되는 소리_4.ogg",
+      "originalName": "SFX_점화블록에 흡수되는 소리_4.ogg",
+      "size": 61304
+    },
+    {
+      "name": "05-SFX_점화블록에 흡수되는 소리_5.ogg",
+      "originalName": "SFX_점화블록에 흡수되는 소리_5.ogg",
+      "size": 57004
+    },
+    {
+      "name": "06-SFX_점화블록에 흡수되는 소리_6.ogg",
+      "originalName": "SFX_점화블록에 흡수되는 소리_6.ogg",
+      "size": 56271
+    },
+    {
+      "name": "07-SFX_점화블록에 흡수되는 소리_7.ogg",
+      "originalName": "SFX_점화블록에 흡수되는 소리_7.ogg",
+      "size": 57136
+    }
+  ],
+  "parameters": {
+    "gainDb": 0,
+    "trimStart": 0,
+    "trimEnd": 0,
+    "fadeIn": 0,
+    "fadeOut": 0,
+    "pitchSemitones": 0
+  },
+  "notes": "",
+  "playback": {
+    "mode": "sequence"
+  }
+}
